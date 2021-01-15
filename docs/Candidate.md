@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **phone_numbers** | [**list[PhoneNumber]**](PhoneNumber.md) |  | [optional] 
 **email_addresses** | [**list[EmailAddress]**](EmailAddress.md) |  | [optional] 
 **urls** | [**list[Url]**](Url.md) |  | [optional] 
-**tags** | **list[str]** |  | [optional] [readonly] 
+**tags** | [**list[Tag]**](Tag.md) |  | [optional] [readonly] 
 **applications** | **list[str]** |  | [optional] [readonly] 
 **attachments** | **list[str]** |  | [optional] [readonly] 
 
