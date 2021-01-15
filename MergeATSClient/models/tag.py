@@ -34,53 +34,27 @@ class Tag(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'str',
         'remote_id': 'str',
         'name': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
         'remote_id': 'remote_id',
         'name': 'name'
     }
 
-    def __init__(self, id=None, remote_id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, remote_id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """Tag - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
         self._remote_id = None
         self._name = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
         self.remote_id = remote_id
         self.name = name
-
-    @property
-    def id(self):
-        """Gets the id of this Tag.  # noqa: E501
-
-
-        :return: The id of this Tag.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Tag.
-
-
-        :param id: The id of this Tag.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def remote_id(self):

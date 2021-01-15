@@ -49,7 +49,7 @@ class Candidate(object):
         'phone_numbers': 'list[PhoneNumber]',
         'email_addresses': 'list[EmailAddress]',
         'urls': 'list[Url]',
-        'tags': 'list[str]',
+        'tags': 'list[Tag]',
         'applications': 'list[str]',
         'attachments': 'list[str]'
     }
@@ -468,7 +468,7 @@ class Candidate(object):
 
 
         :return: The tags of this Candidate.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[Tag]
         """
         return self._tags
 
@@ -478,7 +478,7 @@ class Candidate(object):
 
 
         :param tags: The tags of this Candidate.  # noqa: E501
-        :type: list[str]
+        :type: list[Tag]
         """
 
         self._tags = tags
