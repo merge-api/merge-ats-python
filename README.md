@@ -126,8 +126,6 @@ Class | Method | HTTP request | Description
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
 *TagsApi* | [**tags_retrieve**](docs/TagsApi.md#tags_retrieve) | **GET** /tags/{id} | 
-*TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
-*TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
 
@@ -139,8 +137,6 @@ Class | Method | HTTP request | Description
  - [Activity](docs/Activity.md)
  - [ActivityTypeEnum](docs/ActivityTypeEnum.md)
  - [Application](docs/Application.md)
- - [AsyncTaskExecution](docs/AsyncTaskExecution.md)
- - [AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [Attachment](docs/Attachment.md)
  - [Candidate](docs/Candidate.md)
  - [Department](docs/Department.md)
@@ -160,7 +156,6 @@ Class | Method | HTTP request | Description
  - [OverallRecommendationEnum](docs/OverallRecommendationEnum.md)
  - [PaginatedActivityList](docs/PaginatedActivityList.md)
  - [PaginatedApplicationList](docs/PaginatedApplicationList.md)
- - [PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
  - [PaginatedAttachmentList](docs/PaginatedAttachmentList.md)
  - [PaginatedCandidateList](docs/PaginatedCandidateList.md)
  - [PaginatedDepartmentList](docs/PaginatedDepartmentList.md)
