@@ -19,5 +19,4 @@ from MergeATSClient.api.offices_api import OfficesApi
 from MergeATSClient.api.reject_reasons_api import RejectReasonsApi
 from MergeATSClient.api.scorecards_api import ScorecardsApi
 from MergeATSClient.api.tags_api import TagsApi
-from MergeATSClient.api.tasks_api import TasksApi
 from MergeATSClient.api.users_api import UsersApi

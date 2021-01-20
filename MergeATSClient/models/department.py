@@ -109,7 +109,7 @@ class Department(object):
     def name(self):
         """Gets the name of this Department.  # noqa: E501
 
-        The job's name.  # noqa: E501
+        The department's name.  # noqa: E501
 
         :return: The name of this Department.  # noqa: E501
         :rtype: str
@@ -120,7 +120,7 @@ class Department(object):
     def name(self, name):
         """Sets the name of this Department.
 
-        The job's name.  # noqa: E501
+        The department's name.  # noqa: E501
 
         :param name: The name of this Department.  # noqa: E501
         :type: str

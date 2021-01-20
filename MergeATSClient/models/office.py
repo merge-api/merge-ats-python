@@ -113,7 +113,7 @@ class Office(object):
     def name(self):
         """Gets the name of this Office.  # noqa: E501
 
-        The job's name.  # noqa: E501
+        The office's name.  # noqa: E501
 
         :return: The name of this Office.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class Office(object):
     def name(self, name):
         """Sets the name of this Office.
 
-        The job's name.  # noqa: E501
+        The office's name.  # noqa: E501
 
         :param name: The name of this Office.  # noqa: E501
         :type: str
@@ -136,7 +136,7 @@ class Office(object):
     def location(self):
         """Gets the location of this Office.  # noqa: E501
 
-        The candidate's location.  # noqa: E501
+        The office's location.  # noqa: E501
 
         :return: The location of this Office.  # noqa: E501
         :rtype: str
@@ -147,7 +147,7 @@ class Office(object):
     def location(self, location):
         """Sets the location of this Office.
 
-        The candidate's location.  # noqa: E501
+        The office's location.  # noqa: E501
 
         :param location: The location of this Office.  # noqa: E501
         :type: str

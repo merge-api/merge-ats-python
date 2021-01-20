@@ -34,7 +34,6 @@ from MergeATSClient.api.offices_api import OfficesApi
 from MergeATSClient.api.reject_reasons_api import RejectReasonsApi
 from MergeATSClient.api.scorecards_api import ScorecardsApi
 from MergeATSClient.api.tags_api import TagsApi
-from MergeATSClient.api.tasks_api import TasksApi
 from MergeATSClient.api.users_api import UsersApi
 
 # import ApiClient
@@ -51,8 +50,6 @@ from MergeATSClient.models.account_token import AccountToken
 from MergeATSClient.models.activity import Activity
 from MergeATSClient.models.activity_type_enum import ActivityTypeEnum
 from MergeATSClient.models.application import Application
-from MergeATSClient.models.async_task_execution import AsyncTaskExecution
-from MergeATSClient.models.async_task_execution_status_enum import AsyncTaskExecutionStatusEnum
 from MergeATSClient.models.attachment import Attachment
 from MergeATSClient.models.candidate import Candidate
 from MergeATSClient.models.department import Department
@@ -72,7 +69,6 @@ from MergeATSClient.models.office import Office
 from MergeATSClient.models.overall_recommendation_enum import OverallRecommendationEnum
 from MergeATSClient.models.paginated_activity_list import PaginatedActivityList
 from MergeATSClient.models.paginated_application_list import PaginatedApplicationList
-from MergeATSClient.models.paginated_async_task_execution_list import PaginatedAsyncTaskExecutionList
 from MergeATSClient.models.paginated_attachment_list import PaginatedAttachmentList
 from MergeATSClient.models.paginated_candidate_list import PaginatedCandidateList
 from MergeATSClient.models.paginated_department_list import PaginatedDepartmentList
