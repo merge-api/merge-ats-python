@@ -153,8 +153,8 @@ class Attachment(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                file_url is not None and len(file_url) > 400):
-            raise ValueError("Invalid value for `file_url`, length must be less than or equal to `400`")  # noqa: E501
+                file_url is not None and len(file_url) > 500):
+            raise ValueError("Invalid value for `file_url`, length must be less than or equal to `500`")  # noqa: E501
 
         self._file_url = file_url
 
