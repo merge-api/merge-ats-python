@@ -76,9 +76,6 @@ class PhoneNumber(object):
         :param value: The value of this PhoneNumber.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                value is not None and len(value) > 17):
-            raise ValueError("Invalid value for `value`, length must be less than or equal to `17`")  # noqa: E501
 
         self._value = value
 

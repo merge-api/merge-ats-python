@@ -41,7 +41,7 @@ class Application(object):
         'is_prospect': 'bool',
         'applied_at': 'datetime',
         'rejected_at': 'datetime',
-        'source': 'SourceEnum',
+        'source': 'str',
         'credited_to': 'str',
         'current_stage': 'str',
         'reject_reason': 'str'
@@ -259,7 +259,7 @@ class Application(object):
         The application's source.  # noqa: E501
 
         :return: The source of this Application.  # noqa: E501
-        :rtype: SourceEnum
+        :rtype: str
         """
         return self._source
 
@@ -270,7 +270,7 @@ class Application(object):
         The application's source.  # noqa: E501
 
         :param source: The source of this Application.  # noqa: E501
-        :type: SourceEnum
+        :type: str
         """
 
         self._source = source
@@ -279,7 +279,7 @@ class Application(object):
     def credited_to(self):
         """Gets the credited_to of this Application.  # noqa: E501
 
-        The user credited.  # noqa: E501
+        The user credited for this application.  # noqa: E501
 
         :return: The credited_to of this Application.  # noqa: E501
         :rtype: str
@@ -290,7 +290,7 @@ class Application(object):
     def credited_to(self, credited_to):
         """Sets the credited_to of this Application.
 
-        The user credited.  # noqa: E501
+        The user credited for this application.  # noqa: E501
 
         :param credited_to: The credited_to of this Application.  # noqa: E501
         :type: str
@@ -325,7 +325,7 @@ class Application(object):
     def reject_reason(self):
         """Gets the reject_reason of this Application.  # noqa: E501
 
-        The applications reason for rejection.  # noqa: E501
+        The application's reason for rejection.  # noqa: E501
 
         :return: The reject_reason of this Application.  # noqa: E501
         :rtype: str
@@ -336,7 +336,7 @@ class Application(object):
     def reject_reason(self, reject_reason):
         """Sets the reject_reason of this Application.
 
-        The applications reason for rejection.  # noqa: E501
+        The application's reason for rejection.  # noqa: E501
 
         :param reject_reason: The reject_reason of this Application.  # noqa: E501
         :type: str

@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **is_prospect** | **bool** | Whether or not the application is a prospect. | [optional] 
 **applied_at** | **datetime** | When the application was submitted. | [optional] 
 **rejected_at** | **datetime** | When the application was rejected. | [optional] 
-**source** | [**SourceEnum**](SourceEnum.md) | The application&#39;s source. | [optional] 
-**credited_to** | **str** | The user credited. | [optional] 
+**source** | **str** | The application&#39;s source. | [optional] 
+**credited_to** | **str** | The user credited for this application. | [optional] 
 **current_stage** | **str** | The application&#39;s current stage. | [optional] 
-**reject_reason** | **str** | The applications reason for rejection. | [optional] 
+**reject_reason** | **str** | The application&#39;s reason for rejection. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
