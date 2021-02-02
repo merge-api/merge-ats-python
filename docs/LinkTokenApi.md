@@ -1,6 +1,6 @@
 # MergeATSClient.LinkTokenApi
 
-All URIs are relative to *https://app.merge.dev/api/ats/v1*
+All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,10 +23,10 @@ import time
 import MergeATSClient
 from MergeATSClient.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/ats/v1
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = MergeATSClient.Configuration(
-    host = "https://app.merge.dev/api/ats/v1"
+    host = "https://api.merge.dev/api/ats/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -36,7 +36,7 @@ configuration = MergeATSClient.Configuration(
 
 # Configure API key authorization: tokenAuth
 configuration = MergeATSClient.Configuration(
-    host = "https://app.merge.dev/api/ats/v1",
+    host = "https://api.merge.dev/api/ats/v1",
     api_key = {
         'Authorization': 'YOUR_API_KEY'
     }

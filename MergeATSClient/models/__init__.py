@@ -60,7 +60,6 @@ from MergeATSClient.models.remote_user import RemoteUser
 from MergeATSClient.models.scheduled_interview import ScheduledInterview
 from MergeATSClient.models.scheduled_interview_status_enum import ScheduledInterviewStatusEnum
 from MergeATSClient.models.scorecard import Scorecard
-from MergeATSClient.models.source_enum import SourceEnum
 from MergeATSClient.models.tag import Tag
 from MergeATSClient.models.url import Url
 from MergeATSClient.models.url_type_enum import UrlTypeEnum

@@ -109,7 +109,7 @@ class RejectReason(object):
     def name(self):
         """Gets the name of this RejectReason.  # noqa: E501
 
-        The reason's name.  # noqa: E501
+        The rejection reason’s name.  # noqa: E501
 
         :return: The name of this RejectReason.  # noqa: E501
         :rtype: str
@@ -120,7 +120,7 @@ class RejectReason(object):
     def name(self, name):
         """Sets the name of this RejectReason.
 
-        The reason's name.  # noqa: E501
+        The rejection reason’s name.  # noqa: E501
 
         :param name: The name of this RejectReason.  # noqa: E501
         :type: str

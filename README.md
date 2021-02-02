@@ -53,10 +53,10 @@ import MergeATSClient
 from MergeATSClient.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://app.merge.dev/api/ats/v1
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = MergeATSClient.Configuration(
-    host = "https://app.merge.dev/api/ats/v1"
+    host = "https://api.merge.dev/api/ats/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -66,7 +66,7 @@ configuration = MergeATSClient.Configuration(
 
 # Configure API key authorization: tokenAuth
 configuration = MergeATSClient.Configuration(
-    host = "https://app.merge.dev/api/ats/v1",
+    host = "https://api.merge.dev/api/ats/v1",
     api_key = {
         'Authorization': 'YOUR_API_KEY'
     }
@@ -91,7 +91,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://app.merge.dev/api/ats/v1*
+All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -124,7 +124,6 @@ Class | Method | HTTP request | Description
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
-*TagsApi* | [**tags_retrieve**](docs/TagsApi.md#tags_retrieve) | **GET** /tags/{id} | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
 
@@ -176,7 +175,6 @@ Class | Method | HTTP request | Description
  - [ScheduledInterview](docs/ScheduledInterview.md)
  - [ScheduledInterviewStatusEnum](docs/ScheduledInterviewStatusEnum.md)
  - [Scorecard](docs/Scorecard.md)
- - [SourceEnum](docs/SourceEnum.md)
  - [Tag](docs/Tag.md)
  - [Url](docs/Url.md)
  - [UrlTypeEnum](docs/UrlTypeEnum.md)

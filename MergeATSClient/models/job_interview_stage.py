@@ -136,7 +136,7 @@ class JobInterviewStage(object):
     def job(self):
         """Gets the job of this JobInterviewStage.  # noqa: E501
 
-        The job being interviewed for.  # noqa: E501
+        The job that this stage belongs to.  # noqa: E501
 
         :return: The job of this JobInterviewStage.  # noqa: E501
         :rtype: str
@@ -147,7 +147,7 @@ class JobInterviewStage(object):
     def job(self, job):
         """Sets the job of this JobInterviewStage.
 
-        The job being interviewed for.  # noqa: E501
+        The job that this stage belongs to.  # noqa: E501
 
         :param job: The job of this JobInterviewStage.  # noqa: E501
         :type: str
