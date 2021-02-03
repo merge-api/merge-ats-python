@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **offers_list**
-> PaginatedOfferList offers_list(x_account_token, application_id=application_id, created_after=created_after, created_before=created_before, creator_id=creator_id, cursor=cursor, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+> PaginatedOfferList offers_list(x_account_token)
 
 
 
@@ -19,10 +19,10 @@ Returns a list of `Offer` objects.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeATSClient
-from MergeATSClient.rest import ApiException
+from MergeATSClient.api import offers_api
+from MergeATSClient.model.paginated_offer_list import PaginatedOfferList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -36,35 +36,40 @@ configuration = MergeATSClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeATSClient.Configuration(
-    host = "https://api.merge.dev/api/ats/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeATSClient.OffersApi(api_client)
-    x_account_token = 'x_account_token_example' # str | Token identifying the end user.
-application_id = 'application_id_example' # str | If provided, will only return offers for this application. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
-creator_id = 'creator_id_example' # str | If provided, will only return offers created by this user. (optional)
-cursor = 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw' # str | The pagination cursor value. (optional)
-expand = 'application,creator' # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
-modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
-modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
+    api_instance = offers_api.OffersApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    application_id = "application_id_example" # str | If provided, will only return offers for this application. (optional)
+    created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
+    created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
+    creator_id = "creator_id_example" # str | If provided, will only return offers created by this user. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
+    expand = "application,creator" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
+    modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
+    page_size = 1 # int | Number of results to return per page. (optional)
+    remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.offers_list(x_account_token)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling OffersApi->offers_list: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.offers_list(x_account_token, application_id=application_id, created_after=created_after, created_before=created_before, creator_id=creator_id, cursor=cursor, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
-    except ApiException as e:
+    except MergeATSClient.ApiException as e:
         print("Exception when calling OffersApi->offers_list: %s\n" % e)
 ```
 
@@ -72,17 +77,17 @@ remote_id = 'remote_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. | 
- **application_id** | [**str**](.md)| If provided, will only return offers for this application. | [optional] 
- **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
- **creator_id** | [**str**](.md)| If provided, will only return offers created by this user. | [optional] 
- **cursor** | **str**| The pagination cursor value. | [optional] 
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
- **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
- **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. |
+ **application_id** | **str**| If provided, will only return offers for this application. | [optional]
+ **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
+ **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
+ **creator_id** | **str**| If provided, will only return offers created by this user. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
+ **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
+ **page_size** | **int**| Number of results to return per page. | [optional]
+ **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
 
@@ -105,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **offers_retrieve**
-> Offer offers_retrieve(x_account_token, id, expand=expand)
+> Offer offers_retrieve(x_account_token, id)
 
 
 
@@ -115,10 +120,10 @@ Returns an `Offer` object with the given `id`.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeATSClient
-from MergeATSClient.rest import ApiException
+from MergeATSClient.api import offers_api
+from MergeATSClient.model.offer import Offer
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -132,27 +137,32 @@ configuration = MergeATSClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeATSClient.Configuration(
-    host = "https://api.merge.dev/api/ats/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeATSClient.OffersApi(api_client)
-    x_account_token = 'x_account_token_example' # str | Token identifying the end user.
-id = 'id_example' # str | 
-expand = 'application,creator' # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    api_instance = offers_api.OffersApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    id = "id_example" # str | 
+    expand = "application,creator" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.offers_retrieve(x_account_token, id)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling OffersApi->offers_retrieve: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.offers_retrieve(x_account_token, id, expand=expand)
         pprint(api_response)
-    except ApiException as e:
+    except MergeATSClient.ApiException as e:
         print("Exception when calling OffersApi->offers_retrieve: %s\n" % e)
 ```
 
@@ -160,9 +170,9 @@ expand = 'application,creator' # str | Which relations should be returned in exp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. | 
- **id** | [**str**](.md)|  | 
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. |
+ **id** | **str**|  |
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
 
 ### Return type
 
