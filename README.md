@@ -10,7 +10,7 @@ For more information, please visit [https://www.merge.dev/](https://www.merge.de
 
 ## Requirements.
 
-Python 2.7 and 3.4+
+Python >= 3.6
 
 ## Installation & Usage
 ### pip install
@@ -46,13 +46,12 @@ import MergeATSClient
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-from __future__ import print_function
 
 import time
 import MergeATSClient
-from MergeATSClient.rest import ApiException
 from pprint import pprint
-
+from MergeATSClient.api import account_token_api
+from MergeATSClient.model.account_token import AccountToken
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = MergeATSClient.Configuration(
@@ -65,28 +64,23 @@ configuration = MergeATSClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeATSClient.Configuration(
-    host = "https://api.merge.dev/api/ats/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeATSClient.AccountTokenApi(api_client)
-    public_token = 'public_token_example' # str | 
+    api_instance = account_token_api.AccountTokenApi(api_client)
+    public_token = "public_token_example" # str | 
 
     try:
         api_response = api_instance.account_token_retrieve(public_token)
         pprint(api_response)
-    except ApiException as e:
+    except MergeATSClient.ApiException as e:
         print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
-    
 ```
 
 ## Documentation for API Endpoints
@@ -196,4 +190,23 @@ Class | Method | HTTP request | Description
 
 hello@merge.dev
 
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in MergeATSClient.apis and MergeATSClient.models may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- `from MergeATSClient.api.default_api import DefaultApi`
+- `from MergeATSClient.model.pet import Pet`
+
+Solution 1:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import MergeATSClient
+from MergeATSClient.apis import *
+from MergeATSClient.models import *
+```
 

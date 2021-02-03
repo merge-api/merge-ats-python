@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **applications_list**
-> PaginatedApplicationList applications_list(x_account_token, candidate_id=candidate_id, created_after=created_after, created_before=created_before, credited_to_id=credited_to_id, current_stage_id=current_stage_id, cursor=cursor, expand=expand, job_id=job_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, reject_reason_id=reject_reason_id, remote_id=remote_id)
+> PaginatedApplicationList applications_list(x_account_token)
 
 
 
@@ -19,10 +19,10 @@ Returns a list of `Application` objects.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeATSClient
-from MergeATSClient.rest import ApiException
+from MergeATSClient.api import applications_api
+from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -36,38 +36,43 @@ configuration = MergeATSClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeATSClient.Configuration(
-    host = "https://api.merge.dev/api/ats/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeATSClient.ApplicationsApi(api_client)
-    x_account_token = 'x_account_token_example' # str | Token identifying the end user.
-candidate_id = 'candidate_id_example' # str | If provided, will only return applications for this candidate. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
-credited_to_id = 'credited_to_id_example' # str | If provided, will only return applications credited to this user. (optional)
-current_stage_id = 'current_stage_id_example' # str | If provided, will only return applications at this interview stage. (optional)
-cursor = 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw' # str | The pagination cursor value. (optional)
-expand = 'candidate,job,credited_to,current_stage,reject_reason' # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
-job_id = 'job_id_example' # str | If provided, will only return applications for this job. (optional)
-modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
-modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-reject_reason_id = 'reject_reason_id_example' # str | If provided, will only return applications with this reject reason. (optional)
-remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
+    api_instance = applications_api.ApplicationsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    candidate_id = "candidate_id_example" # str | If provided, will only return applications for this candidate. (optional)
+    created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
+    created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
+    credited_to_id = "credited_to_id_example" # str | If provided, will only return applications credited to this user. (optional)
+    current_stage_id = "current_stage_id_example" # str | If provided, will only return applications at this interview stage. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
+    expand = "candidate,job,credited_to,current_stage,reject_reason" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    job_id = "job_id_example" # str | If provided, will only return applications for this job. (optional)
+    modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
+    modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
+    page_size = 1 # int | Number of results to return per page. (optional)
+    reject_reason_id = "reject_reason_id_example" # str | If provided, will only return applications with this reject reason. (optional)
+    remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.applications_list(x_account_token)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling ApplicationsApi->applications_list: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.applications_list(x_account_token, candidate_id=candidate_id, created_after=created_after, created_before=created_before, credited_to_id=credited_to_id, current_stage_id=current_stage_id, cursor=cursor, expand=expand, job_id=job_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, reject_reason_id=reject_reason_id, remote_id=remote_id)
         pprint(api_response)
-    except ApiException as e:
+    except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_list: %s\n" % e)
 ```
 
@@ -75,20 +80,20 @@ remote_id = 'remote_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. | 
- **candidate_id** | [**str**](.md)| If provided, will only return applications for this candidate. | [optional] 
- **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
- **credited_to_id** | [**str**](.md)| If provided, will only return applications credited to this user. | [optional] 
- **current_stage_id** | [**str**](.md)| If provided, will only return applications at this interview stage. | [optional] 
- **cursor** | **str**| The pagination cursor value. | [optional] 
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
- **job_id** | [**str**](.md)| If provided, will only return applications for this job. | [optional] 
- **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
- **reject_reason_id** | [**str**](.md)| If provided, will only return applications with this reject reason. | [optional] 
- **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. |
+ **candidate_id** | **str**| If provided, will only return applications for this candidate. | [optional]
+ **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
+ **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
+ **credited_to_id** | **str**| If provided, will only return applications credited to this user. | [optional]
+ **current_stage_id** | **str**| If provided, will only return applications at this interview stage. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **job_id** | **str**| If provided, will only return applications for this job. | [optional]
+ **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
+ **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
+ **page_size** | **int**| Number of results to return per page. | [optional]
+ **reject_reason_id** | **str**| If provided, will only return applications with this reject reason. | [optional]
+ **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
 
@@ -111,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **applications_retrieve**
-> Application applications_retrieve(x_account_token, id, expand=expand)
+> Application applications_retrieve(x_account_token, id)
 
 
 
@@ -121,10 +126,10 @@ Returns an `Application` object with the given `id`.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeATSClient
-from MergeATSClient.rest import ApiException
+from MergeATSClient.api import applications_api
+from MergeATSClient.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -138,27 +143,32 @@ configuration = MergeATSClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeATSClient.Configuration(
-    host = "https://api.merge.dev/api/ats/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeATSClient.ApplicationsApi(api_client)
-    x_account_token = 'x_account_token_example' # str | Token identifying the end user.
-id = 'id_example' # str | 
-expand = 'candidate,job,credited_to,current_stage,reject_reason' # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    api_instance = applications_api.ApplicationsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    id = "id_example" # str | 
+    expand = "candidate,job,credited_to,current_stage,reject_reason" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.applications_retrieve(x_account_token, id)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling ApplicationsApi->applications_retrieve: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.applications_retrieve(x_account_token, id, expand=expand)
         pprint(api_response)
-    except ApiException as e:
+    except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_retrieve: %s\n" % e)
 ```
 
@@ -166,9 +176,9 @@ expand = 'candidate,job,credited_to,current_stage,reject_reason' # str | Which r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. | 
- **id** | [**str**](.md)|  | 
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. |
+ **id** | **str**|  |
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
 
 ### Return type
 
