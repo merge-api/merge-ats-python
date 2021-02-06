@@ -79,7 +79,7 @@ class EmailAddress(ModelNormal):
         """
         return {
             'value': (str, none_type,),  # noqa: E501
-            'email_address_type': (object, none_type,),  # noqa: E501
+            'email_address_type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,7 +139,7 @@ class EmailAddress(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             value (str, none_type): The email's address.. [optional]  # noqa: E501
-            email_address_type (object, none_type): The type of email address.. [optional]  # noqa: E501
+            email_address_type (str, none_type): The type of email address.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

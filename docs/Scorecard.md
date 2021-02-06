@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **interviewer** | **str, none_type** | The interviewer doing the scoring. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s scorecard was created. | [optional] 
 **submitted_at** | **datetime, none_type** | When the scorecard was submitted. | [optional] 
-**overall_recommendation** | **object, none_type** | The inteviewer&#39;s recommendation. | [optional] 
+**overall_recommendation** | **str, none_type** | The inteviewer&#39;s recommendation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

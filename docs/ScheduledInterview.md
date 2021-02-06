@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **end_at** | **datetime, none_type** | When the interview was ended. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s interview was created. | [optional] 
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s interview was updated. | [optional] 
-**status** | **object, none_type** | The interview&#39;s status. | [optional] 
+**status** | **str, none_type** | The interview&#39;s status. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
