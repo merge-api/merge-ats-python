@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,34 +9,19 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeATSClient
 from MergeATSClient.api.departments_api import DepartmentsApi  # noqa: E501
-from MergeATSClient.rest import ApiException
 
 
 class TestDepartmentsApi(unittest.TestCase):
     """DepartmentsApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeATSClient.api.departments_api.DepartmentsApi()  # noqa: E501
+        self.api = DepartmentsApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_departments_create(self):
-        """Test case for departments_create
-
-        """
-        pass
-
-    def test_departments_destroy(self):
-        """Test case for departments_destroy
-
-        """
         pass
 
     def test_departments_list(self):
@@ -47,20 +30,8 @@ class TestDepartmentsApi(unittest.TestCase):
         """
         pass
 
-    def test_departments_partial_update(self):
-        """Test case for departments_partial_update
-
-        """
-        pass
-
     def test_departments_retrieve(self):
         """Test case for departments_retrieve
-
-        """
-        pass
-
-    def test_departments_update(self):
-        """Test case for departments_update
 
         """
         pass

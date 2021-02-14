@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
 **application** | **str, none_type** | The application being interviewed. | [optional] 
+**job_interview_stage** | **str, none_type** | The stage of the interview. | [optional] 
 **organizer** | **str, none_type** | The user organizing the interview. | [optional] 
 **interviewers** | **[str]** |  | [optional] 
 **location** | **str, none_type** | The interview&#39;s location. | [optional] 

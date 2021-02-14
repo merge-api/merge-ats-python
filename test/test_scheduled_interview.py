@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.scheduled_interview import ScheduledInterview  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.scheduled_interview import ScheduledInterview
+
 
 class TestScheduledInterview(unittest.TestCase):
     """ScheduledInterview unit test stubs"""
@@ -29,34 +25,11 @@ class TestScheduledInterview(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test ScheduledInterview
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.scheduled_interview.ScheduledInterview()  # noqa: E501
-        if include_optional :
-            return ScheduledInterview(
-                id = 'b8faf072-98b9-4445-8a9a-6b4950efca19', 
-                remote_id = '3', 
-                application = '0', 
-                organizer = '52bf9b5e-0beb-4f6f-8a72-cd4dca7ca633', 
-                interviewers = ["f9813dd5-e70b-484c-91d8-00acd6065b07","89a86fcf-d540-4e6b-ac3d-ce07c4ec9b3c"], 
-                location = 'Embarcadero Center 2', 
-                start_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                end_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                remote_created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                remote_updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                status = SCHEDULED
-            )
-        else :
-            return ScheduledInterview(
-        )
-
     def testScheduledInterview(self):
         """Test ScheduledInterview"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = ScheduledInterview()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

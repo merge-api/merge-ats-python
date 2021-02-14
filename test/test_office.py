@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.office import Office  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.office import Office
+
 
 class TestOffice(unittest.TestCase):
     """Office unit test stubs"""
@@ -29,27 +25,11 @@ class TestOffice(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Office
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.office.Office()  # noqa: E501
-        if include_optional :
-            return Office(
-                id = '9871b4a9-f5d2-4f3b-a66b-dfedbed42c46', 
-                remote_id = '876556788', 
-                name = 'Underground Bunker', 
-                location = 'Embarcadero Center 2'
-            )
-        else :
-            return Office(
-        )
-
     def testOffice(self):
         """Test Office"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Office()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

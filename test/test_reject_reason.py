@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.reject_reason import RejectReason  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.reject_reason import RejectReason
+
 
 class TestRejectReason(unittest.TestCase):
     """RejectReason unit test stubs"""
@@ -29,26 +25,11 @@ class TestRejectReason(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RejectReason
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.reject_reason.RejectReason()  # noqa: E501
-        if include_optional :
-            return RejectReason(
-                id = '8be99a4a-f8d4-4339-bf1e-30eac970e217', 
-                remote_id = '876556788', 
-                name = 'Not passionate enough about scooters.'
-            )
-        else :
-            return RejectReason(
-        )
-
     def testRejectReason(self):
         """Test RejectReason"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RejectReason()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

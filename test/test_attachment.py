@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.attachment import Attachment  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.attachment import Attachment
+
 
 class TestAttachment(unittest.TestCase):
     """Attachment unit test stubs"""
@@ -29,27 +25,11 @@ class TestAttachment(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Attachment
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.attachment.Attachment()  # noqa: E501
-        if include_optional :
-            return Attachment(
-                id = 'c640b80b-fac9-409f-aa19-1f9221aec445', 
-                remote_id = '11167', 
-                file_name = 'Candidate Resume', 
-                file_url = 'http://alturl.com/p749b'
-            )
-        else :
-            return Attachment(
-        )
-
     def testAttachment(self):
         """Test Attachment"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Attachment()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

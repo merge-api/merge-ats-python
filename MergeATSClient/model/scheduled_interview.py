@@ -78,6 +78,7 @@ class ScheduledInterview(ModelNormal):
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
             'application': (str, none_type,),  # noqa: E501
+            'job_interview_stage': (str, none_type,),  # noqa: E501
             'organizer': (str, none_type,),  # noqa: E501
             'interviewers': ([str],),  # noqa: E501
             'location': (str, none_type,),  # noqa: E501
@@ -97,6 +98,7 @@ class ScheduledInterview(ModelNormal):
         'id': 'id',  # noqa: E501
         'remote_id': 'remote_id',  # noqa: E501
         'application': 'application',  # noqa: E501
+        'job_interview_stage': 'job_interview_stage',  # noqa: E501
         'organizer': 'organizer',  # noqa: E501
         'interviewers': 'interviewers',  # noqa: E501
         'location': 'location',  # noqa: E501
@@ -156,6 +158,7 @@ class ScheduledInterview(ModelNormal):
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             application (str, none_type): The application being interviewed.. [optional]  # noqa: E501
+            job_interview_stage (str, none_type): The stage of the interview.. [optional]  # noqa: E501
             organizer (str, none_type): The user organizing the interview.. [optional]  # noqa: E501
             interviewers ([str]): [optional]  # noqa: E501
             location (str, none_type): The interview's location.. [optional]  # noqa: E501

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,34 +9,19 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeATSClient
 from MergeATSClient.api.eeocs_api import EeocsApi  # noqa: E501
-from MergeATSClient.rest import ApiException
 
 
 class TestEeocsApi(unittest.TestCase):
     """EeocsApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeATSClient.api.eeocs_api.EeocsApi()  # noqa: E501
+        self.api = EeocsApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_eeocs_create(self):
-        """Test case for eeocs_create
-
-        """
-        pass
-
-    def test_eeocs_destroy(self):
-        """Test case for eeocs_destroy
-
-        """
         pass
 
     def test_eeocs_list(self):
@@ -47,20 +30,8 @@ class TestEeocsApi(unittest.TestCase):
         """
         pass
 
-    def test_eeocs_partial_update(self):
-        """Test case for eeocs_partial_update
-
-        """
-        pass
-
     def test_eeocs_retrieve(self):
         """Test case for eeocs_retrieve
-
-        """
-        pass
-
-    def test_eeocs_update(self):
-        """Test case for eeocs_update
 
         """
         pass

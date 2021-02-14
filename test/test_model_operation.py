@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import MergeATSClient
-from MergeATSClient.model.link_token import LinkToken
+from MergeATSClient.model.model_operation import ModelOperation
 
 
-class TestLinkToken(unittest.TestCase):
-    """LinkToken unit test stubs"""
+class TestModelOperation(unittest.TestCase):
+    """ModelOperation unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestLinkToken(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testLinkToken(self):
-        """Test LinkToken"""
+    def testModelOperation(self):
+        """Test ModelOperation"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = LinkToken()  # noqa: E501
+        # model = ModelOperation()  # noqa: E501
         pass
 
 

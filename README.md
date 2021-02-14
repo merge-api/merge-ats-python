@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
 *AttachmentsApi* | [**attachments_retrieve**](docs/AttachmentsApi.md#attachments_retrieve) | **GET** /attachments/{id} | 
+*AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
 *CandidatesApi* | [**candidates_list**](docs/CandidatesApi.md#candidates_list) | **GET** /candidates | 
 *CandidatesApi* | [**candidates_retrieve**](docs/CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
 *DepartmentsApi* | [**departments_list**](docs/DepartmentsApi.md#departments_list) | **GET** /departments | 
@@ -130,6 +131,7 @@ Class | Method | HTTP request | Description
  - [ActivityTypeEnum](docs/ActivityTypeEnum.md)
  - [Application](docs/Application.md)
  - [Attachment](docs/Attachment.md)
+ - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
  - [Department](docs/Department.md)
  - [DisabilityStatusEnum](docs/DisabilityStatusEnum.md)
@@ -142,6 +144,7 @@ Class | Method | HTTP request | Description
  - [JobInterviewStage](docs/JobInterviewStage.md)
  - [JobStatusEnum](docs/JobStatusEnum.md)
  - [LinkToken](docs/LinkToken.md)
+ - [ModelOperation](docs/ModelOperation.md)
  - [Offer](docs/Offer.md)
  - [OfferStatusEnum](docs/OfferStatusEnum.md)
  - [Office](docs/Office.md)

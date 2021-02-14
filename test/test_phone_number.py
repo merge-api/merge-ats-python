@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.phone_number import PhoneNumber  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.phone_number import PhoneNumber
+
 
 class TestPhoneNumber(unittest.TestCase):
     """PhoneNumber unit test stubs"""
@@ -29,25 +25,11 @@ class TestPhoneNumber(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PhoneNumber
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.phone_number.PhoneNumber()  # noqa: E501
-        if include_optional :
-            return PhoneNumber(
-                value = '+3198675309', 
-                phone_number_type = HOME
-            )
-        else :
-            return PhoneNumber(
-        )
-
     def testPhoneNumber(self):
         """Test PhoneNumber"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PhoneNumber()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

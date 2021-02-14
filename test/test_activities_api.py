@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,34 +9,19 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeATSClient
 from MergeATSClient.api.activities_api import ActivitiesApi  # noqa: E501
-from MergeATSClient.rest import ApiException
 
 
 class TestActivitiesApi(unittest.TestCase):
     """ActivitiesApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeATSClient.api.activities_api.ActivitiesApi()  # noqa: E501
+        self.api = ActivitiesApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_activities_create(self):
-        """Test case for activities_create
-
-        """
-        pass
-
-    def test_activities_destroy(self):
-        """Test case for activities_destroy
-
-        """
         pass
 
     def test_activities_list(self):
@@ -47,20 +30,8 @@ class TestActivitiesApi(unittest.TestCase):
         """
         pass
 
-    def test_activities_partial_update(self):
-        """Test case for activities_partial_update
-
-        """
-        pass
-
     def test_activities_retrieve(self):
         """Test case for activities_retrieve
-
-        """
-        pass
-
-    def test_activities_update(self):
-        """Test case for activities_update
 
         """
         pass

@@ -9,26 +9,25 @@
 """
 
 
-import sys
 import unittest
 
 import MergeATSClient
-from MergeATSClient.model.link_token import LinkToken
+from MergeATSClient.api.available_actions_api import AvailableActionsApi  # noqa: E501
 
 
-class TestLinkToken(unittest.TestCase):
-    """LinkToken unit test stubs"""
+class TestAvailableActionsApi(unittest.TestCase):
+    """AvailableActionsApi unit test stubs"""
 
     def setUp(self):
-        pass
+        self.api = AvailableActionsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def testLinkToken(self):
-        """Test LinkToken"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = LinkToken()  # noqa: E501
+    def test_available_actions_retrieve(self):
+        """Test case for available_actions_retrieve
+
+        """
         pass
 
 

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.paginated_eeoc_list import PaginatedEEOCList  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.eeoc import EEOC
+globals()['EEOC'] = EEOC
+from MergeATSClient.model.paginated_eeoc_list import PaginatedEEOCList
+
 
 class TestPaginatedEEOCList(unittest.TestCase):
     """PaginatedEEOCList unit test stubs"""
@@ -29,36 +27,11 @@ class TestPaginatedEEOCList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedEEOCList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.paginated_eeoc_list.PaginatedEEOCList()  # noqa: E501
-        if include_optional :
-            return PaginatedEEOCList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeATSClient.models.eeoc.EEOC(
-                        id = 'f7dd7b4f-237e-4772-8bd4-3246384c6c58', 
-                        remote_id = '76', 
-                        candidate = 'f963f34d-3d2f-4f77-b557-cf36bc7e6498', 
-                        submitted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        race = HISPANIC_OR_LATINO, 
-                        gender = FEMALE, 
-                        veteran_status = I_AM_NOT_A_PROTECTED_VETERAN, 
-                        disability_status = I_DONT_WISH_TO_ANSWER, )
-                    ]
-            )
-        else :
-            return PaginatedEEOCList(
-        )
-
     def testPaginatedEEOCList(self):
         """Test PaginatedEEOCList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedEEOCList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

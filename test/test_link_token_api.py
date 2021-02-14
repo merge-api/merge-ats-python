@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,20 +9,17 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeATSClient
 from MergeATSClient.api.link_token_api import LinkTokenApi  # noqa: E501
-from MergeATSClient.rest import ApiException
 
 
 class TestLinkTokenApi(unittest.TestCase):
     """LinkTokenApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeATSClient.api.link_token_api.LinkTokenApi()  # noqa: E501
+        self.api = LinkTokenApi()  # noqa: E501
 
     def tearDown(self):
         pass

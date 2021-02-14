@@ -18,6 +18,7 @@ from MergeATSClient.api.account_token_api import AccountTokenApi
 from MergeATSClient.api.activities_api import ActivitiesApi
 from MergeATSClient.api.applications_api import ApplicationsApi
 from MergeATSClient.api.attachments_api import AttachmentsApi
+from MergeATSClient.api.available_actions_api import AvailableActionsApi
 from MergeATSClient.api.candidates_api import CandidatesApi
 from MergeATSClient.api.departments_api import DepartmentsApi
 from MergeATSClient.api.eeocs_api import EeocsApi

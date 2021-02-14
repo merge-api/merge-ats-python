@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.email_address import EmailAddress  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.email_address import EmailAddress
+
 
 class TestEmailAddress(unittest.TestCase):
     """EmailAddress unit test stubs"""
@@ -29,25 +25,11 @@ class TestEmailAddress(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test EmailAddress
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.email_address.EmailAddress()  # noqa: E501
-        if include_optional :
-            return EmailAddress(
-                value = 'scooterboy443@gmail.com', 
-                email_address_type = null
-            )
-        else :
-            return EmailAddress(
-        )
-
     def testEmailAddress(self):
         """Test EmailAddress"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = EmailAddress()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

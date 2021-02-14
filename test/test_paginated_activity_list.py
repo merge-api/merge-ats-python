@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.paginated_activity_list import PaginatedActivityList  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.activity import Activity
+globals()['Activity'] = Activity
+from MergeATSClient.model.paginated_activity_list import PaginatedActivityList
+
 
 class TestPaginatedActivityList(unittest.TestCase):
     """PaginatedActivityList unit test stubs"""
@@ -29,36 +27,11 @@ class TestPaginatedActivityList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedActivityList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.paginated_activity_list.PaginatedActivityList()  # noqa: E501
-        if include_optional :
-            return PaginatedActivityList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeATSClient.models.activity.Activity(
-                        id = 'ecbe05ac-62a3-46c5-ab31-4b478b37d1b4', 
-                        remote_id = '6', 
-                        user = '9d892439-5fab-4dbb-8bd8-34f7f96c7912', 
-                        remote_created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        activity_type = NOTE, 
-                        subject = 'Henry's applicant status', 
-                        body = 'Candidate will only join if we provide a Barry's subsidy.', 
-                        visibility = PRIVATE, )
-                    ]
-            )
-        else :
-            return PaginatedActivityList(
-        )
-
     def testPaginatedActivityList(self):
         """Test PaginatedActivityList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedActivityList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

@@ -61,6 +61,7 @@ class InterviewsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                job_interview_stage_id (str): If provided, will only return interviews at this stage.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 organizer_id (str): If provided, will only return interviews organized by this user.. [optional]
@@ -133,6 +134,7 @@ class InterviewsApi(object):
                     'created_before',
                     'cursor',
                     'expand',
+                    'job_interview_stage_id',
                     'modified_after',
                     'modified_before',
                     'organizer_id',
@@ -158,12 +160,20 @@ class InterviewsApi(object):
                     ('expand',): {
 
                         "APPLICATION": "application",
+                        "APPLICATION,JOB_INTERVIEW_STAGE": "application,job_interview_stage",
                         "INTERVIEWERS": "interviewers",
                         "INTERVIEWERS,APPLICATION": "interviewers,application",
+                        "INTERVIEWERS,APPLICATION,JOB_INTERVIEW_STAGE": "interviewers,application,job_interview_stage",
+                        "INTERVIEWERS,JOB_INTERVIEW_STAGE": "interviewers,job_interview_stage",
                         "INTERVIEWERS,ORGANIZER": "interviewers,organizer",
                         "INTERVIEWERS,ORGANIZER,APPLICATION": "interviewers,organizer,application",
+                        "INTERVIEWERS,ORGANIZER,APPLICATION,JOB_INTERVIEW_STAGE": "interviewers,organizer,application,job_interview_stage",
+                        "INTERVIEWERS,ORGANIZER,JOB_INTERVIEW_STAGE": "interviewers,organizer,job_interview_stage",
+                        "JOB_INTERVIEW_STAGE": "job_interview_stage",
                         "ORGANIZER": "organizer",
-                        "ORGANIZER,APPLICATION": "organizer,application"
+                        "ORGANIZER,APPLICATION": "organizer,application",
+                        "ORGANIZER,APPLICATION,JOB_INTERVIEW_STAGE": "organizer,application,job_interview_stage",
+                        "ORGANIZER,JOB_INTERVIEW_STAGE": "organizer,job_interview_stage"
                     },
                 },
                 'openapi_types': {
@@ -178,6 +188,8 @@ class InterviewsApi(object):
                     'cursor':
                         (str,),
                     'expand':
+                        (str,),
+                    'job_interview_stage_id':
                         (str,),
                     'modified_after':
                         (datetime,),
@@ -197,6 +209,7 @@ class InterviewsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'job_interview_stage_id': 'job_interview_stage_id',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'organizer_id': 'organizer_id',
@@ -210,6 +223,7 @@ class InterviewsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'job_interview_stage_id': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'organizer_id': 'query',
@@ -336,12 +350,20 @@ class InterviewsApi(object):
                     ('expand',): {
 
                         "APPLICATION": "application",
+                        "APPLICATION,JOB_INTERVIEW_STAGE": "application,job_interview_stage",
                         "INTERVIEWERS": "interviewers",
                         "INTERVIEWERS,APPLICATION": "interviewers,application",
+                        "INTERVIEWERS,APPLICATION,JOB_INTERVIEW_STAGE": "interviewers,application,job_interview_stage",
+                        "INTERVIEWERS,JOB_INTERVIEW_STAGE": "interviewers,job_interview_stage",
                         "INTERVIEWERS,ORGANIZER": "interviewers,organizer",
                         "INTERVIEWERS,ORGANIZER,APPLICATION": "interviewers,organizer,application",
+                        "INTERVIEWERS,ORGANIZER,APPLICATION,JOB_INTERVIEW_STAGE": "interviewers,organizer,application,job_interview_stage",
+                        "INTERVIEWERS,ORGANIZER,JOB_INTERVIEW_STAGE": "interviewers,organizer,job_interview_stage",
+                        "JOB_INTERVIEW_STAGE": "job_interview_stage",
                         "ORGANIZER": "organizer",
-                        "ORGANIZER,APPLICATION": "organizer,application"
+                        "ORGANIZER,APPLICATION": "organizer,application",
+                        "ORGANIZER,APPLICATION,JOB_INTERVIEW_STAGE": "organizer,application,job_interview_stage",
+                        "ORGANIZER,JOB_INTERVIEW_STAGE": "organizer,job_interview_stage"
                     },
                 },
                 'openapi_types': {

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.email_address_type_enum import EmailAddressTypeEnum  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.email_address_type_enum import EmailAddressTypeEnum
+
 
 class TestEmailAddressTypeEnum(unittest.TestCase):
     """EmailAddressTypeEnum unit test stubs"""
@@ -29,23 +25,11 @@ class TestEmailAddressTypeEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test EmailAddressTypeEnum
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.email_address_type_enum.EmailAddressTypeEnum()  # noqa: E501
-        if include_optional :
-            return EmailAddressTypeEnum(
-            )
-        else :
-            return EmailAddressTypeEnum(
-        )
-
     def testEmailAddressTypeEnum(self):
         """Test EmailAddressTypeEnum"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = EmailAddressTypeEnum()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':
