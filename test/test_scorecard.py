@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.scorecard import Scorecard  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.scorecard import Scorecard
+
 
 class TestScorecard(unittest.TestCase):
     """Scorecard unit test stubs"""
@@ -29,31 +25,11 @@ class TestScorecard(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Scorecard
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.scorecard.Scorecard()  # noqa: E501
-        if include_optional :
-            return Scorecard(
-                id = '3eab2f17-eeb1-450d-97f0-029d8be1e06f', 
-                remote_id = '22234', 
-                application = '2872ba14-4084-492b-be96-e5eee6fc33ef', 
-                interview = '52bf9b5e-0beb-4f6f-8a72-cd4dca7ca633', 
-                interviewer = 'bbb519a3-246e-4b95-b6b3-dba16107ba6b', 
-                remote_created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                submitted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                overall_recommendation = STRONG_YES
-            )
-        else :
-            return Scorecard(
-        )
-
     def testScorecard(self):
         """Test Scorecard"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Scorecard()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

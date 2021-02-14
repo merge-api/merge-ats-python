@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.offer import Offer  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.offer import Offer
+
 
 class TestOffer(unittest.TestCase):
     """Offer unit test stubs"""
@@ -29,32 +25,11 @@ class TestOffer(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Offer
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.offer.Offer()  # noqa: E501
-        if include_optional :
-            return Offer(
-                id = 'dd85625c-6a59-446f-a317-6de64d83bae7', 
-                remote_id = '9876', 
-                application = '2872ba14-4084-492b-be96-e5eee6fc33ef', 
-                creator = '52bf9b5e-0beb-4f6f-8a72-cd4dca7ca633', 
-                remote_created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                closed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                status = SENT
-            )
-        else :
-            return Offer(
-        )
-
     def testOffer(self):
         """Test Offer"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Offer()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

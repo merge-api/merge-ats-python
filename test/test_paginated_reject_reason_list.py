@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.paginated_reject_reason_list import PaginatedRejectReasonList  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.reject_reason import RejectReason
+globals()['RejectReason'] = RejectReason
+from MergeATSClient.model.paginated_reject_reason_list import PaginatedRejectReasonList
+
 
 class TestPaginatedRejectReasonList(unittest.TestCase):
     """PaginatedRejectReasonList unit test stubs"""
@@ -29,31 +27,11 @@ class TestPaginatedRejectReasonList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedRejectReasonList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.paginated_reject_reason_list.PaginatedRejectReasonList()  # noqa: E501
-        if include_optional :
-            return PaginatedRejectReasonList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeATSClient.models.reject_reason.RejectReason(
-                        id = '8be99a4a-f8d4-4339-bf1e-30eac970e217', 
-                        remote_id = '876556788', 
-                        name = 'Not passionate enough about scooters.', )
-                    ]
-            )
-        else :
-            return PaginatedRejectReasonList(
-        )
-
     def testPaginatedRejectReasonList(self):
         """Test PaginatedRejectReasonList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedRejectReasonList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

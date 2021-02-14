@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.paginated_tag_list import PaginatedTagList  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.tag import Tag
+globals()['Tag'] = Tag
+from MergeATSClient.model.paginated_tag_list import PaginatedTagList
+
 
 class TestPaginatedTagList(unittest.TestCase):
     """PaginatedTagList unit test stubs"""
@@ -29,31 +27,11 @@ class TestPaginatedTagList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedTagList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.paginated_tag_list.PaginatedTagList()  # noqa: E501
-        if include_optional :
-            return PaginatedTagList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeATSClient.models.tag.Tag(
-                        id = 'd6914013-6cc8-48c1-b135-e2746b18f910', 
-                        remote_id = '4567', 
-                        name = 'a', )
-                    ]
-            )
-        else :
-            return PaginatedTagList(
-        )
-
     def testPaginatedTagList(self):
         """Test PaginatedTagList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedTagList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

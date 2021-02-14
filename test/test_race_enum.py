@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.race_enum import RaceEnum  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.race_enum import RaceEnum
+
 
 class TestRaceEnum(unittest.TestCase):
     """RaceEnum unit test stubs"""
@@ -29,23 +25,11 @@ class TestRaceEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RaceEnum
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.race_enum.RaceEnum()  # noqa: E501
-        if include_optional :
-            return RaceEnum(
-            )
-        else :
-            return RaceEnum(
-        )
-
     def testRaceEnum(self):
         """Test RaceEnum"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RaceEnum()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge ATS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeATSClient
-from MergeATSClient.models.paginated_department_list import PaginatedDepartmentList  # noqa: E501
-from MergeATSClient.rest import ApiException
+from MergeATSClient.model.department import Department
+globals()['Department'] = Department
+from MergeATSClient.model.paginated_department_list import PaginatedDepartmentList
+
 
 class TestPaginatedDepartmentList(unittest.TestCase):
     """PaginatedDepartmentList unit test stubs"""
@@ -29,31 +27,11 @@ class TestPaginatedDepartmentList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedDepartmentList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeATSClient.models.paginated_department_list.PaginatedDepartmentList()  # noqa: E501
-        if include_optional :
-            return PaginatedDepartmentList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeATSClient.models.department.Department(
-                        id = '5b3c1341-a20f-4e51-b72c-f3830a16c97b', 
-                        remote_id = '23456', 
-                        name = 'Department of Scooter Affairs', )
-                    ]
-            )
-        else :
-            return PaginatedDepartmentList(
-        )
-
     def testPaginatedDepartmentList(self):
         """Test PaginatedDepartmentList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedDepartmentList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':
