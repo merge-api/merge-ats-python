@@ -79,10 +79,10 @@ class Activity(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'user': (str, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
-            'activity_type': (str, none_type,),  # noqa: E501
+            'activity_type': (object, none_type,),  # noqa: E501
             'subject': (str, none_type,),  # noqa: E501
             'body': (str, none_type,),  # noqa: E501
-            'visibility': (str, none_type,),  # noqa: E501
+            'visibility': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -151,10 +151,10 @@ class Activity(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             user (str, none_type): The user the performed the action.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's activity was created.. [optional]  # noqa: E501
-            activity_type (str, none_type): The activity's type.. [optional]  # noqa: E501
+            activity_type (object, none_type): The activity's type.. [optional]  # noqa: E501
             subject (str, none_type): The activity's subject.. [optional]  # noqa: E501
             body (str, none_type): The activity's body.. [optional]  # noqa: E501
-            visibility (str, none_type): The activity's visibility.. [optional]  # noqa: E501
+            visibility (object, none_type): The activity's visibility.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

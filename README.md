@@ -91,35 +91,49 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *ActivitiesApi* | [**activities_list**](docs/ActivitiesApi.md#activities_list) | **GET** /activities | 
+*ActivitiesApi* | [**activities_partial_update**](docs/ActivitiesApi.md#activities_partial_update) | **PATCH** /activities/{id} | 
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
+*ApplicationsApi* | [**applications_partial_update**](docs/ApplicationsApi.md#applications_partial_update) | **PATCH** /applications/{id} | 
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
+*AttachmentsApi* | [**attachments_partial_update**](docs/AttachmentsApi.md#attachments_partial_update) | **PATCH** /attachments/{id} | 
 *AttachmentsApi* | [**attachments_retrieve**](docs/AttachmentsApi.md#attachments_retrieve) | **GET** /attachments/{id} | 
 *AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
 *CandidatesApi* | [**candidates_list**](docs/CandidatesApi.md#candidates_list) | **GET** /candidates | 
+*CandidatesApi* | [**candidates_partial_update**](docs/CandidatesApi.md#candidates_partial_update) | **PATCH** /candidates/{id} | 
 *CandidatesApi* | [**candidates_retrieve**](docs/CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
 *DepartmentsApi* | [**departments_list**](docs/DepartmentsApi.md#departments_list) | **GET** /departments | 
+*DepartmentsApi* | [**departments_partial_update**](docs/DepartmentsApi.md#departments_partial_update) | **PATCH** /departments/{id} | 
 *DepartmentsApi* | [**departments_retrieve**](docs/DepartmentsApi.md#departments_retrieve) | **GET** /departments/{id} | 
 *EeocsApi* | [**eeocs_list**](docs/EeocsApi.md#eeocs_list) | **GET** /eeocs | 
+*EeocsApi* | [**eeocs_partial_update**](docs/EeocsApi.md#eeocs_partial_update) | **PATCH** /eeocs/{id} | 
 *EeocsApi* | [**eeocs_retrieve**](docs/EeocsApi.md#eeocs_retrieve) | **GET** /eeocs/{id} | 
 *InterviewsApi* | [**interviews_list**](docs/InterviewsApi.md#interviews_list) | **GET** /interviews | 
+*InterviewsApi* | [**interviews_partial_update**](docs/InterviewsApi.md#interviews_partial_update) | **PATCH** /interviews/{id} | 
 *InterviewsApi* | [**interviews_retrieve**](docs/InterviewsApi.md#interviews_retrieve) | **GET** /interviews/{id} | 
 *JobInterviewStagesApi* | [**job_interview_stages_list**](docs/JobInterviewStagesApi.md#job_interview_stages_list) | **GET** /job-interview-stages | 
+*JobInterviewStagesApi* | [**job_interview_stages_partial_update**](docs/JobInterviewStagesApi.md#job_interview_stages_partial_update) | **PATCH** /job-interview-stages/{id} | 
 *JobInterviewStagesApi* | [**job_interview_stages_retrieve**](docs/JobInterviewStagesApi.md#job_interview_stages_retrieve) | **GET** /job-interview-stages/{id} | 
 *JobsApi* | [**jobs_list**](docs/JobsApi.md#jobs_list) | **GET** /jobs | 
+*JobsApi* | [**jobs_partial_update**](docs/JobsApi.md#jobs_partial_update) | **PATCH** /jobs/{id} | 
 *JobsApi* | [**jobs_retrieve**](docs/JobsApi.md#jobs_retrieve) | **GET** /jobs/{id} | 
 *LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *OffersApi* | [**offers_list**](docs/OffersApi.md#offers_list) | **GET** /offers | 
+*OffersApi* | [**offers_partial_update**](docs/OffersApi.md#offers_partial_update) | **PATCH** /offers/{id} | 
 *OffersApi* | [**offers_retrieve**](docs/OffersApi.md#offers_retrieve) | **GET** /offers/{id} | 
 *OfficesApi* | [**offices_list**](docs/OfficesApi.md#offices_list) | **GET** /offices | 
+*OfficesApi* | [**offices_partial_update**](docs/OfficesApi.md#offices_partial_update) | **PATCH** /offices/{id} | 
 *OfficesApi* | [**offices_retrieve**](docs/OfficesApi.md#offices_retrieve) | **GET** /offices/{id} | 
 *RejectReasonsApi* | [**reject_reasons_list**](docs/RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
+*RejectReasonsApi* | [**reject_reasons_partial_update**](docs/RejectReasonsApi.md#reject_reasons_partial_update) | **PATCH** /reject-reasons/{id} | 
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
+*ScorecardsApi* | [**scorecards_partial_update**](docs/ScorecardsApi.md#scorecards_partial_update) | **PATCH** /scorecards/{id} | 
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
+*UsersApi* | [**users_partial_update**](docs/UsersApi.md#users_partial_update) | **PATCH** /users/{id} | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
 
 
@@ -140,6 +154,7 @@ Class | Method | HTTP request | Description
  - [EmailAddressTypeEnum](docs/EmailAddressTypeEnum.md)
  - [EndUserDetails](docs/EndUserDetails.md)
  - [GenderEnum](docs/GenderEnum.md)
+ - [IntegrationPublic](docs/IntegrationPublic.md)
  - [Job](docs/Job.md)
  - [JobInterviewStage](docs/JobInterviewStage.md)
  - [JobStatusEnum](docs/JobStatusEnum.md)
@@ -164,6 +179,23 @@ Class | Method | HTTP request | Description
  - [PaginatedScheduledInterviewList](docs/PaginatedScheduledInterviewList.md)
  - [PaginatedScorecardList](docs/PaginatedScorecardList.md)
  - [PaginatedTagList](docs/PaginatedTagList.md)
+ - [PatchedActivity](docs/PatchedActivity.md)
+ - [PatchedApplication](docs/PatchedApplication.md)
+ - [PatchedAttachment](docs/PatchedAttachment.md)
+ - [PatchedCandidate](docs/PatchedCandidate.md)
+ - [PatchedDepartment](docs/PatchedDepartment.md)
+ - [PatchedEEOC](docs/PatchedEEOC.md)
+ - [PatchedEmailAddress](docs/PatchedEmailAddress.md)
+ - [PatchedJob](docs/PatchedJob.md)
+ - [PatchedJobInterviewStage](docs/PatchedJobInterviewStage.md)
+ - [PatchedOffer](docs/PatchedOffer.md)
+ - [PatchedOffice](docs/PatchedOffice.md)
+ - [PatchedPhoneNumber](docs/PatchedPhoneNumber.md)
+ - [PatchedRejectReason](docs/PatchedRejectReason.md)
+ - [PatchedRemoteUser](docs/PatchedRemoteUser.md)
+ - [PatchedScheduledInterview](docs/PatchedScheduledInterview.md)
+ - [PatchedScorecard](docs/PatchedScorecard.md)
+ - [PatchedUrl](docs/PatchedUrl.md)
  - [PhoneNumber](docs/PhoneNumber.md)
  - [PhoneNumberTypeEnum](docs/PhoneNumberTypeEnum.md)
  - [RaceEnum](docs/RaceEnum.md)

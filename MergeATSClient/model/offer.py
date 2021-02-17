@@ -83,7 +83,7 @@ class Offer(ModelNormal):
             'closed_at': (datetime, none_type,),  # noqa: E501
             'sent_at': (datetime, none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
+            'status': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -157,7 +157,7 @@ class Offer(ModelNormal):
             closed_at (datetime, none_type): When the offer was closed.. [optional]  # noqa: E501
             sent_at (datetime, none_type): When the offer was sent.. [optional]  # noqa: E501
             start_date (datetime, none_type): The offered start date.. [optional]  # noqa: E501
-            status (str, none_type): The offer's status.. [optional]  # noqa: E501
+            status (object, none_type): The offer's status.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
