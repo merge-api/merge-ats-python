@@ -160,7 +160,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         closed_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         sent_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         start_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        status=,
+        status="status_example",
     ) # PatchedOffer |  (optional)
 
     # example passing only required values which don't have defaults set

@@ -154,10 +154,10 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         remote_id="198123",
         user="9d892439-5fab-4dbb-8bd8-34f7f96c7912",
         remote_created_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        activity_type=,
+        activity_type="activity_type_example",
         subject="Gil Feig's applicant status",
         body="Candidate will only join if we provide a Barry's subsidy.",
-        visibility=,
+        visibility="visibility_example",
     ) # PatchedActivity |  (optional)
 
     # example passing only required values which don't have defaults set

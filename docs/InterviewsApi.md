@@ -165,7 +165,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         end_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         remote_created_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         remote_updated_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        status=,
+        status="status_example",
     ) # PatchedScheduledInterview |  (optional)
 
     # example passing only required values which don't have defaults set

@@ -86,7 +86,7 @@ class PatchedScheduledInterview(ModelNormal):
             'end_at': (datetime, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
-            'status': (object, none_type,),  # noqa: E501
+            'status': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -166,7 +166,7 @@ class PatchedScheduledInterview(ModelNormal):
             end_at (datetime, none_type): When the interview was ended.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's interview was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's interview was updated.. [optional]  # noqa: E501
-            status (object, none_type): The interview's status.. [optional]  # noqa: E501
+            status (str, none_type): The interview's status.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

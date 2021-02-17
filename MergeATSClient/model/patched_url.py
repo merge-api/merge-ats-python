@@ -79,7 +79,7 @@ class PatchedUrl(ModelNormal):
         """
         return {
             'value': (str, none_type,),  # noqa: E501
-            'url_type': (object, none_type,),  # noqa: E501
+            'url_type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,7 +139,7 @@ class PatchedUrl(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             value (str, none_type): The site's url.. [optional]  # noqa: E501
-            url_type (object, none_type): The type of site.. [optional]  # noqa: E501
+            url_type (str, none_type): The type of site.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

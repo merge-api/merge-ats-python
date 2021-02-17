@@ -153,7 +153,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         email="hello@merge.dev",
         disabled=True,
         remote_created_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        access_role=,
+        access_role="access_role_example",
     ) # PatchedRemoteUser |  (optional)
 
     # example passing only required values which don't have defaults set

@@ -154,10 +154,10 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         remote_id="76",
         candidate="f963f34d-3d2f-4f77-b557-cf36bc7e6498",
         submitted_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        race=,
-        gender=,
-        veteran_status=,
-        disability_status=,
+        race="race_example",
+        gender="gender_example",
+        veteran_status="veteran_status_example",
+        disability_status="disability_status_example",
     ) # PatchedEEOC |  (optional)
 
     # example passing only required values which don't have defaults set

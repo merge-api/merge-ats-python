@@ -161,7 +161,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         interviewer="bbb519a3-246e-4b95-b6b3-dba16107ba6b",
         remote_created_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         submitted_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        overall_recommendation=,
+        overall_recommendation="overall_recommendation_example",
     ) # PatchedScorecard |  (optional)
 
     # example passing only required values which don't have defaults set

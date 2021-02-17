@@ -76,7 +76,7 @@ class PhoneNumber(ModelNormal):
         """
         return {
             'value': (str, none_type,),  # noqa: E501
-            'phone_number_type': (object, none_type,),  # noqa: E501
+            'phone_number_type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -136,7 +136,7 @@ class PhoneNumber(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             value (str, none_type): The phone number.. [optional]  # noqa: E501
-            phone_number_type (object, none_type): The type of phone number.. [optional]  # noqa: E501
+            phone_number_type (str, none_type): The type of phone number.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

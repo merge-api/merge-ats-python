@@ -151,7 +151,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         id="022a2bef-57e5-4def-8ed2-7c41bd9a5ed8",
         remote_id="8765432",
         name="Software Engineer",
-        status=,
+        status="status_example",
         remote_created_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         remote_updated_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
         confidential=True,

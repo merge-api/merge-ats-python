@@ -82,7 +82,7 @@ class PatchedScorecard(ModelNormal):
             'interviewer': (str, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'submitted_at': (datetime, none_type,),  # noqa: E501
-            'overall_recommendation': (object, none_type,),  # noqa: E501
+            'overall_recommendation': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,7 +154,7 @@ class PatchedScorecard(ModelNormal):
             interviewer (str, none_type): The interviewer doing the scoring.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's scorecard was created.. [optional]  # noqa: E501
             submitted_at (datetime, none_type): When the scorecard was submitted.. [optional]  # noqa: E501
-            overall_recommendation (object, none_type): The inteviewer's recommendation.. [optional]  # noqa: E501
+            overall_recommendation (str, none_type): The inteviewer's recommendation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
