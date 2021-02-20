@@ -61,6 +61,7 @@ class ScorecardsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 interview_id (str): If provided, will only return scorecards for this interview.. [optional]
                 interviewer_id (str): If provided, will only return scorecards for this interviewer.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -134,6 +135,7 @@ class ScorecardsApi(object):
                     'created_before',
                     'cursor',
                     'expand',
+                    'include_remote_data',
                     'interview_id',
                     'interviewer_id',
                     'modified_after',
@@ -181,6 +183,8 @@ class ScorecardsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                     'interview_id':
                         (str,),
                     'interviewer_id':
@@ -201,6 +205,7 @@ class ScorecardsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_remote_data': 'include_remote_data',
                     'interview_id': 'interview_id',
                     'interviewer_id': 'interviewer_id',
                     'modified_after': 'modified_after',
@@ -215,6 +220,7 @@ class ScorecardsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_remote_data': 'query',
                     'interview_id': 'query',
                     'interviewer_id': 'query',
                     'modified_after': 'query',
@@ -256,6 +262,7 @@ class ScorecardsApi(object):
 
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -322,6 +329,7 @@ class ScorecardsApi(object):
                     'x_account_token',
                     'id',
                     'expand',
+                    'include_remote_data',
                 ],
                 'required': [
                     'x_account_token',
@@ -357,16 +365,20 @@ class ScorecardsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
+                    'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
+                    'include_remote_data': 'query',
                 },
                 'collection_format_map': {
                 }

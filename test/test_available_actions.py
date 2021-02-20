@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import MergeATSClient
+from MergeATSClient.model.account_integration import AccountIntegration
 from MergeATSClient.model.model_operation import ModelOperation
+globals()['AccountIntegration'] = AccountIntegration
 globals()['ModelOperation'] = ModelOperation
 from MergeATSClient.model.available_actions import AvailableActions
 

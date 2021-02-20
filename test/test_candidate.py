@@ -15,10 +15,12 @@ import unittest
 import MergeATSClient
 from MergeATSClient.model.email_address import EmailAddress
 from MergeATSClient.model.phone_number import PhoneNumber
+from MergeATSClient.model.remote_data import RemoteData
 from MergeATSClient.model.tag import Tag
 from MergeATSClient.model.url import Url
 globals()['EmailAddress'] = EmailAddress
 globals()['PhoneNumber'] = PhoneNumber
+globals()['RemoteData'] = RemoteData
 globals()['Tag'] = Tag
 globals()['Url'] = Url
 from MergeATSClient.model.candidate import Candidate
