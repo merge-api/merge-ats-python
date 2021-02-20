@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **gender** | **str, none_type** | The candidate&#39;s gender. | [optional] 
 **veteran_status** | **str, none_type** | The candidate&#39;s veteran status. | [optional] 
 **disability_status** | **str, none_type** | The candidate&#39;s disability status. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

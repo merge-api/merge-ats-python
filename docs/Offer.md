@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **sent_at** | **datetime, none_type** | When the offer was sent. | [optional] 
 **start_date** | **datetime, none_type** | The offered start date. | [optional] 
 **status** | **str, none_type** | The offer&#39;s status. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

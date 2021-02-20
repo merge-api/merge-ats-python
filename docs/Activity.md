@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **subject** | **str, none_type** | The activity&#39;s subject. | [optional] 
 **body** | **str, none_type** | The activity&#39;s body. | [optional] 
 **visibility** | **str, none_type** | The activity&#39;s visibility. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

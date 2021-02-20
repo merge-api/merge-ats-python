@@ -61,6 +61,7 @@ class InterviewsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 job_interview_stage_id (str): If provided, will only return interviews at this stage.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -134,6 +135,7 @@ class InterviewsApi(object):
                     'created_before',
                     'cursor',
                     'expand',
+                    'include_remote_data',
                     'job_interview_stage_id',
                     'modified_after',
                     'modified_before',
@@ -189,6 +191,8 @@ class InterviewsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                     'job_interview_stage_id':
                         (str,),
                     'modified_after':
@@ -209,6 +213,7 @@ class InterviewsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_remote_data': 'include_remote_data',
                     'job_interview_stage_id': 'job_interview_stage_id',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -223,6 +228,7 @@ class InterviewsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_remote_data': 'query',
                     'job_interview_stage_id': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
@@ -264,6 +270,7 @@ class InterviewsApi(object):
 
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -330,6 +337,7 @@ class InterviewsApi(object):
                     'x_account_token',
                     'id',
                     'expand',
+                    'include_remote_data',
                 ],
                 'required': [
                     'x_account_token',
@@ -373,16 +381,20 @@ class InterviewsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
+                    'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
+                    'include_remote_data': 'query',
                 },
                 'collection_format_map': {
                 }
