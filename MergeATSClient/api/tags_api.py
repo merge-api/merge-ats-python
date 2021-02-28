@@ -193,6 +193,7 @@ class TagsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
@@ -262,6 +263,7 @@ class TagsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'include_remote_data',
                     'modified_after',
                     'modified_before',
                     'page_size',
@@ -292,6 +294,8 @@ class TagsApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                     'modified_after':
                         (datetime,),
                     'modified_before':
@@ -306,6 +310,7 @@ class TagsApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
@@ -316,6 +321,7 @@ class TagsApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',

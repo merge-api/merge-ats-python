@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s scorecard was created. | [optional] 
 **submitted_at** | **datetime, none_type** | When the scorecard was submitted. | [optional] 
 **overall_recommendation** | **str, none_type** | The inteviewer&#39;s recommendation. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

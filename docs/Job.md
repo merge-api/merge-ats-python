@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **departments** | **[str]** |  | [optional] 
 **offices** | **[str]** |  | [optional] 
 **hiring_managers** | **[str]** |  | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

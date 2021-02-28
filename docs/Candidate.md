@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **tags** | [**[Tag]**](Tag.md) |  | [optional] [readonly] 
 **applications** | **[str]** |  | [optional] [readonly] 
 **attachments** | **[str]** |  | [optional] [readonly] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

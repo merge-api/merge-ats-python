@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **credited_to** | **str, none_type** | The user credited for this application. | [optional] 
 **current_stage** | **str, none_type** | The application&#39;s current stage. | [optional] 
 **reject_reason** | **str, none_type** | The application&#39;s reason for rejection. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

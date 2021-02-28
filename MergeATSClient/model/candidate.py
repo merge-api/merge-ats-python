@@ -32,10 +32,12 @@ from MergeATSClient.model_utils import (  # noqa: F401
 def lazy_import():
     from MergeATSClient.model.email_address import EmailAddress
     from MergeATSClient.model.phone_number import PhoneNumber
+    from MergeATSClient.model.remote_data import RemoteData
     from MergeATSClient.model.tag import Tag
     from MergeATSClient.model.url import Url
     globals()['EmailAddress'] = EmailAddress
     globals()['PhoneNumber'] = PhoneNumber
+    globals()['RemoteData'] = RemoteData
     globals()['Tag'] = Tag
     globals()['Url'] = Url
 
@@ -104,6 +106,7 @@ class Candidate(ModelNormal):
             'tags': ([Tag],),  # noqa: E501
             'applications': ([str],),  # noqa: E501
             'attachments': ([str],),  # noqa: E501
+            'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,6 +133,7 @@ class Candidate(ModelNormal):
         'tags': 'tags',  # noqa: E501
         'applications': 'applications',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
+        'remote_data': 'remote_data',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -196,6 +200,7 @@ class Candidate(ModelNormal):
             tags ([Tag]): [optional]  # noqa: E501
             applications ([str]): [optional]  # noqa: E501
             attachments ([str]): [optional]  # noqa: E501
+            remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

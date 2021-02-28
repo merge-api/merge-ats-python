@@ -17,6 +17,7 @@ MergeATSClient/api/jobs_api.py
 MergeATSClient/api/link_token_api.py
 MergeATSClient/api/offers_api.py
 MergeATSClient/api/offices_api.py
+MergeATSClient/api/passthrough_api.py
 MergeATSClient/api/reject_reasons_api.py
 MergeATSClient/api/scorecards_api.py
 MergeATSClient/api/tags_api.py
@@ -27,6 +28,7 @@ MergeATSClient/configuration.py
 MergeATSClient/exceptions.py
 MergeATSClient/model/__init__.py
 MergeATSClient/model/access_role_enum.py
+MergeATSClient/model/account_integration.py
 MergeATSClient/model/account_token.py
 MergeATSClient/model/activity.py
 MergeATSClient/model/activity_type_enum.py
@@ -34,6 +36,7 @@ MergeATSClient/model/application.py
 MergeATSClient/model/attachment.py
 MergeATSClient/model/available_actions.py
 MergeATSClient/model/candidate.py
+MergeATSClient/model/data_passthrough.py
 MergeATSClient/model/department.py
 MergeATSClient/model/disability_status_enum.py
 MergeATSClient/model/eeoc.py
@@ -46,6 +49,7 @@ MergeATSClient/model/job.py
 MergeATSClient/model/job_interview_stage.py
 MergeATSClient/model/job_status_enum.py
 MergeATSClient/model/link_token.py
+MergeATSClient/model/method_enum.py
 MergeATSClient/model/model_operation.py
 MergeATSClient/model/offer.py
 MergeATSClient/model/offer_status_enum.py
@@ -70,6 +74,8 @@ MergeATSClient/model/phone_number.py
 MergeATSClient/model/phone_number_type_enum.py
 MergeATSClient/model/race_enum.py
 MergeATSClient/model/reject_reason.py
+MergeATSClient/model/remote_data.py
+MergeATSClient/model/remote_response.py
 MergeATSClient/model/remote_user.py
 MergeATSClient/model/scheduled_interview.py
 MergeATSClient/model/scheduled_interview_status_enum.py
@@ -85,6 +91,7 @@ MergeATSClient/models/__init__.py
 MergeATSClient/rest.py
 README.md
 docs/AccessRoleEnum.md
+docs/AccountIntegration.md
 docs/AccountToken.md
 docs/AccountTokenApi.md
 docs/ActivitiesApi.md
@@ -98,6 +105,7 @@ docs/AvailableActions.md
 docs/AvailableActionsApi.md
 docs/Candidate.md
 docs/CandidatesApi.md
+docs/DataPassthrough.md
 docs/Department.md
 docs/DepartmentsApi.md
 docs/DisabilityStatusEnum.md
@@ -116,6 +124,7 @@ docs/JobStatusEnum.md
 docs/JobsApi.md
 docs/LinkToken.md
 docs/LinkTokenApi.md
+docs/MethodEnum.md
 docs/ModelOperation.md
 docs/Offer.md
 docs/OfferStatusEnum.md
@@ -138,11 +147,14 @@ docs/PaginatedRemoteUserList.md
 docs/PaginatedScheduledInterviewList.md
 docs/PaginatedScorecardList.md
 docs/PaginatedTagList.md
+docs/PassthroughApi.md
 docs/PhoneNumber.md
 docs/PhoneNumberTypeEnum.md
 docs/RaceEnum.md
 docs/RejectReason.md
 docs/RejectReasonsApi.md
+docs/RemoteData.md
+docs/RemoteResponse.md
 docs/RemoteUser.md
 docs/ScheduledInterview.md
 docs/ScheduledInterviewStatusEnum.md

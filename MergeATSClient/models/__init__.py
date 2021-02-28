@@ -10,6 +10,7 @@
 # sys.setrecursionlimit(n)
 
 from MergeATSClient.model.access_role_enum import AccessRoleEnum
+from MergeATSClient.model.account_integration import AccountIntegration
 from MergeATSClient.model.account_token import AccountToken
 from MergeATSClient.model.activity import Activity
 from MergeATSClient.model.activity_type_enum import ActivityTypeEnum
@@ -17,6 +18,7 @@ from MergeATSClient.model.application import Application
 from MergeATSClient.model.attachment import Attachment
 from MergeATSClient.model.available_actions import AvailableActions
 from MergeATSClient.model.candidate import Candidate
+from MergeATSClient.model.data_passthrough import DataPassthrough
 from MergeATSClient.model.department import Department
 from MergeATSClient.model.disability_status_enum import DisabilityStatusEnum
 from MergeATSClient.model.eeoc import EEOC
@@ -29,6 +31,7 @@ from MergeATSClient.model.job import Job
 from MergeATSClient.model.job_interview_stage import JobInterviewStage
 from MergeATSClient.model.job_status_enum import JobStatusEnum
 from MergeATSClient.model.link_token import LinkToken
+from MergeATSClient.model.method_enum import MethodEnum
 from MergeATSClient.model.model_operation import ModelOperation
 from MergeATSClient.model.offer import Offer
 from MergeATSClient.model.offer_status_enum import OfferStatusEnum
@@ -53,6 +56,8 @@ from MergeATSClient.model.phone_number import PhoneNumber
 from MergeATSClient.model.phone_number_type_enum import PhoneNumberTypeEnum
 from MergeATSClient.model.race_enum import RaceEnum
 from MergeATSClient.model.reject_reason import RejectReason
+from MergeATSClient.model.remote_data import RemoteData
+from MergeATSClient.model.remote_response import RemoteResponse
 from MergeATSClient.model.remote_user import RemoteUser
 from MergeATSClient.model.scheduled_interview import ScheduledInterview
 from MergeATSClient.model.scheduled_interview_status_enum import ScheduledInterviewStatusEnum

@@ -125,7 +125,11 @@ Class | Method | HTTP request | Description
 *OfficesApi* | [**offices_create**](docs/OfficesApi.md#offices_create) | **POST** /offices | 
 *OfficesApi* | [**offices_list**](docs/OfficesApi.md#offices_list) | **GET** /offices | 
 *OfficesApi* | [**offices_retrieve**](docs/OfficesApi.md#offices_retrieve) | **GET** /offices/{id} | 
+<<<<<<< HEAD
 *RejectReasonsApi* | [**reject_reasons_create**](docs/RejectReasonsApi.md#reject_reasons_create) | **POST** /reject-reasons | 
+=======
+*PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
+>>>>>>> main
 *RejectReasonsApi* | [**reject_reasons_list**](docs/RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
 *ScorecardsApi* | [**scorecards_create**](docs/ScorecardsApi.md#scorecards_create) | **POST** /scorecards | 
@@ -141,6 +145,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessRoleEnum](docs/AccessRoleEnum.md)
+ - [AccountIntegration](docs/AccountIntegration.md)
  - [AccountToken](docs/AccountToken.md)
  - [Activity](docs/Activity.md)
  - [ActivityTypeEnum](docs/ActivityTypeEnum.md)
@@ -148,6 +153,7 @@ Class | Method | HTTP request | Description
  - [Attachment](docs/Attachment.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
+ - [DataPassthrough](docs/DataPassthrough.md)
  - [Department](docs/Department.md)
  - [DisabilityStatusEnum](docs/DisabilityStatusEnum.md)
  - [EEOC](docs/EEOC.md)
@@ -160,6 +166,7 @@ Class | Method | HTTP request | Description
  - [JobInterviewStage](docs/JobInterviewStage.md)
  - [JobStatusEnum](docs/JobStatusEnum.md)
  - [LinkToken](docs/LinkToken.md)
+ - [MethodEnum](docs/MethodEnum.md)
  - [ModelOperation](docs/ModelOperation.md)
  - [Offer](docs/Offer.md)
  - [OfferStatusEnum](docs/OfferStatusEnum.md)
@@ -184,6 +191,8 @@ Class | Method | HTTP request | Description
  - [PhoneNumberTypeEnum](docs/PhoneNumberTypeEnum.md)
  - [RaceEnum](docs/RaceEnum.md)
  - [RejectReason](docs/RejectReason.md)
+ - [RemoteData](docs/RemoteData.md)
+ - [RemoteResponse](docs/RemoteResponse.md)
  - [RemoteUser](docs/RemoteUser.md)
  - [ScheduledInterview](docs/ScheduledInterview.md)
  - [ScheduledInterviewStatusEnum](docs/ScheduledInterviewStatusEnum.md)
