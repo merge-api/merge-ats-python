@@ -30,11 +30,13 @@ from MergeATSClient.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
+    from MergeATSClient.model.application import Application
     from MergeATSClient.model.email_address import EmailAddress
     from MergeATSClient.model.phone_number import PhoneNumber
     from MergeATSClient.model.remote_data import RemoteData
     from MergeATSClient.model.tag import Tag
     from MergeATSClient.model.url import Url
+    globals()['Application'] = Application
     globals()['EmailAddress'] = EmailAddress
     globals()['PhoneNumber'] = PhoneNumber
     globals()['RemoteData'] = RemoteData
@@ -104,7 +106,7 @@ class Candidate(ModelNormal):
             'email_addresses': ([EmailAddress],),  # noqa: E501
             'urls': ([Url],),  # noqa: E501
             'tags': ([Tag],),  # noqa: E501
-            'applications': ([str],),  # noqa: E501
+            'applications': ([Application],),  # noqa: E501
             'attachments': ([str],),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
@@ -198,7 +200,7 @@ class Candidate(ModelNormal):
             email_addresses ([EmailAddress]): [optional]  # noqa: E501
             urls ([Url]): [optional]  # noqa: E501
             tags ([Tag]): [optional]  # noqa: E501
-            applications ([str]): [optional]  # noqa: E501
+            applications ([Application]): [optional]  # noqa: E501
             attachments ([str]): [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """

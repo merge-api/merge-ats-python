@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **email_addresses** | [**[EmailAddress]**](EmailAddress.md) |  | [optional] 
 **urls** | [**[Url]**](Url.md) |  | [optional] 
 **tags** | [**[Tag]**](Tag.md) |  | [optional] [readonly] 
-**applications** | **[str]** |  | [optional] [readonly] 
+**applications** | [**[Application]**](Application.md) |  | [optional] 
 **attachments** | **[str]** |  | [optional] [readonly] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 

@@ -90,54 +90,37 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
-*ActivitiesApi* | [**activities_create**](docs/ActivitiesApi.md#activities_create) | **POST** /activities | 
 *ActivitiesApi* | [**activities_list**](docs/ActivitiesApi.md#activities_list) | **GET** /activities | 
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
-*ApplicationsApi* | [**applications_create**](docs/ApplicationsApi.md#applications_create) | **POST** /applications | 
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
-*AttachmentsApi* | [**attachments_create**](docs/AttachmentsApi.md#attachments_create) | **POST** /attachments | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
 *AttachmentsApi* | [**attachments_retrieve**](docs/AttachmentsApi.md#attachments_retrieve) | **GET** /attachments/{id} | 
 *AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
-*CandidatesApi* | [**candidates_create**](docs/CandidatesApi.md#candidates_create) | **POST** /candidates | 
 *CandidatesApi* | [**candidates_list**](docs/CandidatesApi.md#candidates_list) | **GET** /candidates | 
 *CandidatesApi* | [**candidates_retrieve**](docs/CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
-*DepartmentsApi* | [**departments_create**](docs/DepartmentsApi.md#departments_create) | **POST** /departments | 
 *DepartmentsApi* | [**departments_list**](docs/DepartmentsApi.md#departments_list) | **GET** /departments | 
 *DepartmentsApi* | [**departments_retrieve**](docs/DepartmentsApi.md#departments_retrieve) | **GET** /departments/{id} | 
-*EeocsApi* | [**eeocs_create**](docs/EeocsApi.md#eeocs_create) | **POST** /eeocs | 
 *EeocsApi* | [**eeocs_list**](docs/EeocsApi.md#eeocs_list) | **GET** /eeocs | 
 *EeocsApi* | [**eeocs_retrieve**](docs/EeocsApi.md#eeocs_retrieve) | **GET** /eeocs/{id} | 
-*InterviewsApi* | [**interviews_create**](docs/InterviewsApi.md#interviews_create) | **POST** /interviews | 
 *InterviewsApi* | [**interviews_list**](docs/InterviewsApi.md#interviews_list) | **GET** /interviews | 
 *InterviewsApi* | [**interviews_retrieve**](docs/InterviewsApi.md#interviews_retrieve) | **GET** /interviews/{id} | 
-*JobInterviewStagesApi* | [**job_interview_stages_create**](docs/JobInterviewStagesApi.md#job_interview_stages_create) | **POST** /job-interview-stages | 
 *JobInterviewStagesApi* | [**job_interview_stages_list**](docs/JobInterviewStagesApi.md#job_interview_stages_list) | **GET** /job-interview-stages | 
 *JobInterviewStagesApi* | [**job_interview_stages_retrieve**](docs/JobInterviewStagesApi.md#job_interview_stages_retrieve) | **GET** /job-interview-stages/{id} | 
-*JobsApi* | [**jobs_create**](docs/JobsApi.md#jobs_create) | **POST** /jobs | 
 *JobsApi* | [**jobs_list**](docs/JobsApi.md#jobs_list) | **GET** /jobs | 
 *JobsApi* | [**jobs_retrieve**](docs/JobsApi.md#jobs_retrieve) | **GET** /jobs/{id} | 
 *LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
-*OffersApi* | [**offers_create**](docs/OffersApi.md#offers_create) | **POST** /offers | 
 *OffersApi* | [**offers_list**](docs/OffersApi.md#offers_list) | **GET** /offers | 
 *OffersApi* | [**offers_retrieve**](docs/OffersApi.md#offers_retrieve) | **GET** /offers/{id} | 
-*OfficesApi* | [**offices_create**](docs/OfficesApi.md#offices_create) | **POST** /offices | 
 *OfficesApi* | [**offices_list**](docs/OfficesApi.md#offices_list) | **GET** /offices | 
 *OfficesApi* | [**offices_retrieve**](docs/OfficesApi.md#offices_retrieve) | **GET** /offices/{id} | 
-<<<<<<< HEAD
-*RejectReasonsApi* | [**reject_reasons_create**](docs/RejectReasonsApi.md#reject_reasons_create) | **POST** /reject-reasons | 
-=======
 *PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
->>>>>>> main
+*RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
 *RejectReasonsApi* | [**reject_reasons_list**](docs/RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
-*ScorecardsApi* | [**scorecards_create**](docs/ScorecardsApi.md#scorecards_create) | **POST** /scorecards | 
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
-*TagsApi* | [**tags_create**](docs/TagsApi.md#tags_create) | **POST** /tags | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
-*UsersApi* | [**users_create**](docs/UsersApi.md#users_create) | **POST** /users | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
 
@@ -161,7 +144,6 @@ Class | Method | HTTP request | Description
  - [EmailAddressTypeEnum](docs/EmailAddressTypeEnum.md)
  - [EndUserDetails](docs/EndUserDetails.md)
  - [GenderEnum](docs/GenderEnum.md)
- - [IntegrationPublic](docs/IntegrationPublic.md)
  - [Job](docs/Job.md)
  - [JobInterviewStage](docs/JobInterviewStage.md)
  - [JobStatusEnum](docs/JobStatusEnum.md)
@@ -192,6 +174,8 @@ Class | Method | HTTP request | Description
  - [RaceEnum](docs/RaceEnum.md)
  - [RejectReason](docs/RejectReason.md)
  - [RemoteData](docs/RemoteData.md)
+ - [RemoteKey](docs/RemoteKey.md)
+ - [RemoteKeyForRegeneration](docs/RemoteKeyForRegeneration.md)
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RemoteUser](docs/RemoteUser.md)
  - [ScheduledInterview](docs/ScheduledInterview.md)

@@ -18,6 +18,7 @@ MergeATSClient/api/link_token_api.py
 MergeATSClient/api/offers_api.py
 MergeATSClient/api/offices_api.py
 MergeATSClient/api/passthrough_api.py
+MergeATSClient/api/regenerate_key_api.py
 MergeATSClient/api/reject_reasons_api.py
 MergeATSClient/api/scorecards_api.py
 MergeATSClient/api/tags_api.py
@@ -44,7 +45,6 @@ MergeATSClient/model/email_address.py
 MergeATSClient/model/email_address_type_enum.py
 MergeATSClient/model/end_user_details.py
 MergeATSClient/model/gender_enum.py
-MergeATSClient/model/integration_public.py
 MergeATSClient/model/job.py
 MergeATSClient/model/job_interview_stage.py
 MergeATSClient/model/job_status_enum.py
@@ -75,6 +75,8 @@ MergeATSClient/model/phone_number_type_enum.py
 MergeATSClient/model/race_enum.py
 MergeATSClient/model/reject_reason.py
 MergeATSClient/model/remote_data.py
+MergeATSClient/model/remote_key.py
+MergeATSClient/model/remote_key_for_regeneration.py
 MergeATSClient/model/remote_response.py
 MergeATSClient/model/remote_user.py
 MergeATSClient/model/scheduled_interview.py
@@ -115,7 +117,6 @@ docs/EmailAddress.md
 docs/EmailAddressTypeEnum.md
 docs/EndUserDetails.md
 docs/GenderEnum.md
-docs/IntegrationPublic.md
 docs/InterviewsApi.md
 docs/Job.md
 docs/JobInterviewStage.md
@@ -151,9 +152,12 @@ docs/PassthroughApi.md
 docs/PhoneNumber.md
 docs/PhoneNumberTypeEnum.md
 docs/RaceEnum.md
+docs/RegenerateKeyApi.md
 docs/RejectReason.md
 docs/RejectReasonsApi.md
 docs/RemoteData.md
+docs/RemoteKey.md
+docs/RemoteKeyForRegeneration.md
 docs/RemoteResponse.md
 docs/RemoteUser.md
 docs/ScheduledInterview.md
@@ -173,4 +177,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_regenerate_key_api.py
+test/test_remote_key.py
+test/test_remote_key_for_regeneration.py
 tox.ini

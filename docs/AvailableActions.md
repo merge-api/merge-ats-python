@@ -4,12 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-<<<<<<< HEAD
-**integration** | [**IntegrationPublic**](IntegrationPublic.md) |  | 
-=======
 **integration** | [**AccountIntegration**](AccountIntegration.md) |  | 
 **passthrough_available** | **bool** |  | 
->>>>>>> main
 **available_model_operations** | [**[ModelOperation]**](ModelOperation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

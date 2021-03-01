@@ -110,8 +110,6 @@ class AvailableActions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-
-
     def __init__(self, integration, passthrough_available, *args, **kwargs):  # noqa: E501
         """AvailableActions - a model defined in OpenAPI
 

@@ -29,6 +29,7 @@ from MergeATSClient.api.link_token_api import LinkTokenApi
 from MergeATSClient.api.offers_api import OffersApi
 from MergeATSClient.api.offices_api import OfficesApi
 from MergeATSClient.api.passthrough_api import PassthroughApi
+from MergeATSClient.api.regenerate_key_api import RegenerateKeyApi
 from MergeATSClient.api.reject_reasons_api import RejectReasonsApi
 from MergeATSClient.api.scorecards_api import ScorecardsApi
 from MergeATSClient.api.tags_api import TagsApi
