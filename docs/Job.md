@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
 **name** | **str, none_type** | The job&#39;s name. | [optional] 
+**description** | **str, none_type** | The job&#39;s description. | [optional] 
 **status** | **str, none_type** | The job&#39;s status. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s job was created. | [optional] 
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s job was updated. | [optional] 
