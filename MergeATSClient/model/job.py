@@ -83,6 +83,7 @@ class Job(ModelNormal):
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
@@ -102,6 +103,7 @@ class Job(ModelNormal):
         'id': 'id',  # noqa: E501
         'remote_id': 'remote_id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'status': 'status',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
@@ -161,6 +163,7 @@ class Job(ModelNormal):
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             name (str, none_type): The job's name.. [optional]  # noqa: E501
+            description (str, none_type): The job's description.. [optional]  # noqa: E501
             status (str, none_type): The job's status.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's job was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's job was updated.. [optional]  # noqa: E501
