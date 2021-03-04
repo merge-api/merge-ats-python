@@ -84,10 +84,10 @@ class EEOC(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'candidate': (str, none_type,),  # noqa: E501
             'submitted_at': (datetime, none_type,),  # noqa: E501
-            'race': (str, none_type,),  # noqa: E501
-            'gender': (str, none_type,),  # noqa: E501
-            'veteran_status': (str, none_type,),  # noqa: E501
-            'disability_status': (str, none_type,),  # noqa: E501
+            'race': (object, none_type,),  # noqa: E501
+            'gender': (object, none_type,),  # noqa: E501
+            'veteran_status': (object, none_type,),  # noqa: E501
+            'disability_status': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -158,10 +158,10 @@ class EEOC(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             candidate (str, none_type): The candidate being represented.. [optional]  # noqa: E501
             submitted_at (datetime, none_type): When the information was submitted.. [optional]  # noqa: E501
-            race (str, none_type): The candidate's race.. [optional]  # noqa: E501
-            gender (str, none_type): The candidate's gender.. [optional]  # noqa: E501
-            veteran_status (str, none_type): The candidate's veteran status.. [optional]  # noqa: E501
-            disability_status (str, none_type): The candidate's disability status.. [optional]  # noqa: E501
+            race (object, none_type): The candidate's race.. [optional]  # noqa: E501
+            gender (object, none_type): The candidate's gender.. [optional]  # noqa: E501
+            veteran_status (object, none_type): The candidate's veteran status.. [optional]  # noqa: E501
+            disability_status (object, none_type): The candidate's disability status.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

@@ -90,7 +90,7 @@ class RemoteUser(ModelNormal):
             'email': (str, none_type,),  # noqa: E501
             'disabled': (bool, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
-            'access_role': (str, none_type,),  # noqa: E501
+            'access_role': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -164,7 +164,7 @@ class RemoteUser(ModelNormal):
             email (str, none_type): The user's email.. [optional]  # noqa: E501
             disabled (bool, none_type): Whether the user's account had been disabled.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's user was created.. [optional]  # noqa: E501
-            access_role (str, none_type): The user's role.. [optional]  # noqa: E501
+            access_role (object, none_type): The user's role.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 
