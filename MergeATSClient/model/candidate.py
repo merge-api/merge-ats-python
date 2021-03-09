@@ -33,12 +33,10 @@ def lazy_import():
     from MergeATSClient.model.email_address import EmailAddress
     from MergeATSClient.model.phone_number import PhoneNumber
     from MergeATSClient.model.remote_data import RemoteData
-    from MergeATSClient.model.tag import Tag
     from MergeATSClient.model.url import Url
     globals()['EmailAddress'] = EmailAddress
     globals()['PhoneNumber'] = PhoneNumber
     globals()['RemoteData'] = RemoteData
-    globals()['Tag'] = Tag
     globals()['Url'] = Url
 
 
@@ -103,7 +101,7 @@ class Candidate(ModelNormal):
             'phone_numbers': ([PhoneNumber],),  # noqa: E501
             'email_addresses': ([EmailAddress],),  # noqa: E501
             'urls': ([Url],),  # noqa: E501
-            'tags': ([Tag],),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
             'applications': ([str],),  # noqa: E501
             'attachments': ([str],),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
@@ -193,11 +191,11 @@ class Candidate(ModelNormal):
             last_interaction_at (datetime, none_type): When the most recent candidate interaction occurred.. [optional]  # noqa: E501
             is_private (bool, none_type): Whether or not the candidate is private.. [optional]  # noqa: E501
             can_email (bool, none_type): Whether or not the candidate can be emailed.. [optional]  # noqa: E501
-            locations ([str, none_type], none_type): [optional]  # noqa: E501
+            locations ([str, none_type], none_type): The candidate's locations.. [optional]  # noqa: E501
             phone_numbers ([PhoneNumber]): [optional]  # noqa: E501
             email_addresses ([EmailAddress]): [optional]  # noqa: E501
             urls ([Url]): [optional]  # noqa: E501
-            tags ([Tag]): [optional]  # noqa: E501
+            tags ([str]): [optional]  # noqa: E501
             applications ([str]): [optional]  # noqa: E501
             attachments ([str]): [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
