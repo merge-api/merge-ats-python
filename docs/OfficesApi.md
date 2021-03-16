@@ -4,9 +4,102 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**offices_create**](OfficesApi.md#offices_create) | **POST** /offices | 
 [**offices_list**](OfficesApi.md#offices_list) | **GET** /offices | 
 [**offices_retrieve**](OfficesApi.md#offices_retrieve) | **GET** /offices/{id} | 
 
+
+# **offices_create**
+> Office offices_create(x_account_token, remote_user_id)
+
+
+
+Creates an `Office` object with the given values.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeATSClient
+from MergeATSClient.api import offices_api
+from MergeATSClient.model.office_request import OfficeRequest
+from MergeATSClient.model.office import Office
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeATSClient.Configuration(
+    host = "https://api.merge.dev/api/ats/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeATSClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = offices_api.OfficesApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    remote_user_id = "remote_user_id_example" # str | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+    office_request = OfficeRequest(
+        remote_id="876556788",
+        name="SF Office",
+        location="Embarcadero Center 2",
+    ) # OfficeRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.offices_create(x_account_token, remote_user_id)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling OfficesApi->offices_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.offices_create(x_account_token, remote_user_id, run_async=run_async, office_request=office_request)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling OfficesApi->offices_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **remote_user_id** | **str**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. |
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **office_request** | [**OfficeRequest**](OfficeRequest.md)|  | [optional]
+
+### Return type
+
+[**Office**](Office.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **offices_list**
 > PaginatedOfficeList offices_list(x_account_token)

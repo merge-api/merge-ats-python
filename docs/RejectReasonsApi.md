@@ -4,9 +4,101 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**reject_reasons_create**](RejectReasonsApi.md#reject_reasons_create) | **POST** /reject-reasons | 
 [**reject_reasons_list**](RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
 [**reject_reasons_retrieve**](RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
 
+
+# **reject_reasons_create**
+> RejectReason reject_reasons_create(x_account_token, remote_user_id)
+
+
+
+Creates a `RejectReason` object with the given values.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeATSClient
+from MergeATSClient.api import reject_reasons_api
+from MergeATSClient.model.reject_reason import RejectReason
+from MergeATSClient.model.reject_reason_request import RejectReasonRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeATSClient.Configuration(
+    host = "https://api.merge.dev/api/ats/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeATSClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = reject_reasons_api.RejectReasonsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    remote_user_id = "remote_user_id_example" # str | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+    reject_reason_request = RejectReasonRequest(
+        remote_id="876556788",
+        name="Not passionate enough about APIs.",
+    ) # RejectReasonRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.reject_reasons_create(x_account_token, remote_user_id)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling RejectReasonsApi->reject_reasons_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.reject_reasons_create(x_account_token, remote_user_id, run_async=run_async, reject_reason_request=reject_reason_request)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling RejectReasonsApi->reject_reasons_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **remote_user_id** | **str**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. |
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **reject_reason_request** | [**RejectReasonRequest**](RejectReasonRequest.md)|  | [optional]
+
+### Return type
+
+[**RejectReason**](RejectReason.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reject_reasons_list**
 > PaginatedRejectReasonList reject_reasons_list(x_account_token)
