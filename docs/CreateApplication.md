@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **current_stage** | **str, none_type** | The application&#39;s current stage. | [optional] 
 **reject_reason** | **str, none_type** | The application&#39;s reason for rejection. | [optional] 
 **remote_user_id** | **str** |  | [optional] 
+**email_address** | **str** |  | [optional] 
+**linkedin_url** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

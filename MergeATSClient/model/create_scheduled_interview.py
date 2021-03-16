@@ -85,6 +85,7 @@ class CreateScheduledInterview(ModelNormal):
             'status': (object, none_type,),  # noqa: E501
             'remote_user_id': (str,),  # noqa: E501
             'panel_id': (str,),  # noqa: E501
+            'opportunity_id': (str,),  # noqa: E501
             'company_id': (str,),  # noqa: E501
         }
 
@@ -104,6 +105,7 @@ class CreateScheduledInterview(ModelNormal):
         'status': 'status',  # noqa: E501
         'remote_user_id': 'remote_user_id',  # noqa: E501
         'panel_id': 'panel_id',  # noqa: E501
+        'opportunity_id': 'opportunity_id',  # noqa: E501
         'company_id': 'company_id',  # noqa: E501
     }
 
@@ -163,6 +165,7 @@ class CreateScheduledInterview(ModelNormal):
             status (object, none_type): The interview's status.. [optional]  # noqa: E501
             remote_user_id (str): [optional]  # noqa: E501
             panel_id (str): [optional]  # noqa: E501
+            opportunity_id (str): [optional]  # noqa: E501
             company_id (str): [optional]  # noqa: E501
         """
 
