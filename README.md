@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *OfficesApi* | [**offices_list**](docs/OfficesApi.md#offices_list) | **GET** /offices | 
 *OfficesApi* | [**offices_retrieve**](docs/OfficesApi.md#offices_retrieve) | **GET** /offices/{id} | 
 *PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
+*RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
 *RejectReasonsApi* | [**reject_reasons_list**](docs/RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
@@ -133,13 +134,13 @@ Class | Method | HTTP request | Description
  - [Attachment](docs/Attachment.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
- - [DataPassthrough](docs/DataPassthrough.md)
+ - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [Department](docs/Department.md)
  - [DisabilityStatusEnum](docs/DisabilityStatusEnum.md)
  - [EEOC](docs/EEOC.md)
  - [EmailAddress](docs/EmailAddress.md)
  - [EmailAddressTypeEnum](docs/EmailAddressTypeEnum.md)
- - [EndUserDetails](docs/EndUserDetails.md)
+ - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [GenderEnum](docs/GenderEnum.md)
  - [Job](docs/Job.md)
  - [JobInterviewStage](docs/JobInterviewStage.md)
@@ -171,6 +172,8 @@ Class | Method | HTTP request | Description
  - [RaceEnum](docs/RaceEnum.md)
  - [RejectReason](docs/RejectReason.md)
  - [RemoteData](docs/RemoteData.md)
+ - [RemoteKey](docs/RemoteKey.md)
+ - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RemoteUser](docs/RemoteUser.md)
  - [ScheduledInterview](docs/ScheduledInterview.md)
