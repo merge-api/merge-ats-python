@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
 **candidate** | **str, none_type** | The candidate applying. | [optional] 
 **job** | **str, none_type** | The job being applied for. | [optional] 
-**is_prospect** | **bool, none_type** | Whether or not the application is a prospect. | [optional] 
 **applied_at** | **datetime, none_type** | When the application was submitted. | [optional] 
 **rejected_at** | **datetime, none_type** | When the application was rejected. | [optional] 
 **source** | **str, none_type** | The application&#39;s source. | [optional] 

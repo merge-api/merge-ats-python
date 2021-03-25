@@ -84,7 +84,6 @@ class Application(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'candidate': (str, none_type,),  # noqa: E501
             'job': (str, none_type,),  # noqa: E501
-            'is_prospect': (bool, none_type,),  # noqa: E501
             'applied_at': (datetime, none_type,),  # noqa: E501
             'rejected_at': (datetime, none_type,),  # noqa: E501
             'source': (str, none_type,),  # noqa: E501
@@ -104,7 +103,6 @@ class Application(ModelNormal):
         'remote_id': 'remote_id',  # noqa: E501
         'candidate': 'candidate',  # noqa: E501
         'job': 'job',  # noqa: E501
-        'is_prospect': 'is_prospect',  # noqa: E501
         'applied_at': 'applied_at',  # noqa: E501
         'rejected_at': 'rejected_at',  # noqa: E501
         'source': 'source',  # noqa: E501
@@ -164,7 +162,6 @@ class Application(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             candidate (str, none_type): The candidate applying.. [optional]  # noqa: E501
             job (str, none_type): The job being applied for.. [optional]  # noqa: E501
-            is_prospect (bool, none_type): Whether or not the application is a prospect.. [optional]  # noqa: E501
             applied_at (datetime, none_type): When the application was submitted.. [optional]  # noqa: E501
             rejected_at (datetime, none_type): When the application was rejected.. [optional]  # noqa: E501
             source (str, none_type): The application's source.. [optional]  # noqa: E501

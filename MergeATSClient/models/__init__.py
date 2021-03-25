@@ -18,13 +18,13 @@ from MergeATSClient.model.application import Application
 from MergeATSClient.model.attachment import Attachment
 from MergeATSClient.model.available_actions import AvailableActions
 from MergeATSClient.model.candidate import Candidate
-from MergeATSClient.model.data_passthrough import DataPassthrough
+from MergeATSClient.model.data_passthrough_request import DataPassthroughRequest
 from MergeATSClient.model.department import Department
 from MergeATSClient.model.disability_status_enum import DisabilityStatusEnum
 from MergeATSClient.model.eeoc import EEOC
 from MergeATSClient.model.email_address import EmailAddress
 from MergeATSClient.model.email_address_type_enum import EmailAddressTypeEnum
-from MergeATSClient.model.end_user_details import EndUserDetails
+from MergeATSClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeATSClient.model.gender_enum import GenderEnum
 from MergeATSClient.model.job import Job
 from MergeATSClient.model.job_interview_stage import JobInterviewStage
@@ -56,6 +56,8 @@ from MergeATSClient.model.phone_number_type_enum import PhoneNumberTypeEnum
 from MergeATSClient.model.race_enum import RaceEnum
 from MergeATSClient.model.reject_reason import RejectReason
 from MergeATSClient.model.remote_data import RemoteData
+from MergeATSClient.model.remote_key import RemoteKey
+from MergeATSClient.model.remote_key_for_regeneration_request import RemoteKeyForRegenerationRequest
 from MergeATSClient.model.remote_response import RemoteResponse
 from MergeATSClient.model.remote_user import RemoteUser
 from MergeATSClient.model.scheduled_interview import ScheduledInterview
