@@ -136,7 +136,7 @@ class LinkTokenApi(object):
                 },
                 'openapi_types': {
                     'end_user_details_request':
-                        (EndUserDetailsRequest,),
+                        (EndUserDetailsRequest, EndUserDetails),
                 },
                 'attribute_map': {
                 },
