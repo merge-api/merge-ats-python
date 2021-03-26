@@ -65,7 +65,9 @@ configuration = MergeATSClient.Configuration(
 
 # Configure API key authorization: tokenAuth
 configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
@@ -90,11 +92,14 @@ Class | Method | HTTP request | Description
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *ActivitiesApi* | [**activities_list**](docs/ActivitiesApi.md#activities_list) | **GET** /activities | 
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
+*ApplicationsApi* | [**applications_create**](docs/ApplicationsApi.md#applications_create) | **POST** /applications | 
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
+*ApplicationsApi* | [**applications_partial_update**](docs/ApplicationsApi.md#applications_partial_update) | **PATCH** /applications/{id} | 
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
 *AttachmentsApi* | [**attachments_retrieve**](docs/AttachmentsApi.md#attachments_retrieve) | **GET** /attachments/{id} | 
 *AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
+*CandidatesApi* | [**candidates_create**](docs/CandidatesApi.md#candidates_create) | **POST** /candidates | 
 *CandidatesApi* | [**candidates_list**](docs/CandidatesApi.md#candidates_list) | **GET** /candidates | 
 *CandidatesApi* | [**candidates_retrieve**](docs/CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
 *DepartmentsApi* | [**departments_list**](docs/DepartmentsApi.md#departments_list) | **GET** /departments | 
@@ -131,14 +136,17 @@ Class | Method | HTTP request | Description
  - [Activity](docs/Activity.md)
  - [ActivityTypeEnum](docs/ActivityTypeEnum.md)
  - [Application](docs/Application.md)
+ - [ApplicationRequest](docs/ApplicationRequest.md)
  - [Attachment](docs/Attachment.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
+ - [CandidateRequest](docs/CandidateRequest.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [Department](docs/Department.md)
  - [DisabilityStatusEnum](docs/DisabilityStatusEnum.md)
  - [EEOC](docs/EEOC.md)
  - [EmailAddress](docs/EmailAddress.md)
+ - [EmailAddressRequest](docs/EmailAddressRequest.md)
  - [EmailAddressTypeEnum](docs/EmailAddressTypeEnum.md)
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [GenderEnum](docs/GenderEnum.md)
@@ -167,11 +175,14 @@ Class | Method | HTTP request | Description
  - [PaginatedScheduledInterviewList](docs/PaginatedScheduledInterviewList.md)
  - [PaginatedScorecardList](docs/PaginatedScorecardList.md)
  - [PaginatedTagList](docs/PaginatedTagList.md)
+ - [PatchedApplicationRequest](docs/PatchedApplicationRequest.md)
  - [PhoneNumber](docs/PhoneNumber.md)
+ - [PhoneNumberRequest](docs/PhoneNumberRequest.md)
  - [PhoneNumberTypeEnum](docs/PhoneNumberTypeEnum.md)
  - [RaceEnum](docs/RaceEnum.md)
  - [RejectReason](docs/RejectReason.md)
  - [RemoteData](docs/RemoteData.md)
+ - [RemoteDataRequest](docs/RemoteDataRequest.md)
  - [RemoteKey](docs/RemoteKey.md)
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
@@ -181,6 +192,7 @@ Class | Method | HTTP request | Description
  - [Scorecard](docs/Scorecard.md)
  - [Tag](docs/Tag.md)
  - [Url](docs/Url.md)
+ - [UrlRequest](docs/UrlRequest.md)
  - [UrlTypeEnum](docs/UrlTypeEnum.md)
  - [VeteranStatusEnum](docs/VeteranStatusEnum.md)
  - [VisibilityEnum](docs/VisibilityEnum.md)
