@@ -1,18 +1,18 @@
-# MergeATSClient.LinkTokenApi
+# MergeATSClient.SyncStatusApi
 
 All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**link_token_create**](LinkTokenApi.md#link_token_create) | **POST** /link-token | 
+[**sync_status_retrieve**](SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
 
 
-# **link_token_create**
-> LinkToken link_token_create(end_user_details_request)
+# **sync_status_retrieve**
+> SyncStatus sync_status_retrieve(x_account_token)
 
 
 
-Creates a link token to be used when linking a new end user.
+Get syncing status.
 
 ### Example
 
@@ -20,9 +20,8 @@ Creates a link token to be used when linking a new end user.
 ```python
 import time
 import MergeATSClient
-from MergeATSClient.api import link_token_api
-from MergeATSClient.model.link_token import LinkToken
-from MergeATSClient.model.end_user_details_request import EndUserDetailsRequest
+from MergeATSClient.api import sync_status_api
+from MergeATSClient.model.sync_status import SyncStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -44,34 +43,26 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = link_token_api.LinkTokenApi(api_client)
-    end_user_details_request = EndUserDetailsRequest(
-        end_user_email_address="end_user_email_address_example",
-        end_user_organization_name="end_user_organization_name_example",
-        end_user_origin_id="end_user_origin_id_example",
-        categories=[
-            "hris",
-        ],
-        integration="integration_example",
-    ) # EndUserDetailsRequest | 
+    api_instance = sync_status_api.SyncStatusApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.link_token_create(end_user_details_request)
+        api_response = api_instance.sync_status_retrieve(x_account_token)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
-        print("Exception when calling LinkTokenApi->link_token_create: %s\n" % e)
+        print("Exception when calling SyncStatusApi->sync_status_retrieve: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **end_user_details_request** | [**EndUserDetailsRequest**](EndUserDetailsRequest.md)|  |
+ **x_account_token** | **str**| Token identifying the end user. |
 
 ### Return type
 
-[**LinkToken**](LinkToken.md)
+[**SyncStatus**](SyncStatus.md)
 
 ### Authorization
 
@@ -79,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

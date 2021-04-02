@@ -22,6 +22,7 @@ from MergeATSClient.api.available_actions_api import AvailableActionsApi
 from MergeATSClient.api.candidates_api import CandidatesApi
 from MergeATSClient.api.departments_api import DepartmentsApi
 from MergeATSClient.api.eeocs_api import EeocsApi
+from MergeATSClient.api.generate_key_api import GenerateKeyApi
 from MergeATSClient.api.interviews_api import InterviewsApi
 from MergeATSClient.api.job_interview_stages_api import JobInterviewStagesApi
 from MergeATSClient.api.jobs_api import JobsApi
@@ -32,5 +33,6 @@ from MergeATSClient.api.passthrough_api import PassthroughApi
 from MergeATSClient.api.regenerate_key_api import RegenerateKeyApi
 from MergeATSClient.api.reject_reasons_api import RejectReasonsApi
 from MergeATSClient.api.scorecards_api import ScorecardsApi
+from MergeATSClient.api.sync_status_api import SyncStatusApi
 from MergeATSClient.api.tags_api import TagsApi
 from MergeATSClient.api.users_api import UsersApi

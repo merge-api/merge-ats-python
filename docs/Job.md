@@ -1,6 +1,6 @@
 # Job
 
-# The Job Object ### Description The `Job` object is used to represent a Location offering at a company.  ### Usage Example Fetch from the `LIST Jobs` endpoint and filter by `ID` to show all job postings.
+# The Job Object ### Description The `Job` object is used to represent a Job offering at a company.  ### Usage Example Fetch from the `LIST Jobs` endpoint to show all job postings.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
