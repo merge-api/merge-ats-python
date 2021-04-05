@@ -1,18 +1,18 @@
-# MergeATSClient.LinkTokenApi
+# MergeATSClient.GenerateKeyApi
 
 All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**link_token_create**](LinkTokenApi.md#link_token_create) | **POST** /link-token | 
+[**generate_key_create**](GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
 
 
-# **link_token_create**
-> LinkToken link_token_create(end_user_details_request)
+# **generate_key_create**
+> RemoteKey generate_key_create(generate_remote_key_request)
 
 
 
-Creates a link token to be used when linking a new end user.
+Create a remote key.
 
 ### Example
 
@@ -20,9 +20,9 @@ Creates a link token to be used when linking a new end user.
 ```python
 import time
 import MergeATSClient
-from MergeATSClient.api import link_token_api
-from MergeATSClient.model.link_token import LinkToken
-from MergeATSClient.model.end_user_details_request import EndUserDetailsRequest
+from MergeATSClient.api import generate_key_api
+from MergeATSClient.model.remote_key import RemoteKey
+from MergeATSClient.model.generate_remote_key_request import GenerateRemoteKeyRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -44,34 +44,28 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = link_token_api.LinkTokenApi(api_client)
-    end_user_details_request = EndUserDetailsRequest(
-        end_user_email_address="end_user_email_address_example",
-        end_user_organization_name="end_user_organization_name_example",
-        end_user_origin_id="end_user_origin_id_example",
-        categories=[
-            "hris",
-        ],
-        integration="integration_example",
-    ) # EndUserDetailsRequest | 
+    api_instance = generate_key_api.GenerateKeyApi(api_client)
+    generate_remote_key_request = GenerateRemoteKeyRequest(
+        name="Remote Deployment Key 1",
+    ) # GenerateRemoteKeyRequest | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.link_token_create(end_user_details_request)
+        api_response = api_instance.generate_key_create(generate_remote_key_request)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
-        print("Exception when calling LinkTokenApi->link_token_create: %s\n" % e)
+        print("Exception when calling GenerateKeyApi->generate_key_create: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **end_user_details_request** | [**EndUserDetailsRequest**](EndUserDetailsRequest.md)|  |
+ **generate_remote_key_request** | [**GenerateRemoteKeyRequest**](GenerateRemoteKeyRequest.md)|  |
 
 ### Return type
 
-[**LinkToken**](LinkToken.md)
+[**RemoteKey**](RemoteKey.md)
 
 ### Authorization
 

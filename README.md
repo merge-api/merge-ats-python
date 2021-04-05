@@ -90,17 +90,21 @@ Class | Method | HTTP request | Description
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *ActivitiesApi* | [**activities_list**](docs/ActivitiesApi.md#activities_list) | **GET** /activities | 
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
+*ApplicationsApi* | [**applications_create**](docs/ApplicationsApi.md#applications_create) | **POST** /applications | 
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
+*ApplicationsApi* | [**applications_partial_update**](docs/ApplicationsApi.md#applications_partial_update) | **PATCH** /applications/{id} | 
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
 *AttachmentsApi* | [**attachments_retrieve**](docs/AttachmentsApi.md#attachments_retrieve) | **GET** /attachments/{id} | 
 *AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
+*CandidatesApi* | [**candidates_create**](docs/CandidatesApi.md#candidates_create) | **POST** /candidates | 
 *CandidatesApi* | [**candidates_list**](docs/CandidatesApi.md#candidates_list) | **GET** /candidates | 
 *CandidatesApi* | [**candidates_retrieve**](docs/CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
 *DepartmentsApi* | [**departments_list**](docs/DepartmentsApi.md#departments_list) | **GET** /departments | 
 *DepartmentsApi* | [**departments_retrieve**](docs/DepartmentsApi.md#departments_retrieve) | **GET** /departments/{id} | 
 *EeocsApi* | [**eeocs_list**](docs/EeocsApi.md#eeocs_list) | **GET** /eeocs | 
 *EeocsApi* | [**eeocs_retrieve**](docs/EeocsApi.md#eeocs_retrieve) | **GET** /eeocs/{id} | 
+*GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
 *InterviewsApi* | [**interviews_list**](docs/InterviewsApi.md#interviews_list) | **GET** /interviews | 
 *InterviewsApi* | [**interviews_retrieve**](docs/InterviewsApi.md#interviews_retrieve) | **GET** /interviews/{id} | 
 *JobInterviewStagesApi* | [**job_interview_stages_list**](docs/JobInterviewStagesApi.md#job_interview_stages_list) | **GET** /job-interview-stages | 
@@ -118,6 +122,7 @@ Class | Method | HTTP request | Description
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
+*SyncStatusApi* | [**sync_status_retrieve**](docs/SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
@@ -131,17 +136,21 @@ Class | Method | HTTP request | Description
  - [Activity](docs/Activity.md)
  - [ActivityTypeEnum](docs/ActivityTypeEnum.md)
  - [Application](docs/Application.md)
+ - [ApplicationRequest](docs/ApplicationRequest.md)
  - [Attachment](docs/Attachment.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
+ - [CandidateRequest](docs/CandidateRequest.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [Department](docs/Department.md)
  - [DisabilityStatusEnum](docs/DisabilityStatusEnum.md)
  - [EEOC](docs/EEOC.md)
  - [EmailAddress](docs/EmailAddress.md)
+ - [EmailAddressRequest](docs/EmailAddressRequest.md)
  - [EmailAddressTypeEnum](docs/EmailAddressTypeEnum.md)
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [GenderEnum](docs/GenderEnum.md)
+ - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
  - [Job](docs/Job.md)
  - [JobInterviewStage](docs/JobInterviewStage.md)
  - [JobStatusEnum](docs/JobStatusEnum.md)
@@ -167,11 +176,14 @@ Class | Method | HTTP request | Description
  - [PaginatedScheduledInterviewList](docs/PaginatedScheduledInterviewList.md)
  - [PaginatedScorecardList](docs/PaginatedScorecardList.md)
  - [PaginatedTagList](docs/PaginatedTagList.md)
+ - [PatchedApplicationRequest](docs/PatchedApplicationRequest.md)
  - [PhoneNumber](docs/PhoneNumber.md)
+ - [PhoneNumberRequest](docs/PhoneNumberRequest.md)
  - [PhoneNumberTypeEnum](docs/PhoneNumberTypeEnum.md)
  - [RaceEnum](docs/RaceEnum.md)
  - [RejectReason](docs/RejectReason.md)
  - [RemoteData](docs/RemoteData.md)
+ - [RemoteDataRequest](docs/RemoteDataRequest.md)
  - [RemoteKey](docs/RemoteKey.md)
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
@@ -179,8 +191,10 @@ Class | Method | HTTP request | Description
  - [ScheduledInterview](docs/ScheduledInterview.md)
  - [ScheduledInterviewStatusEnum](docs/ScheduledInterviewStatusEnum.md)
  - [Scorecard](docs/Scorecard.md)
+ - [SyncStatus](docs/SyncStatus.md)
  - [Tag](docs/Tag.md)
  - [Url](docs/Url.md)
+ - [UrlRequest](docs/UrlRequest.md)
  - [UrlTypeEnum](docs/UrlTypeEnum.md)
  - [VeteranStatusEnum](docs/VeteranStatusEnum.md)
  - [VisibilityEnum](docs/VisibilityEnum.md)
