@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
-**application** | **str, none_type** | The application being for the offer. | [optional] 
+**application** | **str, none_type** | The application who is receiving the offer. | [optional] 
 **creator** | **str, none_type** | The user who created the offer. | [optional] 
-**remote_created_at** | **datetime, none_type** | When the third party&#39;s scorecard was created. | [optional] 
+**remote_created_at** | **datetime, none_type** | When the third party&#39;s offer was created. | [optional] 
 **closed_at** | **datetime, none_type** | When the offer was closed. | [optional] 
 **sent_at** | **datetime, none_type** | When the offer was sent. | [optional] 
-**start_date** | **datetime, none_type** | The offered start date. | [optional] 
+**start_date** | **datetime, none_type** | The employment start date on the offer. | [optional] 
 **status** | **object, none_type** | The offer&#39;s status. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 

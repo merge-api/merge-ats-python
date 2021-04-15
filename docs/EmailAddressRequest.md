@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **str, none_type** | The email&#39;s address. | [optional] 
+**value** | **str, none_type** | The email address. | [optional] 
 **email_address_type** | **object, none_type** | The type of email address. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

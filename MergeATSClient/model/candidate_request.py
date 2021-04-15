@@ -171,8 +171,8 @@ class CandidateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            first_name (str, none_type): The user's first name.. [optional]  # noqa: E501
-            last_name (str, none_type): The user's last name.. [optional]  # noqa: E501
+            first_name (str, none_type): The candidate's first name.. [optional]  # noqa: E501
+            last_name (str, none_type): The candidate's last name.. [optional]  # noqa: E501
             company (str, none_type): The candidate's current company.. [optional]  # noqa: E501
             title (str, none_type): The candidate's current title.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's candidate was created.. [optional]  # noqa: E501

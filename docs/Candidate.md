@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
-**first_name** | **str, none_type** | The user&#39;s first name. | [optional] 
-**last_name** | **str, none_type** | The user&#39;s last name. | [optional] 
+**first_name** | **str, none_type** | The candidate&#39;s first name. | [optional] 
+**last_name** | **str, none_type** | The candidate&#39;s last name. | [optional] 
 **company** | **str, none_type** | The candidate&#39;s current company. | [optional] 
 **title** | **str, none_type** | The candidate&#39;s current title. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s candidate was created. | [optional] 
