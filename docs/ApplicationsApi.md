@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 
 
-Updates the current_stage of an `Application` object with the given `id`.
+Updates an `Application` object with the given `id`.
 
 ### Example
 

@@ -63,7 +63,7 @@ class Attachment(ModelNormal):
 
     validations = {
         ('file_url',): {
-            'max_length': 500,
+            'max_length': 2000,
         },
     }
 
@@ -87,6 +87,7 @@ class Attachment(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'file_name': (str, none_type,),  # noqa: E501
             'file_url': (str, none_type,),  # noqa: E501
+            'candidate': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -100,6 +101,7 @@ class Attachment(ModelNormal):
         'remote_id': 'remote_id',  # noqa: E501
         'file_name': 'file_name',  # noqa: E501
         'file_url': 'file_url',  # noqa: E501
+        'candidate': 'candidate',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
     }
 
@@ -153,6 +155,7 @@ class Attachment(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             file_name (str, none_type): The attachment's name.. [optional]  # noqa: E501
             file_url (str, none_type): The attachment's url.. [optional]  # noqa: E501
+            candidate (str, none_type): [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

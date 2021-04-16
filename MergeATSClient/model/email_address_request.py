@@ -138,7 +138,7 @@ class EmailAddressRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): The email's address.. [optional]  # noqa: E501
+            value (str, none_type): The email address.. [optional]  # noqa: E501
             email_address_type (object, none_type): The type of email address.. [optional]  # noqa: E501
         """
 
