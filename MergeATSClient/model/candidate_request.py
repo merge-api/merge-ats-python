@@ -99,6 +99,8 @@ class CandidateRequest(ModelNormal):
             'email_addresses': ([EmailAddressRequest],),  # noqa: E501
             'urls': ([UrlRequest],),  # noqa: E501
             'tags': ([str],),  # noqa: E501
+            'applications': ([str],),  # noqa: E501
+            'attachments': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -122,6 +124,8 @@ class CandidateRequest(ModelNormal):
         'email_addresses': 'email_addresses',  # noqa: E501
         'urls': 'urls',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'applications': 'applications',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -185,6 +189,8 @@ class CandidateRequest(ModelNormal):
             email_addresses ([EmailAddressRequest]): [optional]  # noqa: E501
             urls ([UrlRequest]): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
+            applications ([str]): [optional]  # noqa: E501
+            attachments ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

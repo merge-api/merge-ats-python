@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **email_addresses** | [**[EmailAddressRequest]**](EmailAddressRequest.md) |  | [optional] 
 **urls** | [**[UrlRequest]**](UrlRequest.md) |  | [optional] 
 **tags** | **[str]** |  | [optional] 
+**applications** | **[str]** |  | [optional] 
+**attachments** | **[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
