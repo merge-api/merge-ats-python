@@ -66,6 +66,8 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         email_addresses=[{"value":"hello@merge.dev","email_address_type":"PERSONAL"}],
         urls=[{"value":"http://alturl.com/p749b","url_type":"BLOG"}],
         tags=["High-Priority"],
+        applications=["29eb9867-ce2a-403f-b8ce-f2844b89f078","b4d08e5c-de00-4d64-a29f-66addac9af99","4ff877d2-fb3e-4a5b-a7a5-168ddf2ffa56"],
+        attachments=["bea08964-32b4-4a20-8bb4-2612ba09de1d"],
     ) # CandidateRequest |  (optional)
 
     # example passing only required values which don't have defaults set

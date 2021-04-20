@@ -23,6 +23,7 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.data_passthrough_request import DataPassthroughRequest
+from MergeATSClient.model.data_passthrough import DataPassthrough
 from MergeATSClient.model.remote_response import RemoteResponse
 
 

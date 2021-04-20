@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **email_addresses** | [**[EmailAddress]**](EmailAddress.md) |  | [optional] 
 **urls** | [**[Url]**](Url.md) |  | [optional] 
 **tags** | **[str]** |  | [optional] 
-**applications** | **[str]** |  | [optional] [readonly] 
-**attachments** | **[str]** |  | [optional] [readonly] 
+**applications** | **[str]** |  | [optional] 
+**attachments** | **[str]** |  | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
