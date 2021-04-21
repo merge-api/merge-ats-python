@@ -17,6 +17,7 @@ from MergeATSClient.model.activity_type_enum import ActivityTypeEnum
 from MergeATSClient.model.application import Application
 from MergeATSClient.model.application_request import ApplicationRequest
 from MergeATSClient.model.attachment import Attachment
+from MergeATSClient.model.attachment_request import AttachmentRequest
 from MergeATSClient.model.available_actions import AvailableActions
 from MergeATSClient.model.candidate import Candidate
 from MergeATSClient.model.candidate_request import CandidateRequest
