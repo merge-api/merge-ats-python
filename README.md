@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
 *ApplicationsApi* | [**applications_partial_update**](docs/ApplicationsApi.md#applications_partial_update) | **PATCH** /applications/{id} | 
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
+*AttachmentsApi* | [**attachments_create**](docs/AttachmentsApi.md#attachments_create) | **POST** /attachments | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
 *AttachmentsApi* | [**attachments_retrieve**](docs/AttachmentsApi.md#attachments_retrieve) | **GET** /attachments/{id} | 
 *AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
  - [Application](docs/Application.md)
  - [ApplicationRequest](docs/ApplicationRequest.md)
  - [Attachment](docs/Attachment.md)
+ - [AttachmentRequest](docs/AttachmentRequest.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
  - [CandidateRequest](docs/CandidateRequest.md)

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **method** | **object** |  | 
 **path** | **str** |  | 
-**base_url_override** | **str** |  | [optional] 
+**base_url_override** | **str, none_type** |  | [optional] 
 **data** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **headers** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 

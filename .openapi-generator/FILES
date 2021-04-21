@@ -38,6 +38,7 @@ MergeATSClient/model/activity_type_enum.py
 MergeATSClient/model/application.py
 MergeATSClient/model/application_request.py
 MergeATSClient/model/attachment.py
+MergeATSClient/model/attachment_request.py
 MergeATSClient/model/available_actions.py
 MergeATSClient/model/candidate.py
 MergeATSClient/model/candidate_request.py
@@ -114,6 +115,7 @@ docs/Application.md
 docs/ApplicationRequest.md
 docs/ApplicationsApi.md
 docs/Attachment.md
+docs/AttachmentRequest.md
 docs/AttachmentsApi.md
 docs/AvailableActions.md
 docs/AvailableActionsApi.md
@@ -199,15 +201,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_application_request.py
-test/test_candidate_request.py
-test/test_email_address_request.py
-test/test_generate_key_api.py
-test/test_generate_remote_key_request.py
-test/test_patched_application_request.py
-test/test_phone_number_request.py
-test/test_remote_data_request.py
-test/test_sync_status.py
-test/test_sync_status_api.py
-test/test_url_request.py
+test/test_attachment_request.py
 tox.ini
