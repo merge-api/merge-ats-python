@@ -1,5 +1,6 @@
 # OverallRecommendationEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

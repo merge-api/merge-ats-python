@@ -82,6 +82,7 @@ class AttachmentRequest(ModelNormal):
             'file_name': (str, none_type,),  # noqa: E501
             'file_url': (str, none_type,),  # noqa: E501
             'candidate': (str, none_type,),  # noqa: E501
+            'attachment_type': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class AttachmentRequest(ModelNormal):
         'file_name': 'file_name',  # noqa: E501
         'file_url': 'file_url',  # noqa: E501
         'candidate': 'candidate',  # noqa: E501
+        'attachment_type': 'attachment_type',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -146,6 +148,7 @@ class AttachmentRequest(ModelNormal):
             file_name (str, none_type): The attachment's name.. [optional]  # noqa: E501
             file_url (str, none_type): The attachment's url.. [optional]  # noqa: E501
             candidate (str, none_type): [optional]  # noqa: E501
+            attachment_type (object, none_type): The attachment's type.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

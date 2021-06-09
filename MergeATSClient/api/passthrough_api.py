@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeATSClient.api_client import ApiClient, Endpoint
+from MergeATSClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeATSClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -109,7 +109,7 @@ class PassthroughApi(object):
                 data_passthrough_request
             return self.call_with_http_info(**kwargs)
 
-        self.passthrough_create = Endpoint(
+        self.passthrough_create = _Endpoint(
             settings={
                 'response_type': (RemoteResponse,),
                 'auth': [

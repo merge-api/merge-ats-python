@@ -1,6 +1,7 @@
 # Office
 
 # The Office Object ### Description The `Office` object is used to represent an office within a company.  ### Usage Example Fetch from the `LIST Offices` endpoint and view the offices within a company.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

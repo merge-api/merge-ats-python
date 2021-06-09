@@ -1,5 +1,6 @@
 # VeteranStatusEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

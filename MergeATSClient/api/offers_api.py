@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeATSClient.api_client import ApiClient, Endpoint
+from MergeATSClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeATSClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -115,7 +115,7 @@ class OffersApi(object):
                 x_account_token
             return self.call_with_http_info(**kwargs)
 
-        self.offers_list = Endpoint(
+        self.offers_list = _Endpoint(
             settings={
                 'response_type': (PaginatedOfferList,),
                 'auth': [
@@ -303,7 +303,7 @@ class OffersApi(object):
                 id
             return self.call_with_http_info(**kwargs)
 
-        self.offers_retrieve = Endpoint(
+        self.offers_retrieve = _Endpoint(
             settings={
                 'response_type': (Offer,),
                 'auth': [

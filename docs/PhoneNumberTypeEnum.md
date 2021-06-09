@@ -1,5 +1,6 @@
 # PhoneNumberTypeEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

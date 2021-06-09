@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -141,6 +139,8 @@ class AccessRoleEnum(ModelSimple):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
         """
+        # required up here when default value is not given
+        _path_to_item = kwargs.pop('_path_to_item', ())
 
         if 'value' in kwargs:
             value = kwargs.pop('value')
@@ -156,7 +156,6 @@ class AccessRoleEnum(ModelSimple):
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 

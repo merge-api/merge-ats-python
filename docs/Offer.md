@@ -1,6 +1,7 @@
 # Offer
 
 # The Offer Object ### Description The `Offer` object is used to represent an offer for an application.  ### Usage Example Fetch from the `LIST Offers` endpoint and filter by `ID` to show all offers.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

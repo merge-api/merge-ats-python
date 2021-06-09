@@ -39,6 +39,7 @@ MergeATSClient/model/application.py
 MergeATSClient/model/application_request.py
 MergeATSClient/model/attachment.py
 MergeATSClient/model/attachment_request.py
+MergeATSClient/model/attachment_type_enum.py
 MergeATSClient/model/available_actions.py
 MergeATSClient/model/candidate.py
 MergeATSClient/model/candidate_request.py
@@ -76,8 +77,8 @@ MergeATSClient/model/paginated_reject_reason_list.py
 MergeATSClient/model/paginated_remote_user_list.py
 MergeATSClient/model/paginated_scheduled_interview_list.py
 MergeATSClient/model/paginated_scorecard_list.py
+MergeATSClient/model/paginated_sync_status_list.py
 MergeATSClient/model/paginated_tag_list.py
-MergeATSClient/model/patched_application_request.py
 MergeATSClient/model/phone_number.py
 MergeATSClient/model/phone_number_request.py
 MergeATSClient/model/phone_number_type_enum.py
@@ -89,10 +90,14 @@ MergeATSClient/model/remote_key.py
 MergeATSClient/model/remote_key_for_regeneration_request.py
 MergeATSClient/model/remote_response.py
 MergeATSClient/model/remote_user.py
+MergeATSClient/model/remote_user_request.py
 MergeATSClient/model/scheduled_interview.py
+MergeATSClient/model/scheduled_interview_request.py
 MergeATSClient/model/scheduled_interview_status_enum.py
 MergeATSClient/model/scorecard.py
+MergeATSClient/model/scorecard_request.py
 MergeATSClient/model/sync_status.py
+MergeATSClient/model/sync_status_status_enum.py
 MergeATSClient/model/tag.py
 MergeATSClient/model/url.py
 MergeATSClient/model/url_request.py
@@ -100,7 +105,6 @@ MergeATSClient/model/url_type_enum.py
 MergeATSClient/model/veteran_status_enum.py
 MergeATSClient/model/visibility_enum.py
 MergeATSClient/model_utils.py
-MergeATSClient/models/__init__.py
 MergeATSClient/models/__init__.py
 MergeATSClient/rest.py
 README.md
@@ -116,6 +120,7 @@ docs/ApplicationRequest.md
 docs/ApplicationsApi.md
 docs/Attachment.md
 docs/AttachmentRequest.md
+docs/AttachmentTypeEnum.md
 docs/AttachmentsApi.md
 docs/AvailableActions.md
 docs/AvailableActionsApi.md
@@ -165,9 +170,9 @@ docs/PaginatedRejectReasonList.md
 docs/PaginatedRemoteUserList.md
 docs/PaginatedScheduledInterviewList.md
 docs/PaginatedScorecardList.md
+docs/PaginatedSyncStatusList.md
 docs/PaginatedTagList.md
 docs/PassthroughApi.md
-docs/PatchedApplicationRequest.md
 docs/PhoneNumber.md
 docs/PhoneNumberRequest.md
 docs/PhoneNumberTypeEnum.md
@@ -181,12 +186,16 @@ docs/RemoteKey.md
 docs/RemoteKeyForRegenerationRequest.md
 docs/RemoteResponse.md
 docs/RemoteUser.md
+docs/RemoteUserRequest.md
 docs/ScheduledInterview.md
+docs/ScheduledInterviewRequest.md
 docs/ScheduledInterviewStatusEnum.md
 docs/Scorecard.md
+docs/ScorecardRequest.md
 docs/ScorecardsApi.md
 docs/SyncStatus.md
 docs/SyncStatusApi.md
+docs/SyncStatusStatusEnum.md
 docs/Tag.md
 docs/TagsApi.md
 docs/Url.md
@@ -201,5 +210,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_attachment_request.py
 tox.ini
