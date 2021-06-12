@@ -62,9 +62,24 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         is_private=True,
         can_email=True,
         locations=["San Francisco","New York","Miami"],
-        phone_numbers=[{"value":"+1234567890","phone_number_type":"MOBILE"}],
-        email_addresses=[{"value":"hello@merge.dev","email_address_type":"PERSONAL"}],
-        urls=[{"value":"http://alturl.com/p749b","url_type":"BLOG"}],
+        phone_numbers=[
+            PhoneNumberRequest(
+                value="+3198675309",
+                phone_number_type=,
+            ),
+        ],
+        email_addresses=[
+            EmailAddressRequest(
+                value="merge_is_hiring@gmail.com",
+                email_address_type=,
+            ),
+        ],
+        urls=[
+            UrlRequest(
+                value="http://alturl.com/p749b",
+                url_type=,
+            ),
+        ],
         tags=["High-Priority"],
         applications=["29eb9867-ce2a-403f-b8ce-f2844b89f078","b4d08e5c-de00-4d64-a29f-66addac9af99","4ff877d2-fb3e-4a5b-a7a5-168ddf2ffa56"],
         attachments=["bea08964-32b4-4a20-8bb4-2612ba09de1d"],
@@ -85,6 +100,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     except MergeATSClient.ApiException as e:
         print("Exception when calling CandidatesApi->candidates_create: %s\n" % e)
 ```
+
 
 ### Parameters
 
@@ -107,6 +123,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -179,6 +196,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         print("Exception when calling CandidatesApi->candidates_list: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -206,6 +224,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -272,6 +291,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         print("Exception when calling CandidatesApi->candidates_retrieve: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -293,6 +313,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

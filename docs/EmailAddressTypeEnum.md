@@ -1,5 +1,6 @@
 # EmailAddressTypeEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

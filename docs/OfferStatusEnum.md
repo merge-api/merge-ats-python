@@ -1,5 +1,6 @@
 # OfferStatusEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

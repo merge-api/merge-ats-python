@@ -1,6 +1,7 @@
 # JobInterviewStage
 
 # The JobInterviewStage Object ### Description The `JobInterviewStage` object is used to represent the stage of an interview  ### Usage Example Fetch from the `LIST JobInterviewStages` endpoint and view the job interview stages used by a company.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -92,7 +92,6 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
 *ApplicationsApi* | [**applications_create**](docs/ApplicationsApi.md#applications_create) | **POST** /applications | 
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
-*ApplicationsApi* | [**applications_partial_update**](docs/ApplicationsApi.md#applications_partial_update) | **PATCH** /applications/{id} | 
 *ApplicationsApi* | [**applications_retrieve**](docs/ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 *AttachmentsApi* | [**attachments_create**](docs/AttachmentsApi.md#attachments_create) | **POST** /attachments | 
 *AttachmentsApi* | [**attachments_list**](docs/AttachmentsApi.md#attachments_list) | **GET** /attachments | 
@@ -106,6 +105,7 @@ Class | Method | HTTP request | Description
 *EeocsApi* | [**eeocs_list**](docs/EeocsApi.md#eeocs_list) | **GET** /eeocs | 
 *EeocsApi* | [**eeocs_retrieve**](docs/EeocsApi.md#eeocs_retrieve) | **GET** /eeocs/{id} | 
 *GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
+*InterviewsApi* | [**interviews_create**](docs/InterviewsApi.md#interviews_create) | **POST** /interviews | 
 *InterviewsApi* | [**interviews_list**](docs/InterviewsApi.md#interviews_list) | **GET** /interviews | 
 *InterviewsApi* | [**interviews_retrieve**](docs/InterviewsApi.md#interviews_retrieve) | **GET** /interviews/{id} | 
 *JobInterviewStagesApi* | [**job_interview_stages_list**](docs/JobInterviewStagesApi.md#job_interview_stages_list) | **GET** /job-interview-stages | 
@@ -121,10 +121,13 @@ Class | Method | HTTP request | Description
 *RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
 *RejectReasonsApi* | [**reject_reasons_list**](docs/RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
+*ScorecardsApi* | [**scorecards_create**](docs/ScorecardsApi.md#scorecards_create) | **POST** /scorecards | 
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
-*SyncStatusApi* | [**sync_status_retrieve**](docs/SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
+*SyncStatusApi* | [**sync_status_list**](docs/SyncStatusApi.md#sync_status_list) | **GET** /sync-status | 
+*SyncStatusApi* | [**sync_status_resync_create**](docs/SyncStatusApi.md#sync_status_resync_create) | **POST** /sync-status/resync | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
+*UsersApi* | [**users_create**](docs/UsersApi.md#users_create) | **POST** /users | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
 
@@ -140,6 +143,7 @@ Class | Method | HTTP request | Description
  - [ApplicationRequest](docs/ApplicationRequest.md)
  - [Attachment](docs/Attachment.md)
  - [AttachmentRequest](docs/AttachmentRequest.md)
+ - [AttachmentTypeEnum](docs/AttachmentTypeEnum.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
  - [CandidateRequest](docs/CandidateRequest.md)
@@ -177,8 +181,8 @@ Class | Method | HTTP request | Description
  - [PaginatedRemoteUserList](docs/PaginatedRemoteUserList.md)
  - [PaginatedScheduledInterviewList](docs/PaginatedScheduledInterviewList.md)
  - [PaginatedScorecardList](docs/PaginatedScorecardList.md)
+ - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [PaginatedTagList](docs/PaginatedTagList.md)
- - [PatchedApplicationRequest](docs/PatchedApplicationRequest.md)
  - [PhoneNumber](docs/PhoneNumber.md)
  - [PhoneNumberRequest](docs/PhoneNumberRequest.md)
  - [PhoneNumberTypeEnum](docs/PhoneNumberTypeEnum.md)
@@ -190,10 +194,14 @@ Class | Method | HTTP request | Description
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RemoteUser](docs/RemoteUser.md)
+ - [RemoteUserRequest](docs/RemoteUserRequest.md)
  - [ScheduledInterview](docs/ScheduledInterview.md)
+ - [ScheduledInterviewRequest](docs/ScheduledInterviewRequest.md)
  - [ScheduledInterviewStatusEnum](docs/ScheduledInterviewStatusEnum.md)
  - [Scorecard](docs/Scorecard.md)
+ - [ScorecardRequest](docs/ScorecardRequest.md)
  - [SyncStatus](docs/SyncStatus.md)
+ - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tag](docs/Tag.md)
  - [Url](docs/Url.md)
  - [UrlRequest](docs/UrlRequest.md)

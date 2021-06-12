@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeATSClient.api_client import ApiClient, Endpoint
+from MergeATSClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeATSClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -114,7 +114,7 @@ class ActivitiesApi(object):
                 x_account_token
             return self.call_with_http_info(**kwargs)
 
-        self.activities_list = Endpoint(
+        self.activities_list = _Endpoint(
             settings={
                 'response_type': (PaginatedActivityList,),
                 'auth': [
@@ -295,7 +295,7 @@ class ActivitiesApi(object):
                 id
             return self.call_with_http_info(**kwargs)
 
-        self.activities_retrieve = Endpoint(
+        self.activities_retrieve = _Endpoint(
             settings={
                 'response_type': (Activity,),
                 'auth': [

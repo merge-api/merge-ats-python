@@ -1,5 +1,6 @@
 # ActivityTypeEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

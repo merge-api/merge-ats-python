@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeATSClient.api_client import ApiClient, Endpoint
+from MergeATSClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeATSClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -111,7 +111,7 @@ class AttachmentsApi(object):
                 remote_user_id
             return self.call_with_http_info(**kwargs)
 
-        self.attachments_create = Endpoint(
+        self.attachments_create = _Endpoint(
             settings={
                 'response_type': (Attachment,),
                 'auth': [
@@ -258,7 +258,7 @@ class AttachmentsApi(object):
                 x_account_token
             return self.call_with_http_info(**kwargs)
 
-        self.attachments_list = Endpoint(
+        self.attachments_list = _Endpoint(
             settings={
                 'response_type': (PaginatedAttachmentList,),
                 'auth': [
@@ -428,7 +428,7 @@ class AttachmentsApi(object):
                 id
             return self.call_with_http_info(**kwargs)
 
-        self.attachments_retrieve = Endpoint(
+        self.attachments_retrieve = _Endpoint(
             settings={
                 'response_type': (Attachment,),
                 'auth': [

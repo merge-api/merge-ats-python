@@ -55,6 +55,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         file_name="Candidate Resume",
         file_url="http://alturl.com/p749b",
         candidate="2872ba14-4084-492b-be96-e5eee6fc33ef",
+        attachment_type=,
     ) # AttachmentRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -72,6 +73,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     except MergeATSClient.ApiException as e:
         print("Exception when calling AttachmentsApi->attachments_create: %s\n" % e)
 ```
+
 
 ### Parameters
 
@@ -94,6 +96,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -166,6 +169,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         print("Exception when calling AttachmentsApi->attachments_list: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -193,6 +197,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -258,6 +263,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         print("Exception when calling AttachmentsApi->attachments_retrieve: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -278,6 +284,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

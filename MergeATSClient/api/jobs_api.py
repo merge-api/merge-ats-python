@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeATSClient.api_client import ApiClient, Endpoint
+from MergeATSClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeATSClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -65,6 +65,7 @@ class JobsApi(object):
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                status (str, none_type): If provided, will only return jobs with this status. Options: ('OPEN', 'CLOSED', 'DRAFT', 'ARCHIVED', 'PENDING'). [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -113,7 +114,7 @@ class JobsApi(object):
                 x_account_token
             return self.call_with_http_info(**kwargs)
 
-        self.jobs_list = Endpoint(
+        self.jobs_list = _Endpoint(
             settings={
                 'response_type': (PaginatedJobList,),
                 'auth': [
@@ -136,15 +137,18 @@ class JobsApi(object):
                     'modified_before',
                     'page_size',
                     'remote_id',
+                    'status',
                 ],
                 'required': [
                     'x_account_token',
                 ],
                 'nullable': [
                     'remote_id',
+                    'status',
                 ],
                 'enum': [
                     'expand',
+                    'status',
                 ],
                 'validation': [
                 ]
@@ -162,6 +166,16 @@ class JobsApi(object):
                         "HIRING_MANAGERS": "hiring_managers",
                         "OFFICES": "offices",
                         "OFFICES,HIRING_MANAGERS": "offices,hiring_managers"
+                    },
+                    ('status',): {
+                        'None': None,
+                        "OPEN": "OPEN",
+                        "CLOSED": "CLOSED",
+                        "DRAFT": "DRAFT",
+                        "ARCHIVED": "ARCHIVED",
+                        "PENDING": "PENDING",
+                        "EMPTY": "",
+                        "NULL": "null"
                     },
                 },
                 'openapi_types': {
@@ -185,6 +199,8 @@ class JobsApi(object):
                         (int,),
                     'remote_id':
                         (str, none_type,),
+                    'status':
+                        (str, none_type,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -197,6 +213,7 @@ class JobsApi(object):
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
                     'remote_id': 'remote_id',
+                    'status': 'status',
                 },
                 'location_map': {
                     'x_account_token': 'header',
@@ -209,6 +226,7 @@ class JobsApi(object):
                     'modified_before': 'query',
                     'page_size': 'query',
                     'remote_id': 'query',
+                    'status': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -295,7 +313,7 @@ class JobsApi(object):
                 id
             return self.call_with_http_info(**kwargs)
 
-        self.jobs_retrieve = Endpoint(
+        self.jobs_retrieve = _Endpoint(
             settings={
                 'response_type': (Job,),
                 'auth': [

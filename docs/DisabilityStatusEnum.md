@@ -1,5 +1,6 @@
 # DisabilityStatusEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

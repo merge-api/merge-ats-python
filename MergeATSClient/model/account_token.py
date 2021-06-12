@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -28,6 +26,10 @@ from MergeATSClient.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+
+def lazy_import():
+    from MergeATSClient.model.account_integration import AccountIntegration
+    globals()['AccountIntegration'] = AccountIntegration
 
 
 class AccountToken(ModelNormal):
@@ -74,8 +76,10 @@ class AccountToken(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'account_token': (str,),  # noqa: E501
+            'integration': (AccountIntegration,),  # noqa: E501
         }
 
     @cached_property
@@ -85,6 +89,7 @@ class AccountToken(ModelNormal):
 
     attribute_map = {
         'account_token': 'account_token',  # noqa: E501
+        'integration': 'integration',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -99,11 +104,12 @@ class AccountToken(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, account_token, *args, **kwargs):  # noqa: E501
+    def __init__(self, account_token, integration, *args, **kwargs):  # noqa: E501
         """AccountToken - a model defined in OpenAPI
 
         Args:
             account_token (str):
+            integration (AccountIntegration):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,6 +168,7 @@ class AccountToken(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.account_token = account_token
+        self.integration = integration
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -18,6 +18,7 @@ from MergeATSClient.model.application import Application
 from MergeATSClient.model.application_request import ApplicationRequest
 from MergeATSClient.model.attachment import Attachment
 from MergeATSClient.model.attachment_request import AttachmentRequest
+from MergeATSClient.model.attachment_type_enum import AttachmentTypeEnum
 from MergeATSClient.model.available_actions import AvailableActions
 from MergeATSClient.model.candidate import Candidate
 from MergeATSClient.model.candidate_request import CandidateRequest
@@ -55,8 +56,8 @@ from MergeATSClient.model.paginated_reject_reason_list import PaginatedRejectRea
 from MergeATSClient.model.paginated_remote_user_list import PaginatedRemoteUserList
 from MergeATSClient.model.paginated_scheduled_interview_list import PaginatedScheduledInterviewList
 from MergeATSClient.model.paginated_scorecard_list import PaginatedScorecardList
+from MergeATSClient.model.paginated_sync_status_list import PaginatedSyncStatusList
 from MergeATSClient.model.paginated_tag_list import PaginatedTagList
-from MergeATSClient.model.patched_application_request import PatchedApplicationRequest
 from MergeATSClient.model.phone_number import PhoneNumber
 from MergeATSClient.model.phone_number_request import PhoneNumberRequest
 from MergeATSClient.model.phone_number_type_enum import PhoneNumberTypeEnum
@@ -68,10 +69,14 @@ from MergeATSClient.model.remote_key import RemoteKey
 from MergeATSClient.model.remote_key_for_regeneration_request import RemoteKeyForRegenerationRequest
 from MergeATSClient.model.remote_response import RemoteResponse
 from MergeATSClient.model.remote_user import RemoteUser
+from MergeATSClient.model.remote_user_request import RemoteUserRequest
 from MergeATSClient.model.scheduled_interview import ScheduledInterview
+from MergeATSClient.model.scheduled_interview_request import ScheduledInterviewRequest
 from MergeATSClient.model.scheduled_interview_status_enum import ScheduledInterviewStatusEnum
 from MergeATSClient.model.scorecard import Scorecard
+from MergeATSClient.model.scorecard_request import ScorecardRequest
 from MergeATSClient.model.sync_status import SyncStatus
+from MergeATSClient.model.sync_status_status_enum import SyncStatusStatusEnum
 from MergeATSClient.model.tag import Tag
 from MergeATSClient.model.url import Url
 from MergeATSClient.model.url_request import UrlRequest

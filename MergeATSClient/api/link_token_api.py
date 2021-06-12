@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeATSClient.api_client import ApiClient, Endpoint
+from MergeATSClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeATSClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -24,6 +24,7 @@ from MergeATSClient.model_utils import (  # noqa: F401
 )
 from MergeATSClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeATSClient.model.end_user_details import EndUserDetails
+
 from MergeATSClient.model.link_token import LinkToken
 
 
@@ -105,7 +106,7 @@ class LinkTokenApi(object):
                 end_user_details_request
             return self.call_with_http_info(**kwargs)
 
-        self.link_token_create = Endpoint(
+        self.link_token_create = _Endpoint(
             settings={
                 'response_type': (LinkToken,),
                 'auth': [
@@ -137,7 +138,7 @@ class LinkTokenApi(object):
                 },
                 'openapi_types': {
                     'end_user_details_request':
-                        (EndUserDetailsRequest, EndUserDetails),
+                        (EndUserDetailsRequest,),
                 },
                 'attribute_map': {
                 },

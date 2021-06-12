@@ -1,5 +1,6 @@
 # UrlTypeEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
