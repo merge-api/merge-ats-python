@@ -204,8 +204,11 @@ class CandidatesApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                email_address (str): If provided, will only return candidates with this email_address.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                first_name (str, none_type): If provided, will only return candidates with this first name.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                last_name (str, none_type): If provided, will only return candidates with this last name.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
@@ -275,8 +278,11 @@ class CandidatesApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'email_address',
                     'expand',
+                    'first_name',
                     'include_remote_data',
+                    'last_name',
                     'modified_after',
                     'modified_before',
                     'page_size',
@@ -286,6 +292,8 @@ class CandidatesApi(object):
                     'x_account_token',
                 ],
                 'nullable': [
+                    'first_name',
+                    'last_name',
                     'remote_id',
                 ],
                 'enum': [
@@ -314,10 +322,16 @@ class CandidatesApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'email_address':
+                        (str,),
                     'expand':
                         (str,),
+                    'first_name':
+                        (str, none_type,),
                     'include_remote_data':
                         (bool,),
+                    'last_name':
+                        (str, none_type,),
                     'modified_after':
                         (datetime,),
                     'modified_before':
@@ -332,8 +346,11 @@ class CandidatesApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'email_address': 'email_address',
                     'expand': 'expand',
+                    'first_name': 'first_name',
                     'include_remote_data': 'include_remote_data',
+                    'last_name': 'last_name',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
@@ -344,8 +361,11 @@ class CandidatesApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'email_address': 'query',
                     'expand': 'query',
+                    'first_name': 'query',
                     'include_remote_data': 'query',
+                    'last_name': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
