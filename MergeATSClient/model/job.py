@@ -168,9 +168,9 @@ class Job(ModelNormal):
             remote_created_at (datetime, none_type): When the third party's job was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's job was updated.. [optional]  # noqa: E501
             confidential (bool, none_type): Whether the job is confidential.. [optional]  # noqa: E501
-            departments ([str]): [optional]  # noqa: E501
-            offices ([str]): [optional]  # noqa: E501
-            hiring_managers ([str]): [optional]  # noqa: E501
+            departments ([str]): IDs of `Department` objects for this `Job`.. [optional]  # noqa: E501
+            offices ([str]): IDs of `Office` objects for this `Job`.. [optional]  # noqa: E501
+            hiring_managers ([str]): IDs of `RemoteUser` objects that serve as hiring managers for this `Job`.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

@@ -32,6 +32,8 @@ from MergeATSClient.model.email_address_type_enum import EmailAddressTypeEnum
 from MergeATSClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeATSClient.model.gender_enum import GenderEnum
 from MergeATSClient.model.generate_remote_key_request import GenerateRemoteKeyRequest
+from MergeATSClient.model.issue import Issue
+from MergeATSClient.model.issue_status_enum import IssueStatusEnum
 from MergeATSClient.model.job import Job
 from MergeATSClient.model.job_interview_stage import JobInterviewStage
 from MergeATSClient.model.job_status_enum import JobStatusEnum
@@ -48,6 +50,7 @@ from MergeATSClient.model.paginated_attachment_list import PaginatedAttachmentLi
 from MergeATSClient.model.paginated_candidate_list import PaginatedCandidateList
 from MergeATSClient.model.paginated_department_list import PaginatedDepartmentList
 from MergeATSClient.model.paginated_eeoc_list import PaginatedEEOCList
+from MergeATSClient.model.paginated_issue_list import PaginatedIssueList
 from MergeATSClient.model.paginated_job_interview_stage_list import PaginatedJobInterviewStageList
 from MergeATSClient.model.paginated_job_list import PaginatedJobList
 from MergeATSClient.model.paginated_offer_list import PaginatedOfferList

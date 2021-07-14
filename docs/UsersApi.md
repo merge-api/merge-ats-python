@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **users_create**
-> RemoteUser users_create(x_account_token, remote_user_id)
+> RemoteUser users_create(x_account_token)
 
 
 
@@ -48,7 +48,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    remote_user_id = "remote_user_id_example" # str | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+    remote_user_id = "remote_user_id_example" # str | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
     run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
     remote_user_request = RemoteUserRequest(
         remote_id="344321",
@@ -62,7 +62,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.users_create(x_account_token, remote_user_id)
+        api_response = api_instance.users_create(x_account_token)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling UsersApi->users_create: %s\n" % e)
@@ -70,7 +70,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.users_create(x_account_token, remote_user_id, run_async=run_async, remote_user_request=remote_user_request)
+        api_response = api_instance.users_create(x_account_token, remote_user_id=remote_user_id, run_async=run_async, remote_user_request=remote_user_request)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling UsersApi->users_create: %s\n" % e)
@@ -82,7 +82,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **remote_user_id** | **str**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. |
+ **remote_user_id** | **str**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
  **remote_user_request** | [**RemoteUserRequest**](RemoteUserRequest.md)|  | [optional]
 

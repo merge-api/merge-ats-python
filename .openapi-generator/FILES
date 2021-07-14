@@ -9,10 +9,12 @@ MergeATSClient/api/applications_api.py
 MergeATSClient/api/attachments_api.py
 MergeATSClient/api/available_actions_api.py
 MergeATSClient/api/candidates_api.py
+MergeATSClient/api/delete_account_api.py
 MergeATSClient/api/departments_api.py
 MergeATSClient/api/eeocs_api.py
 MergeATSClient/api/generate_key_api.py
 MergeATSClient/api/interviews_api.py
+MergeATSClient/api/issues_api.py
 MergeATSClient/api/job_interview_stages_api.py
 MergeATSClient/api/jobs_api.py
 MergeATSClient/api/link_token_api.py
@@ -53,6 +55,8 @@ MergeATSClient/model/email_address_type_enum.py
 MergeATSClient/model/end_user_details_request.py
 MergeATSClient/model/gender_enum.py
 MergeATSClient/model/generate_remote_key_request.py
+MergeATSClient/model/issue.py
+MergeATSClient/model/issue_status_enum.py
 MergeATSClient/model/job.py
 MergeATSClient/model/job_interview_stage.py
 MergeATSClient/model/job_status_enum.py
@@ -69,6 +73,7 @@ MergeATSClient/model/paginated_attachment_list.py
 MergeATSClient/model/paginated_candidate_list.py
 MergeATSClient/model/paginated_department_list.py
 MergeATSClient/model/paginated_eeoc_list.py
+MergeATSClient/model/paginated_issue_list.py
 MergeATSClient/model/paginated_job_interview_stage_list.py
 MergeATSClient/model/paginated_job_list.py
 MergeATSClient/model/paginated_offer_list.py
@@ -128,6 +133,7 @@ docs/Candidate.md
 docs/CandidateRequest.md
 docs/CandidatesApi.md
 docs/DataPassthroughRequest.md
+docs/DeleteAccountApi.md
 docs/Department.md
 docs/DepartmentsApi.md
 docs/DisabilityStatusEnum.md
@@ -141,6 +147,9 @@ docs/GenderEnum.md
 docs/GenerateKeyApi.md
 docs/GenerateRemoteKeyRequest.md
 docs/InterviewsApi.md
+docs/Issue.md
+docs/IssueStatusEnum.md
+docs/IssuesApi.md
 docs/Job.md
 docs/JobInterviewStage.md
 docs/JobInterviewStagesApi.md
@@ -162,6 +171,7 @@ docs/PaginatedAttachmentList.md
 docs/PaginatedCandidateList.md
 docs/PaginatedDepartmentList.md
 docs/PaginatedEEOCList.md
+docs/PaginatedIssueList.md
 docs/PaginatedJobInterviewStageList.md
 docs/PaginatedJobList.md
 docs/PaginatedOfferList.md

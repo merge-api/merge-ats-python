@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **application** | **str, none_type** | The application being interviewed. | [optional] 
 **job_interview_stage** | **str, none_type** | The stage of the interview. | [optional] 
 **organizer** | **str, none_type** | The user organizing the interview. | [optional] 
-**interviewers** | **[str]** |  | [optional] 
+**interviewers** | **[str]** | Array of &#x60;RemoteUser&#x60; IDs. | [optional] 
 **location** | **str, none_type** | The interview&#39;s location. | [optional] 
 **start_at** | **datetime, none_type** | When the interview was started. | [optional] 
 **end_at** | **datetime, none_type** | When the interview was ended. | [optional] 

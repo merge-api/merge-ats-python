@@ -42,7 +42,6 @@ class InterviewsApi(object):
         def __interviews_create(
             self,
             x_account_token,
-            remote_user_id,
             **kwargs
         ):
             """interviews_create  # noqa: E501
@@ -51,14 +50,14 @@ class InterviewsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.interviews_create(x_account_token, remote_user_id, async_req=True)
+            >>> thread = api.interviews_create(x_account_token, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                remote_user_id (str): The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 
             Keyword Args:
+                remote_user_id (str): The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.. [optional]
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
                 scheduled_interview_request (ScheduledInterviewRequest): [optional]
                 _return_http_data_only (bool): response data without head status
@@ -107,8 +106,6 @@ class InterviewsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['remote_user_id'] = \
-                remote_user_id
             return self.call_with_http_info(**kwargs)
 
         self.interviews_create = _Endpoint(
@@ -131,7 +128,6 @@ class InterviewsApi(object):
                 ],
                 'required': [
                     'x_account_token',
-                    'remote_user_id',
                 ],
                 'nullable': [
                 ],
