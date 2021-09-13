@@ -105,7 +105,6 @@ class OpenApiModel(object):
 
     def set_attribute(self, name, value):
         # this is only used to set properties on self
-
         path_to_item = []
         if self._path_to_item:
             path_to_item.extend(self._path_to_item)
@@ -113,12 +112,6 @@ class OpenApiModel(object):
 
         if name in self.openapi_types:
             required_types_mixed = self.openapi_types[name]
-        elif self.additional_properties_type is None:
-            raise ApiAttributeError(
-                "{0} has no attribute '{1}'".format(
-                    type(self).__name__, name),
-                path_to_item
-            )
         elif self.additional_properties_type is not None:
             required_types_mixed = self.additional_properties_type
 
