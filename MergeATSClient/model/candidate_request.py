@@ -188,9 +188,9 @@ class CandidateRequest(ModelNormal):
             phone_numbers ([PhoneNumberRequest]): [optional]  # noqa: E501
             email_addresses ([EmailAddressRequest]): [optional]  # noqa: E501
             urls ([UrlRequest]): [optional]  # noqa: E501
-            tags ([str]): [optional]  # noqa: E501
-            applications ([str]): [optional]  # noqa: E501
-            attachments ([str]): [optional]  # noqa: E501
+            tags ([str]): Array of `Tag` names as strings.. [optional]  # noqa: E501
+            applications ([str]): Array of `Application` object IDs.. [optional]  # noqa: E501
+            attachments ([str]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

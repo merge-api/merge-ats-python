@@ -20,9 +20,9 @@ Name | Type | Description | Notes
 **phone_numbers** | [**[PhoneNumber]**](PhoneNumber.md) |  | [optional] 
 **email_addresses** | [**[EmailAddress]**](EmailAddress.md) |  | [optional] 
 **urls** | [**[Url]**](Url.md) |  | [optional] 
-**tags** | **[str]** |  | [optional] 
-**applications** | **[str]** |  | [optional] 
-**attachments** | **[str]** |  | [optional] 
+**tags** | **[str]** | Array of &#x60;Tag&#x60; names as strings. | [optional] 
+**applications** | **[str]** | Array of &#x60;Application&#x60; object IDs. | [optional] 
+**attachments** | **[str]** | Array of &#x60;Attachment&#x60; object IDs. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

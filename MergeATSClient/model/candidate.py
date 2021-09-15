@@ -195,9 +195,9 @@ class Candidate(ModelNormal):
             phone_numbers ([PhoneNumber]): [optional]  # noqa: E501
             email_addresses ([EmailAddress]): [optional]  # noqa: E501
             urls ([Url]): [optional]  # noqa: E501
-            tags ([str]): [optional]  # noqa: E501
-            applications ([str]): [optional]  # noqa: E501
-            attachments ([str]): [optional]  # noqa: E501
+            tags ([str]): Array of `Tag` names as strings.. [optional]  # noqa: E501
+            applications ([str]): Array of `Application` object IDs.. [optional]  # noqa: E501
+            attachments ([str]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 
