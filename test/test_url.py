@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.url import Url
+from MergeATSClient.api_client import ApiClient
 
 
 class TestUrl(unittest.TestCase):
@@ -29,7 +31,22 @@ class TestUrl(unittest.TestCase):
         """Test Url"""
         # FIXME: construct object with mandatory attributes with example values
         # model = Url()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for Url
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (Url,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

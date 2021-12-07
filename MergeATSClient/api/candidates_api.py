@@ -24,6 +24,7 @@ from MergeATSClient.model_utils import (  # noqa: F401
 )
 from MergeATSClient.model.candidate import Candidate
 from MergeATSClient.model.candidate_request import CandidateRequest
+from MergeATSClient.model.candidate_response import CandidateResponse
 from MergeATSClient.model.paginated_candidate_list import PaginatedCandidateList
 
 
@@ -42,7 +43,7 @@ class CandidatesApi(object):
         def __candidates_create(
             self,
             x_account_token,
-            remote_user_id,
+            candidate_request,
             **kwargs
         ):
             """candidates_create  # noqa: E501
@@ -51,16 +52,15 @@ class CandidatesApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.candidates_create(x_account_token, remote_user_id, async_req=True)
+            >>> thread = api.candidates_create(x_account_token, candidate_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                remote_user_id (str): The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+                candidate_request (CandidateRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                candidate_request (CandidateRequest): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -82,7 +82,7 @@ class CandidatesApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Candidate
+                CandidateResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -107,13 +107,13 @@ class CandidatesApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['remote_user_id'] = \
-                remote_user_id
+            kwargs['candidate_request'] = \
+                candidate_request
             return self.call_with_http_info(**kwargs)
 
         self.candidates_create = _Endpoint(
             settings={
-                'response_type': (Candidate,),
+                'response_type': (CandidateResponse,),
                 'auth': [
                     'tokenAuth'
                 ],
@@ -125,13 +125,12 @@ class CandidatesApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'remote_user_id',
-                    'run_async',
                     'candidate_request',
+                    'run_async',
                 ],
                 'required': [
                     'x_account_token',
-                    'remote_user_id',
+                    'candidate_request',
                 ],
                 'nullable': [
                 ],
@@ -148,23 +147,19 @@ class CandidatesApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'remote_user_id':
-                        (str,),
-                    'run_async':
-                        (bool,),
                     'candidate_request':
                         (CandidateRequest,),
+                    'run_async':
+                        (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
-                    'remote_user_id': 'remote_user_id',
                     'run_async': 'run_async',
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'remote_user_id': 'query',
-                    'run_async': 'query',
                     'candidate_request': 'body',
+                    'run_async': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -204,7 +199,6 @@ class CandidatesApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
-                email_address (str): If provided, will only return candidates with this email_address.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 first_name (str, none_type): If provided, will only return candidates with this first name.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
@@ -278,7 +272,6 @@ class CandidatesApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
-                    'email_address',
                     'expand',
                     'first_name',
                     'include_remote_data',
@@ -322,8 +315,6 @@ class CandidatesApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
-                    'email_address':
-                        (str,),
                     'expand':
                         (str,),
                     'first_name':
@@ -346,7 +337,6 @@ class CandidatesApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
-                    'email_address': 'email_address',
                     'expand': 'expand',
                     'first_name': 'first_name',
                     'include_remote_data': 'include_remote_data',
@@ -361,7 +351,6 @@ class CandidatesApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
-                    'email_address': 'query',
                     'expand': 'query',
                     'first_name': 'query',
                     'include_remote_data': 'query',

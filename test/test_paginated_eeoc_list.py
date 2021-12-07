@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.eeoc import EEOC
 globals()['EEOC'] = EEOC
 from MergeATSClient.model.paginated_eeoc_list import PaginatedEEOCList
+from MergeATSClient.api_client import ApiClient
 
 
 class TestPaginatedEEOCList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedEEOCList(unittest.TestCase):
         """Test PaginatedEEOCList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedEEOCList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedEEOCList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedEEOCList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

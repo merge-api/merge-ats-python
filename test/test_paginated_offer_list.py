@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.offer import Offer
 globals()['Offer'] = Offer
 from MergeATSClient.model.paginated_offer_list import PaginatedOfferList
+from MergeATSClient.api_client import ApiClient
 
 
 class TestPaginatedOfferList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedOfferList(unittest.TestCase):
         """Test PaginatedOfferList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedOfferList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedOfferList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedOfferList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.attachment_request import AttachmentRequest
+from MergeATSClient.api_client import ApiClient
 
 
 class TestAttachmentRequest(unittest.TestCase):
@@ -29,7 +31,24 @@ class TestAttachmentRequest(unittest.TestCase):
         """Test AttachmentRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = AttachmentRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for AttachmentRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (AttachmentRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
+        assert deserialized.remote_user_id is not None
 
 
 if __name__ == '__main__':

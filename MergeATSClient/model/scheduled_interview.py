@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -167,7 +165,7 @@ class ScheduledInterview(ModelNormal):
             application (str, none_type): The application being interviewed.. [optional]  # noqa: E501
             job_interview_stage (str, none_type): The stage of the interview.. [optional]  # noqa: E501
             organizer (str, none_type): The user organizing the interview.. [optional]  # noqa: E501
-            interviewers ([str]): [optional]  # noqa: E501
+            interviewers ([str]): Array of `RemoteUser` IDs.. [optional]  # noqa: E501
             location (str, none_type): The interview's location.. [optional]  # noqa: E501
             start_at (datetime, none_type): When the interview was started.. [optional]  # noqa: E501
             end_at (datetime, none_type): When the interview was ended.. [optional]  # noqa: E501

@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -28,14 +26,6 @@ from MergeATSClient.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
-
-def lazy_import():
-    from MergeATSClient.model.email_address_request import EmailAddressRequest
-    from MergeATSClient.model.phone_number_request import PhoneNumberRequest
-    from MergeATSClient.model.url_request import UrlRequest
-    globals()['EmailAddressRequest'] = EmailAddressRequest
-    globals()['PhoneNumberRequest'] = PhoneNumberRequest
-    globals()['UrlRequest'] = UrlRequest
 
 
 class CandidateRequest(ModelNormal):
@@ -82,25 +72,9 @@ class CandidateRequest(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'remote_id': (str, none_type,),  # noqa: E501
-            'first_name': (str, none_type,),  # noqa: E501
-            'last_name': (str, none_type,),  # noqa: E501
-            'company': (str, none_type,),  # noqa: E501
-            'title': (str, none_type,),  # noqa: E501
-            'remote_created_at': (datetime, none_type,),  # noqa: E501
-            'remote_updated_at': (datetime, none_type,),  # noqa: E501
-            'last_interaction_at': (datetime, none_type,),  # noqa: E501
-            'is_private': (bool, none_type,),  # noqa: E501
-            'can_email': (bool, none_type,),  # noqa: E501
-            'locations': ([str, none_type], none_type,),  # noqa: E501
-            'phone_numbers': ([PhoneNumberRequest],),  # noqa: E501
-            'email_addresses': ([EmailAddressRequest],),  # noqa: E501
-            'urls': ([UrlRequest],),  # noqa: E501
-            'tags': ([str],),  # noqa: E501
-            'applications': ([str],),  # noqa: E501
-            'attachments': ([str],),  # noqa: E501
+            'model': (CandidateRequest,),  # noqa: E501
+            'remote_user_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -109,23 +83,8 @@ class CandidateRequest(ModelNormal):
 
 
     attribute_map = {
-        'remote_id': 'remote_id',  # noqa: E501
-        'first_name': 'first_name',  # noqa: E501
-        'last_name': 'last_name',  # noqa: E501
-        'company': 'company',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'remote_created_at': 'remote_created_at',  # noqa: E501
-        'remote_updated_at': 'remote_updated_at',  # noqa: E501
-        'last_interaction_at': 'last_interaction_at',  # noqa: E501
-        'is_private': 'is_private',  # noqa: E501
-        'can_email': 'can_email',  # noqa: E501
-        'locations': 'locations',  # noqa: E501
-        'phone_numbers': 'phone_numbers',  # noqa: E501
-        'email_addresses': 'email_addresses',  # noqa: E501
-        'urls': 'urls',  # noqa: E501
-        'tags': 'tags',  # noqa: E501
-        'applications': 'applications',  # noqa: E501
-        'attachments': 'attachments',  # noqa: E501
+        'model': 'model',  # noqa: E501
+        'remote_user_id': 'remote_user_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -140,8 +99,12 @@ class CandidateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, model, remote_user_id, *args, **kwargs):  # noqa: E501
         """CandidateRequest - a model defined in OpenAPI
+
+        Args:
+            model (CandidateRequest):
+            remote_user_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -174,23 +137,6 @@ class CandidateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            first_name (str, none_type): The candidate's first name.. [optional]  # noqa: E501
-            last_name (str, none_type): The candidate's last name.. [optional]  # noqa: E501
-            company (str, none_type): The candidate's current company.. [optional]  # noqa: E501
-            title (str, none_type): The candidate's current title.. [optional]  # noqa: E501
-            remote_created_at (datetime, none_type): When the third party's candidate was created.. [optional]  # noqa: E501
-            remote_updated_at (datetime, none_type): When the third party's candidate was updated.. [optional]  # noqa: E501
-            last_interaction_at (datetime, none_type): When the most recent candidate interaction occurred.. [optional]  # noqa: E501
-            is_private (bool, none_type): Whether or not the candidate is private.. [optional]  # noqa: E501
-            can_email (bool, none_type): Whether or not the candidate can be emailed.. [optional]  # noqa: E501
-            locations ([str, none_type], none_type): The candidate's locations.. [optional]  # noqa: E501
-            phone_numbers ([PhoneNumberRequest]): [optional]  # noqa: E501
-            email_addresses ([EmailAddressRequest]): [optional]  # noqa: E501
-            urls ([UrlRequest]): [optional]  # noqa: E501
-            tags ([str]): [optional]  # noqa: E501
-            applications ([str]): [optional]  # noqa: E501
-            attachments ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,6 +162,8 @@ class CandidateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.model = model
+        self.remote_user_id = remote_user_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

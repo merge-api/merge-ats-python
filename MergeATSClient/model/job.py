@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -84,6 +82,7 @@ class Job(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
+            'code': (str, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
@@ -104,6 +103,7 @@ class Job(ModelNormal):
         'remote_id': 'remote_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'code': 'code',  # noqa: E501
         'status': 'status',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
@@ -164,13 +164,14 @@ class Job(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             name (str, none_type): The job's name.. [optional]  # noqa: E501
             description (str, none_type): The job's description.. [optional]  # noqa: E501
+            code (str, none_type): The job's code. Typically an additional identifier used to reference the particular job that is displayed on the ATS.. [optional]  # noqa: E501
             status (object, none_type): The job's status.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's job was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's job was updated.. [optional]  # noqa: E501
             confidential (bool, none_type): Whether the job is confidential.. [optional]  # noqa: E501
-            departments ([str]): [optional]  # noqa: E501
-            offices ([str]): [optional]  # noqa: E501
-            hiring_managers ([str]): [optional]  # noqa: E501
+            departments ([str]): IDs of `Department` objects for this `Job`.. [optional]  # noqa: E501
+            offices ([str]): IDs of `Office` objects for this `Job`.. [optional]  # noqa: E501
+            hiring_managers ([str]): IDs of `RemoteUser` objects that serve as hiring managers for this `Job`.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

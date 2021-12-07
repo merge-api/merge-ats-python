@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.visibility_enum import VisibilityEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestVisibilityEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestVisibilityEnum(unittest.TestCase):
         """Test VisibilityEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = VisibilityEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

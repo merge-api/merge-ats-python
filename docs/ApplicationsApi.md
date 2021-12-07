@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **applications_create**
-> Application applications_create(x_account_token, remote_user_id)
+> ApplicationResponse applications_create(x_account_token, application_request)
 
 
 
@@ -23,7 +23,7 @@ Creates an `Application` object with the given values.
 import time
 import MergeATSClient
 from MergeATSClient.api import applications_api
-from MergeATSClient.model.application import Application
+from MergeATSClient.model.application_response import ApplicationResponse
 from MergeATSClient.model.application_request import ApplicationRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
@@ -48,23 +48,15 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = applications_api.ApplicationsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    remote_user_id = "remote_user_id_example" # str | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
-    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
     application_request = ApplicationRequest(
-        remote_id="98796",
-        candidate="2872ba14-4084-492b-be96-e5eee6fc33ef",
-        job="52bf9b5e-0beb-4f6f-8a72-cd4dca7ca633",
-        applied_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        rejected_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        source="Campus recruiting event",
-        credited_to="58166795-8d68-4b30-9bfb-bfd402479484",
-        current_stage="d578dfdc-7b0a-4ab6-a2b0-4b40f20eb9ea",
-        reject_reason="59b25f2b-da02-40f5-9656-9fa0db555784",
-    ) # ApplicationRequest |  (optional)
+        model=ApplicationRequest(),
+        remote_user_id="remote_user_id_example",
+    ) # ApplicationRequest | 
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.applications_create(x_account_token, remote_user_id)
+        api_response = api_instance.applications_create(x_account_token, application_request)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_create: %s\n" % e)
@@ -72,7 +64,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.applications_create(x_account_token, remote_user_id, run_async=run_async, application_request=application_request)
+        api_response = api_instance.applications_create(x_account_token, application_request, run_async=run_async)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_create: %s\n" % e)
@@ -84,13 +76,12 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **remote_user_id** | **str**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. |
+ **application_request** | [**ApplicationRequest**](ApplicationRequest.md)|  |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **application_request** | [**ApplicationRequest**](ApplicationRequest.md)|  | [optional]
 
 ### Return type
 
-[**Application**](Application.md)
+[**ApplicationResponse**](ApplicationResponse.md)
 
 ### Authorization
 

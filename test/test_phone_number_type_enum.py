@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.phone_number_type_enum import PhoneNumberTypeEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestPhoneNumberTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestPhoneNumberTypeEnum(unittest.TestCase):
         """Test PhoneNumberTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PhoneNumberTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

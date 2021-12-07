@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.url_type_enum import UrlTypeEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestUrlTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestUrlTypeEnum(unittest.TestCase):
         """Test UrlTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = UrlTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -58,9 +56,6 @@ class AttachmentRequest(ModelNormal):
     }
 
     validations = {
-        ('file_url',): {
-            'max_length': 2000,
-        },
     }
 
     additional_properties_type = None
@@ -78,11 +73,8 @@ class AttachmentRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'remote_id': (str, none_type,),  # noqa: E501
-            'file_name': (str, none_type,),  # noqa: E501
-            'file_url': (str, none_type,),  # noqa: E501
-            'candidate': (str, none_type,),  # noqa: E501
-            'attachment_type': (object, none_type,),  # noqa: E501
+            'model': (AttachmentRequest,),  # noqa: E501
+            'remote_user_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -91,11 +83,8 @@ class AttachmentRequest(ModelNormal):
 
 
     attribute_map = {
-        'remote_id': 'remote_id',  # noqa: E501
-        'file_name': 'file_name',  # noqa: E501
-        'file_url': 'file_url',  # noqa: E501
-        'candidate': 'candidate',  # noqa: E501
-        'attachment_type': 'attachment_type',  # noqa: E501
+        'model': 'model',  # noqa: E501
+        'remote_user_id': 'remote_user_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -110,8 +99,12 @@ class AttachmentRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, model, remote_user_id, *args, **kwargs):  # noqa: E501
         """AttachmentRequest - a model defined in OpenAPI
+
+        Args:
+            model (AttachmentRequest):
+            remote_user_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,11 +137,6 @@ class AttachmentRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            file_name (str, none_type): The attachment's name.. [optional]  # noqa: E501
-            file_url (str, none_type): The attachment's url.. [optional]  # noqa: E501
-            candidate (str, none_type): [optional]  # noqa: E501
-            attachment_type (object, none_type): The attachment's type.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -174,6 +162,8 @@ class AttachmentRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.model = model
+        self.remote_user_id = remote_user_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

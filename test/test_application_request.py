@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.application_request import ApplicationRequest
+from MergeATSClient.api_client import ApiClient
 
 
 class TestApplicationRequest(unittest.TestCase):
@@ -29,7 +31,24 @@ class TestApplicationRequest(unittest.TestCase):
         """Test ApplicationRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = ApplicationRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for ApplicationRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (ApplicationRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
+        assert deserialized.remote_user_id is not None
 
 
 if __name__ == '__main__':

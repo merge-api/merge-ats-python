@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.activity_type_enum import ActivityTypeEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestActivityTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestActivityTypeEnum(unittest.TestCase):
         """Test ActivityTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = ActivityTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

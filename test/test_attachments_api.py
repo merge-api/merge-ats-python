@@ -24,6 +24,12 @@ class TestAttachmentsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_attachments_create(self):
+        """Test case for attachments_create
+
+        """
+        pass
+
     def test_attachments_list(self):
         """Test case for attachments_list
 

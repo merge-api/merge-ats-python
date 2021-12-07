@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -59,7 +57,7 @@ class Url(ModelNormal):
 
     validations = {
         ('value',): {
-            'max_length': 400,
+            'max_length': 2000,
         },
     }
 

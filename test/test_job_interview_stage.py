@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.remote_data import RemoteData
 globals()['RemoteData'] = RemoteData
 from MergeATSClient.model.job_interview_stage import JobInterviewStage
+from MergeATSClient.api_client import ApiClient
 
 
 class TestJobInterviewStage(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestJobInterviewStage(unittest.TestCase):
         """Test JobInterviewStage"""
         # FIXME: construct object with mandatory attributes with example values
         # model = JobInterviewStage()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for JobInterviewStage
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (JobInterviewStage,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

@@ -24,6 +24,12 @@ class TestApplicationsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_applications_create(self):
+        """Test case for applications_create
+
+        """
+        pass
+
     def test_applications_list(self):
         """Test case for applications_list
 

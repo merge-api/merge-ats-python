@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.scheduled_interview import ScheduledInterview
 globals()['ScheduledInterview'] = ScheduledInterview
 from MergeATSClient.model.paginated_scheduled_interview_list import PaginatedScheduledInterviewList
+from MergeATSClient.api_client import ApiClient
 
 
 class TestPaginatedScheduledInterviewList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedScheduledInterviewList(unittest.TestCase):
         """Test PaginatedScheduledInterviewList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedScheduledInterviewList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedScheduledInterviewList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedScheduledInterviewList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

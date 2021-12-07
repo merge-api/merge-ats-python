@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.race_enum import RaceEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestRaceEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestRaceEnum(unittest.TestCase):
         """Test RaceEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = RaceEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

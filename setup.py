@@ -11,8 +11,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "merge-ats-client"
-VERSION = "1.0.4"
+NAME = "MergeATSClient"
+VERSION = "1.0.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,7 +23,6 @@ VERSION = "1.0.4"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "nulltype",
 ]
 
 setup(
