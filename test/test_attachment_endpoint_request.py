@@ -14,18 +14,14 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeATSClient
-from MergeATSClient.model.email_address_request import EmailAddressRequest
-from MergeATSClient.model.phone_number_request import PhoneNumberRequest
-from MergeATSClient.model.url_request import UrlRequest
-globals()['EmailAddressRequest'] = EmailAddressRequest
-globals()['PhoneNumberRequest'] = PhoneNumberRequest
-globals()['UrlRequest'] = UrlRequest
-from MergeATSClient.model.candidate_request import CandidateRequest
+from MergeATSClient.model.attachment_request import AttachmentRequest
+globals()['AttachmentRequest'] = AttachmentRequest
+from MergeATSClient.model.attachment_endpoint_request import AttachmentEndpointRequest
 from MergeATSClient.api_client import ApiClient
 
 
-class TestCandidateRequest(unittest.TestCase):
-    """CandidateRequest unit test stubs"""
+class TestAttachmentEndpointRequest(unittest.TestCase):
+    """AttachmentEndpointRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -33,13 +29,13 @@ class TestCandidateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCandidateRequest(self):
-        """Test CandidateRequest"""
+    def testAttachmentEndpointRequest(self):
+        """Test AttachmentEndpointRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CandidateRequest()  # noqa: E501
+        # model = AttachmentEndpointRequest()  # noqa: E501
 
         """
-        No test json responses were defined for CandidateRequest
+        No test json responses were defined for AttachmentEndpointRequest
         """
         raw_json = None
 
@@ -49,10 +45,12 @@ class TestCandidateRequest(unittest.TestCase):
         response_mock = MagicMock()
         response_mock.data = raw_json
 
-        deserialized = ApiClient().deserialize(response_mock, (CandidateRequest,), False)
+        deserialized = ApiClient().deserialize(response_mock, (AttachmentEndpointRequest,), False)
 
         assert deserialized is not None
 
+        assert deserialized.model is not None
+        assert deserialized.remote_user_id is not None
 
 
 if __name__ == '__main__':

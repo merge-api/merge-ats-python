@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **applications_create**
-> ApplicationResponse applications_create(x_account_token, application_write_request)
+> ApplicationResponse applications_create(x_account_token, application_endpoint_request)
 
 
 
@@ -23,7 +23,7 @@ Creates an `Application` object with the given values.
 import time
 import MergeATSClient
 from MergeATSClient.api import applications_api
-from MergeATSClient.model.application_write_request import ApplicationWriteRequest
+from MergeATSClient.model.application_endpoint_request import ApplicationEndpointRequest
 from MergeATSClient.model.application_response import ApplicationResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
@@ -48,8 +48,8 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = applications_api.ApplicationsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    application_write_request = ApplicationWriteRequest(
-        model=ApplicationWriteModelRequest(
+    application_endpoint_request = ApplicationEndpointRequest(
+        model=ApplicationRequest(
             remote_id="98796",
             candidate="2872ba14-4084-492b-be96-e5eee6fc33ef",
             job="52bf9b5e-0beb-4f6f-8a72-cd4dca7ca633",
@@ -64,12 +64,12 @@ with MergeATSClient.ApiClient(configuration) as api_client:
             },
         ),
         remote_user_id="remote_user_id_example",
-    ) # ApplicationWriteRequest | 
+    ) # ApplicationEndpointRequest | 
     run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.applications_create(x_account_token, application_write_request)
+        api_response = api_instance.applications_create(x_account_token, application_endpoint_request)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_create: %s\n" % e)
@@ -77,7 +77,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.applications_create(x_account_token, application_write_request, run_async=run_async)
+        api_response = api_instance.applications_create(x_account_token, application_endpoint_request, run_async=run_async)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_create: %s\n" % e)
@@ -89,7 +89,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **application_write_request** | [**ApplicationWriteRequest**](ApplicationWriteRequest.md)|  |
+ **application_endpoint_request** | [**ApplicationEndpointRequest**](ApplicationEndpointRequest.md)|  |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
 
 ### Return type

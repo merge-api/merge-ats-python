@@ -47,8 +47,6 @@ class TestApplicationRequest(unittest.TestCase):
 
         assert deserialized is not None
 
-        assert deserialized.model is not None
-        assert deserialized.remote_user_id is not None
 
 
 if __name__ == '__main__':

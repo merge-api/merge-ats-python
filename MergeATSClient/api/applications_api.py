@@ -23,8 +23,8 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.application import Application
+from MergeATSClient.model.application_endpoint_request import ApplicationEndpointRequest
 from MergeATSClient.model.application_response import ApplicationResponse
-from MergeATSClient.model.application_write_request import ApplicationWriteRequest
 from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
 
 
@@ -43,7 +43,7 @@ class ApplicationsApi(object):
         def __applications_create(
             self,
             x_account_token,
-            application_write_request,
+            application_endpoint_request,
             **kwargs
         ):
             """applications_create  # noqa: E501
@@ -52,12 +52,12 @@ class ApplicationsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.applications_create(x_account_token, application_write_request, async_req=True)
+            >>> thread = api.applications_create(x_account_token, application_endpoint_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                application_write_request (ApplicationWriteRequest):
+                application_endpoint_request (ApplicationEndpointRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
@@ -107,8 +107,8 @@ class ApplicationsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['application_write_request'] = \
-                application_write_request
+            kwargs['application_endpoint_request'] = \
+                application_endpoint_request
             return self.call_with_http_info(**kwargs)
 
         self.applications_create = _Endpoint(
@@ -125,12 +125,12 @@ class ApplicationsApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'application_write_request',
+                    'application_endpoint_request',
                     'run_async',
                 ],
                 'required': [
                     'x_account_token',
-                    'application_write_request',
+                    'application_endpoint_request',
                 ],
                 'nullable': [
                 ],
@@ -147,8 +147,8 @@ class ApplicationsApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'application_write_request':
-                        (ApplicationWriteRequest,),
+                    'application_endpoint_request':
+                        (ApplicationEndpointRequest,),
                     'run_async':
                         (bool,),
                 },
@@ -158,7 +158,7 @@ class ApplicationsApi(object):
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'application_write_request': 'body',
+                    'application_endpoint_request': 'body',
                     'run_async': 'query',
                 },
                 'collection_format_map': {
