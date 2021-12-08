@@ -14,12 +14,14 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeATSClient
-from MergeATSClient.model.remote_data_request import RemoteDataRequest
+from MergeATSClient.model.attachment_write_model_request import AttachmentWriteModelRequest
+globals()['AttachmentWriteModelRequest'] = AttachmentWriteModelRequest
+from MergeATSClient.model.attachment_write_request import AttachmentWriteRequest
 from MergeATSClient.api_client import ApiClient
 
 
-class TestRemoteDataRequest(unittest.TestCase):
-    """RemoteDataRequest unit test stubs"""
+class TestAttachmentWriteRequest(unittest.TestCase):
+    """AttachmentWriteRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,13 +29,13 @@ class TestRemoteDataRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRemoteDataRequest(self):
-        """Test RemoteDataRequest"""
+    def testAttachmentWriteRequest(self):
+        """Test AttachmentWriteRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = RemoteDataRequest()  # noqa: E501
+        # model = AttachmentWriteRequest()  # noqa: E501
 
         """
-        No test json responses were defined for RemoteDataRequest
+        No test json responses were defined for AttachmentWriteRequest
         """
         raw_json = None
 
@@ -43,11 +45,12 @@ class TestRemoteDataRequest(unittest.TestCase):
         response_mock = MagicMock()
         response_mock.data = raw_json
 
-        deserialized = ApiClient().deserialize(response_mock, (RemoteDataRequest,), False)
+        deserialized = ApiClient().deserialize(response_mock, (AttachmentWriteRequest,), False)
 
         assert deserialized is not None
 
-        assert deserialized.path is not None
+        assert deserialized.model is not None
+        assert deserialized.remote_user_id is not None
 
 
 if __name__ == '__main__':

@@ -14,12 +14,12 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeATSClient
-from MergeATSClient.model.remote_data_request import RemoteDataRequest
+from MergeATSClient.model.validation_problem import ValidationProblem
 from MergeATSClient.api_client import ApiClient
 
 
-class TestRemoteDataRequest(unittest.TestCase):
-    """RemoteDataRequest unit test stubs"""
+class TestValidationProblem(unittest.TestCase):
+    """ValidationProblem unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,13 +27,13 @@ class TestRemoteDataRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRemoteDataRequest(self):
-        """Test RemoteDataRequest"""
+    def testValidationProblem(self):
+        """Test ValidationProblem"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = RemoteDataRequest()  # noqa: E501
+        # model = ValidationProblem()  # noqa: E501
 
         """
-        No test json responses were defined for RemoteDataRequest
+        No test json responses were defined for ValidationProblem
         """
         raw_json = None
 
@@ -43,11 +43,13 @@ class TestRemoteDataRequest(unittest.TestCase):
         response_mock = MagicMock()
         response_mock.data = raw_json
 
-        deserialized = ApiClient().deserialize(response_mock, (RemoteDataRequest,), False)
+        deserialized = ApiClient().deserialize(response_mock, (ValidationProblem,), False)
 
         assert deserialized is not None
 
-        assert deserialized.path is not None
+        assert deserialized.title is not None
+        assert deserialized.detail is not None
+        assert deserialized.type is not None
 
 
 if __name__ == '__main__':

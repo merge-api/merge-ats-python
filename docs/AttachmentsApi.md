@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **attachments_create**
-> AttachmentResponse attachments_create(x_account_token, attachment_request)
+> AttachmentResponse attachments_create(x_account_token, attachment_write_request)
 
 
 
@@ -24,7 +24,7 @@ import time
 import MergeATSClient
 from MergeATSClient.api import attachments_api
 from MergeATSClient.model.attachment_response import AttachmentResponse
-from MergeATSClient.model.attachment_request import AttachmentRequest
+from MergeATSClient.model.attachment_write_request import AttachmentWriteRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -48,15 +48,21 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    attachment_request = AttachmentRequest(
-        model=AttachmentRequest(),
+    attachment_write_request = AttachmentWriteRequest(
+        model=AttachmentWriteModelRequest(
+            remote_id="11167",
+            file_name="Candidate Resume",
+            file_url="http://alturl.com/p749b",
+            candidate="2872ba14-4084-492b-be96-e5eee6fc33ef",
+            attachment_type=,
+        ),
         remote_user_id="remote_user_id_example",
-    ) # AttachmentRequest | 
+    ) # AttachmentWriteRequest | 
     run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.attachments_create(x_account_token, attachment_request)
+        api_response = api_instance.attachments_create(x_account_token, attachment_write_request)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling AttachmentsApi->attachments_create: %s\n" % e)
@@ -64,7 +70,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.attachments_create(x_account_token, attachment_request, run_async=run_async)
+        api_response = api_instance.attachments_create(x_account_token, attachment_write_request, run_async=run_async)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling AttachmentsApi->attachments_create: %s\n" % e)
@@ -76,7 +82,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **attachment_request** | [**AttachmentRequest**](AttachmentRequest.md)|  |
+ **attachment_write_request** | [**AttachmentWriteRequest**](AttachmentWriteRequest.md)|  |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
 
 ### Return type

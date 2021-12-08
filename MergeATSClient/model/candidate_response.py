@@ -29,7 +29,9 @@ from MergeATSClient.model_utils import (  # noqa: F401
 
 def lazy_import():
     from MergeATSClient.model.candidate import Candidate
+    from MergeATSClient.model.validation_problem import ValidationProblem
     globals()['Candidate'] = Candidate
+    globals()['ValidationProblem'] = ValidationProblem
 
 
 class CandidateResponse(ModelNormal):
@@ -78,8 +80,9 @@ class CandidateResponse(ModelNormal):
         """
         lazy_import()
         return {
+            'errors': ([ValidationProblem],),  # noqa: E501
+            'warnings': ([ValidationProblem],),  # noqa: E501
             'model': (Candidate,),  # noqa: E501
-            'remote_user_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -88,8 +91,9 @@ class CandidateResponse(ModelNormal):
 
 
     attribute_map = {
+        'errors': 'errors',  # noqa: E501
+        'warnings': 'warnings',  # noqa: E501
         'model': 'model',  # noqa: E501
-        'remote_user_id': 'remote_user_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -104,12 +108,13 @@ class CandidateResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, model, remote_user_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, errors, warnings, model, *args, **kwargs):  # noqa: E501
         """CandidateResponse - a model defined in OpenAPI
 
         Args:
+            errors ([ValidationProblem]):
+            warnings ([ValidationProblem]):
             model (Candidate):
-            remote_user_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -167,8 +172,9 @@ class CandidateResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.errors = errors
+        self.warnings = warnings
         self.model = model
-        self.remote_user_id = remote_user_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **candidates_create**
-> CandidateResponse candidates_create(x_account_token, candidate_request)
+> CandidateResponse candidates_create(x_account_token, candidate_write_request)
 
 
 
@@ -23,7 +23,7 @@ Creates a `Candidate` object with the given values.
 import time
 import MergeATSClient
 from MergeATSClient.api import candidates_api
-from MergeATSClient.model.candidate_request import CandidateRequest
+from MergeATSClient.model.candidate_write_request import CandidateWriteRequest
 from MergeATSClient.model.candidate_response import CandidateResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
@@ -48,15 +48,51 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = candidates_api.CandidatesApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    candidate_request = CandidateRequest(
-        model=CandidateRequest(),
+    candidate_write_request = CandidateWriteRequest(
+        model=CandidateWriteModelRequest(
+            remote_id="21198",
+            first_name="Gil",
+            last_name="Feig",
+            company="Columbia Dining App.",
+            title="Software Engineer",
+            remote_created_at=dateutil_parser('2021-10-15T00:00:00Z'),
+            remote_updated_at=dateutil_parser('2021-10-16T00:00:00Z'),
+            last_interaction_at=dateutil_parser('2021-10-17T00:00:00Z'),
+            is_private=True,
+            can_email=True,
+            locations=["San Francisco","New York","Miami"],
+            phone_numbers=[
+                PhoneNumberRequest(
+                    value="+3198675309",
+                    phone_number_type=,
+                ),
+            ],
+            email_addresses=[
+                EmailAddressRequest(
+                    value="merge_is_hiring@merge.dev",
+                    email_address_type=,
+                ),
+            ],
+            urls=[
+                UrlRequest(
+                    value="http://alturl.com/p749b",
+                    url_type=,
+                ),
+            ],
+            tags=["High-Priority"],
+            applications=["29eb9867-ce2a-403f-b8ce-f2844b89f078","b4d08e5c-de00-4d64-a29f-66addac9af99","4ff877d2-fb3e-4a5b-a7a5-168ddf2ffa56"],
+            attachments=["bea08964-32b4-4a20-8bb4-2612ba09de1d"],
+            custom_fields={
+                "key": None,
+            },
+        ),
         remote_user_id="remote_user_id_example",
-    ) # CandidateRequest | 
+    ) # CandidateWriteRequest | 
     run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.candidates_create(x_account_token, candidate_request)
+        api_response = api_instance.candidates_create(x_account_token, candidate_write_request)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling CandidatesApi->candidates_create: %s\n" % e)
@@ -64,7 +100,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.candidates_create(x_account_token, candidate_request, run_async=run_async)
+        api_response = api_instance.candidates_create(x_account_token, candidate_write_request, run_async=run_async)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling CandidatesApi->candidates_create: %s\n" % e)
@@ -76,7 +112,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **candidate_request** | [**CandidateRequest**](CandidateRequest.md)|  |
+ **candidate_write_request** | [**CandidateWriteRequest**](CandidateWriteRequest.md)|  |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
 
 ### Return type

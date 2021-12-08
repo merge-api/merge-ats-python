@@ -23,8 +23,8 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.candidate import Candidate
-from MergeATSClient.model.candidate_request import CandidateRequest
 from MergeATSClient.model.candidate_response import CandidateResponse
+from MergeATSClient.model.candidate_write_request import CandidateWriteRequest
 from MergeATSClient.model.paginated_candidate_list import PaginatedCandidateList
 
 
@@ -43,7 +43,7 @@ class CandidatesApi(object):
         def __candidates_create(
             self,
             x_account_token,
-            candidate_request,
+            candidate_write_request,
             **kwargs
         ):
             """candidates_create  # noqa: E501
@@ -52,12 +52,12 @@ class CandidatesApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.candidates_create(x_account_token, candidate_request, async_req=True)
+            >>> thread = api.candidates_create(x_account_token, candidate_write_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                candidate_request (CandidateRequest):
+                candidate_write_request (CandidateWriteRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
@@ -107,8 +107,8 @@ class CandidatesApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['candidate_request'] = \
-                candidate_request
+            kwargs['candidate_write_request'] = \
+                candidate_write_request
             return self.call_with_http_info(**kwargs)
 
         self.candidates_create = _Endpoint(
@@ -125,12 +125,12 @@ class CandidatesApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'candidate_request',
+                    'candidate_write_request',
                     'run_async',
                 ],
                 'required': [
                     'x_account_token',
-                    'candidate_request',
+                    'candidate_write_request',
                 ],
                 'nullable': [
                 ],
@@ -147,8 +147,8 @@ class CandidatesApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'candidate_request':
-                        (CandidateRequest,),
+                    'candidate_write_request':
+                        (CandidateWriteRequest,),
                     'run_async':
                         (bool,),
                 },
@@ -158,7 +158,7 @@ class CandidatesApi(object):
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'candidate_request': 'body',
+                    'candidate_write_request': 'body',
                     'run_async': 'query',
                 },
                 'collection_format_map': {

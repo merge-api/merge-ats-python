@@ -23,8 +23,8 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.attachment import Attachment
-from MergeATSClient.model.attachment_request import AttachmentRequest
 from MergeATSClient.model.attachment_response import AttachmentResponse
+from MergeATSClient.model.attachment_write_request import AttachmentWriteRequest
 from MergeATSClient.model.paginated_attachment_list import PaginatedAttachmentList
 
 
@@ -43,7 +43,7 @@ class AttachmentsApi(object):
         def __attachments_create(
             self,
             x_account_token,
-            attachment_request,
+            attachment_write_request,
             **kwargs
         ):
             """attachments_create  # noqa: E501
@@ -52,12 +52,12 @@ class AttachmentsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.attachments_create(x_account_token, attachment_request, async_req=True)
+            >>> thread = api.attachments_create(x_account_token, attachment_write_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                attachment_request (AttachmentRequest):
+                attachment_write_request (AttachmentWriteRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
@@ -107,8 +107,8 @@ class AttachmentsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['attachment_request'] = \
-                attachment_request
+            kwargs['attachment_write_request'] = \
+                attachment_write_request
             return self.call_with_http_info(**kwargs)
 
         self.attachments_create = _Endpoint(
@@ -125,12 +125,12 @@ class AttachmentsApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'attachment_request',
+                    'attachment_write_request',
                     'run_async',
                 ],
                 'required': [
                     'x_account_token',
-                    'attachment_request',
+                    'attachment_write_request',
                 ],
                 'nullable': [
                 ],
@@ -147,8 +147,8 @@ class AttachmentsApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'attachment_request':
-                        (AttachmentRequest,),
+                    'attachment_write_request':
+                        (AttachmentWriteRequest,),
                     'run_async':
                         (bool,),
                 },
@@ -158,7 +158,7 @@ class AttachmentsApi(object):
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'attachment_request': 'body',
+                    'attachment_write_request': 'body',
                     'run_async': 'query',
                 },
                 'collection_format_map': {

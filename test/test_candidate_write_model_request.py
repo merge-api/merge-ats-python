@@ -14,12 +14,18 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeATSClient
+from MergeATSClient.model.email_address_request import EmailAddressRequest
+from MergeATSClient.model.phone_number_request import PhoneNumberRequest
 from MergeATSClient.model.url_request import UrlRequest
+globals()['EmailAddressRequest'] = EmailAddressRequest
+globals()['PhoneNumberRequest'] = PhoneNumberRequest
+globals()['UrlRequest'] = UrlRequest
+from MergeATSClient.model.candidate_write_model_request import CandidateWriteModelRequest
 from MergeATSClient.api_client import ApiClient
 
 
-class TestUrlRequest(unittest.TestCase):
-    """UrlRequest unit test stubs"""
+class TestCandidateWriteModelRequest(unittest.TestCase):
+    """CandidateWriteModelRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,13 +33,13 @@ class TestUrlRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testUrlRequest(self):
-        """Test UrlRequest"""
+    def testCandidateWriteModelRequest(self):
+        """Test CandidateWriteModelRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = UrlRequest()  # noqa: E501
+        # model = CandidateWriteModelRequest()  # noqa: E501
 
         """
-        No test json responses were defined for UrlRequest
+        No test json responses were defined for CandidateWriteModelRequest
         """
         raw_json = None
 
@@ -43,7 +49,7 @@ class TestUrlRequest(unittest.TestCase):
         response_mock = MagicMock()
         response_mock.data = raw_json
 
-        deserialized = ApiClient().deserialize(response_mock, (UrlRequest,), False)
+        deserialized = ApiClient().deserialize(response_mock, (CandidateWriteModelRequest,), False)
 
         assert deserialized is not None
 

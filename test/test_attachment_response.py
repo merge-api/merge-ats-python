@@ -15,7 +15,9 @@ from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.attachment import Attachment
+from MergeATSClient.model.validation_problem import ValidationProblem
 globals()['Attachment'] = Attachment
+globals()['ValidationProblem'] = ValidationProblem
 from MergeATSClient.model.attachment_response import AttachmentResponse
 from MergeATSClient.api_client import ApiClient
 
@@ -49,8 +51,9 @@ class TestAttachmentResponse(unittest.TestCase):
 
         assert deserialized is not None
 
+        assert deserialized.errors is not None
+        assert deserialized.warnings is not None
         assert deserialized.model is not None
-        assert deserialized.remote_user_id is not None
 
 
 if __name__ == '__main__':
