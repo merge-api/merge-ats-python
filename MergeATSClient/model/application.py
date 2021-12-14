@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -91,6 +89,7 @@ class Application(ModelNormal):
             'current_stage': (str, none_type,),  # noqa: E501
             'reject_reason': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +109,7 @@ class Application(ModelNormal):
         'current_stage': 'current_stage',  # noqa: E501
         'reject_reason': 'reject_reason',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'custom_fields': 'custom_fields',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -169,6 +169,7 @@ class Application(ModelNormal):
             current_stage (str, none_type): The application's current stage.. [optional]  # noqa: E501
             reject_reason (str, none_type): The application's reason for rejection.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

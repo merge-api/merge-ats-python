@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
-import openapi_client
-from openapi_client.model.attachment_type_enum import AttachmentTypeEnum
+import MergeATSClient
+from MergeATSClient.model.attachment_type_enum import AttachmentTypeEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestAttachmentTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestAttachmentTypeEnum(unittest.TestCase):
         """Test AttachmentTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = AttachmentTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.scheduled_interview_status_enum import ScheduledInterviewStatusEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestScheduledInterviewStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestScheduledInterviewStatusEnum(unittest.TestCase):
         """Test ScheduledInterviewStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = ScheduledInterviewStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

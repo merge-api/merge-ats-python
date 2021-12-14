@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.application import Application
 globals()['Application'] = Application
 from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
+from MergeATSClient.api_client import ApiClient
 
 
 class TestPaginatedApplicationList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedApplicationList(unittest.TestCase):
         """Test PaginatedApplicationList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedApplicationList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedApplicationList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedApplicationList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

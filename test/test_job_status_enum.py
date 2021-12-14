@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.job_status_enum import JobStatusEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestJobStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestJobStatusEnum(unittest.TestCase):
         """Test JobStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = JobStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.email_address_request import EmailAddressRequest
@@ -20,6 +21,7 @@ globals()['EmailAddressRequest'] = EmailAddressRequest
 globals()['PhoneNumberRequest'] = PhoneNumberRequest
 globals()['UrlRequest'] = UrlRequest
 from MergeATSClient.model.candidate_request import CandidateRequest
+from MergeATSClient.api_client import ApiClient
 
 
 class TestCandidateRequest(unittest.TestCase):
@@ -35,7 +37,22 @@ class TestCandidateRequest(unittest.TestCase):
         """Test CandidateRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = CandidateRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for CandidateRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (CandidateRequest,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

@@ -23,7 +23,8 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.attachment import Attachment
-from MergeATSClient.model.attachment_request import AttachmentRequest
+from MergeATSClient.model.attachment_endpoint_request import AttachmentEndpointRequest
+from MergeATSClient.model.attachment_response import AttachmentResponse
 from MergeATSClient.model.paginated_attachment_list import PaginatedAttachmentList
 
 
@@ -42,7 +43,7 @@ class AttachmentsApi(object):
         def __attachments_create(
             self,
             x_account_token,
-            remote_user_id,
+            attachment_endpoint_request,
             **kwargs
         ):
             """attachments_create  # noqa: E501
@@ -51,16 +52,15 @@ class AttachmentsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.attachments_create(x_account_token, remote_user_id, async_req=True)
+            >>> thread = api.attachments_create(x_account_token, attachment_endpoint_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                remote_user_id (str): The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+                attachment_endpoint_request (AttachmentEndpointRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                attachment_request (AttachmentRequest): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -82,7 +82,7 @@ class AttachmentsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Attachment
+                AttachmentResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -107,13 +107,13 @@ class AttachmentsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['remote_user_id'] = \
-                remote_user_id
+            kwargs['attachment_endpoint_request'] = \
+                attachment_endpoint_request
             return self.call_with_http_info(**kwargs)
 
         self.attachments_create = _Endpoint(
             settings={
-                'response_type': (Attachment,),
+                'response_type': (AttachmentResponse,),
                 'auth': [
                     'tokenAuth'
                 ],
@@ -125,13 +125,12 @@ class AttachmentsApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'remote_user_id',
+                    'attachment_endpoint_request',
                     'run_async',
-                    'attachment_request',
                 ],
                 'required': [
                     'x_account_token',
-                    'remote_user_id',
+                    'attachment_endpoint_request',
                 ],
                 'nullable': [
                 ],
@@ -148,23 +147,19 @@ class AttachmentsApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'remote_user_id':
-                        (str,),
+                    'attachment_endpoint_request':
+                        (AttachmentEndpointRequest,),
                     'run_async':
                         (bool,),
-                    'attachment_request':
-                        (AttachmentRequest,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
-                    'remote_user_id': 'remote_user_id',
                     'run_async': 'run_async',
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'remote_user_id': 'query',
+                    'attachment_endpoint_request': 'body',
                     'run_async': 'query',
-                    'attachment_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -205,6 +200,7 @@ class AttachmentsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "candidate"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -276,6 +272,7 @@ class AttachmentsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'expand',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -289,6 +286,7 @@ class AttachmentsApi(object):
                     'remote_id',
                 ],
                 'enum': [
+                    'expand',
                 ],
                 'validation': [
                 ]
@@ -297,6 +295,10 @@ class AttachmentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('expand',): {
+
+                        "CANDIDATE": "candidate"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -308,6 +310,8 @@ class AttachmentsApi(object):
                     'created_before':
                         (datetime,),
                     'cursor':
+                        (str,),
+                    'expand':
                         (str,),
                     'include_remote_data':
                         (bool,),
@@ -326,6 +330,7 @@ class AttachmentsApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -338,6 +343,7 @@ class AttachmentsApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'expand': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
@@ -377,6 +383,7 @@ class AttachmentsApi(object):
                 id (str):
 
             Keyword Args:
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "candidate"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -443,6 +450,7 @@ class AttachmentsApi(object):
                 'all': [
                     'x_account_token',
                     'id',
+                    'expand',
                     'include_remote_data',
                 ],
                 'required': [
@@ -452,6 +460,7 @@ class AttachmentsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'expand',
                 ],
                 'validation': [
                 ]
@@ -460,11 +469,17 @@ class AttachmentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('expand',): {
+
+                        "CANDIDATE": "candidate"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
                         (str,),
                     'id':
+                        (str,),
+                    'expand':
                         (str,),
                     'include_remote_data':
                         (bool,),
@@ -472,11 +487,13 @@ class AttachmentsApi(object):
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
+                    'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
+                    'expand': 'query',
                     'include_remote_data': 'query',
                 },
                 'collection_format_map': {

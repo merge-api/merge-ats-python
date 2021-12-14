@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeATSClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -101,6 +99,7 @@ class CandidateRequest(ModelNormal):
             'tags': ([str],),  # noqa: E501
             'applications': ([str],),  # noqa: E501
             'attachments': ([str],),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -126,6 +125,7 @@ class CandidateRequest(ModelNormal):
         'tags': 'tags',  # noqa: E501
         'applications': 'applications',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
+        'custom_fields': 'custom_fields',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -188,9 +188,10 @@ class CandidateRequest(ModelNormal):
             phone_numbers ([PhoneNumberRequest]): [optional]  # noqa: E501
             email_addresses ([EmailAddressRequest]): [optional]  # noqa: E501
             urls ([UrlRequest]): [optional]  # noqa: E501
-            tags ([str]): [optional]  # noqa: E501
-            applications ([str]): [optional]  # noqa: E501
-            attachments ([str]): [optional]  # noqa: E501
+            tags ([str]): Array of `Tag` names as strings.. [optional]  # noqa: E501
+            applications ([str]): Array of `Application` object IDs.. [optional]  # noqa: E501
+            attachments ([str]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

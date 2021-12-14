@@ -50,8 +50,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import MergeATSClient
 from pprint import pprint
-from MergeATSClient.api import account_token_api
-from MergeATSClient.model.account_token import AccountToken
+from MergeATSClient.api import account_details_api
+from MergeATSClient.model.account_details import AccountDetails
 # Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = MergeATSClient.Configuration(
@@ -65,20 +65,21 @@ configuration = MergeATSClient.Configuration(
 
 # Configure API key authorization: tokenAuth
 configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
 with MergeATSClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = account_token_api.AccountTokenApi(api_client)
-    public_token = "public_token_example" # str | 
-
+    api_instance = account_details_api.AccountDetailsApi(api_client)
+    
     try:
-        api_response = api_instance.account_token_retrieve(public_token)
+        api_response = api_instance.account_details_retrieve()
         pprint(api_response)
     except MergeATSClient.ApiException as e:
-        print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
+        print("Exception when calling AccountDetailsApi->account_details_retrieve: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -87,6 +88,7 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountDetailsApi* | [**account_details_retrieve**](docs/AccountDetailsApi.md#account_details_retrieve) | **GET** /account-details | 
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *ActivitiesApi* | [**activities_list**](docs/ActivitiesApi.md#activities_list) | **GET** /activities | 
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
@@ -100,19 +102,22 @@ Class | Method | HTTP request | Description
 *CandidatesApi* | [**candidates_create**](docs/CandidatesApi.md#candidates_create) | **POST** /candidates | 
 *CandidatesApi* | [**candidates_list**](docs/CandidatesApi.md#candidates_list) | **GET** /candidates | 
 *CandidatesApi* | [**candidates_retrieve**](docs/CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
+*DeleteAccountApi* | [**delete_account_create**](docs/DeleteAccountApi.md#delete_account_create) | **POST** /delete-account | 
 *DepartmentsApi* | [**departments_list**](docs/DepartmentsApi.md#departments_list) | **GET** /departments | 
 *DepartmentsApi* | [**departments_retrieve**](docs/DepartmentsApi.md#departments_retrieve) | **GET** /departments/{id} | 
 *EeocsApi* | [**eeocs_list**](docs/EeocsApi.md#eeocs_list) | **GET** /eeocs | 
 *EeocsApi* | [**eeocs_retrieve**](docs/EeocsApi.md#eeocs_retrieve) | **GET** /eeocs/{id} | 
 *GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
-*InterviewsApi* | [**interviews_create**](docs/InterviewsApi.md#interviews_create) | **POST** /interviews | 
 *InterviewsApi* | [**interviews_list**](docs/InterviewsApi.md#interviews_list) | **GET** /interviews | 
 *InterviewsApi* | [**interviews_retrieve**](docs/InterviewsApi.md#interviews_retrieve) | **GET** /interviews/{id} | 
+*IssuesApi* | [**issues_list**](docs/IssuesApi.md#issues_list) | **GET** /issues | 
+*IssuesApi* | [**issues_retrieve**](docs/IssuesApi.md#issues_retrieve) | **GET** /issues/{id} | 
 *JobInterviewStagesApi* | [**job_interview_stages_list**](docs/JobInterviewStagesApi.md#job_interview_stages_list) | **GET** /job-interview-stages | 
 *JobInterviewStagesApi* | [**job_interview_stages_retrieve**](docs/JobInterviewStagesApi.md#job_interview_stages_retrieve) | **GET** /job-interview-stages/{id} | 
 *JobsApi* | [**jobs_list**](docs/JobsApi.md#jobs_list) | **GET** /jobs | 
 *JobsApi* | [**jobs_retrieve**](docs/JobsApi.md#jobs_retrieve) | **GET** /jobs/{id} | 
 *LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
+*LinkedAccountsApi* | [**linked_accounts_list**](docs/LinkedAccountsApi.md#linked_accounts_list) | **GET** /linked-accounts | 
 *OffersApi* | [**offers_list**](docs/OffersApi.md#offers_list) | **GET** /offers | 
 *OffersApi* | [**offers_retrieve**](docs/OffersApi.md#offers_retrieve) | **GET** /offers/{id} | 
 *OfficesApi* | [**offices_list**](docs/OfficesApi.md#offices_list) | **GET** /offices | 
@@ -121,13 +126,11 @@ Class | Method | HTTP request | Description
 *RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
 *RejectReasonsApi* | [**reject_reasons_list**](docs/RejectReasonsApi.md#reject_reasons_list) | **GET** /reject-reasons | 
 *RejectReasonsApi* | [**reject_reasons_retrieve**](docs/RejectReasonsApi.md#reject_reasons_retrieve) | **GET** /reject-reasons/{id} | 
-*ScorecardsApi* | [**scorecards_create**](docs/ScorecardsApi.md#scorecards_create) | **POST** /scorecards | 
 *ScorecardsApi* | [**scorecards_list**](docs/ScorecardsApi.md#scorecards_list) | **GET** /scorecards | 
 *ScorecardsApi* | [**scorecards_retrieve**](docs/ScorecardsApi.md#scorecards_retrieve) | **GET** /scorecards/{id} | 
 *SyncStatusApi* | [**sync_status_list**](docs/SyncStatusApi.md#sync_status_list) | **GET** /sync-status | 
 *SyncStatusApi* | [**sync_status_resync_create**](docs/SyncStatusApi.md#sync_status_resync_create) | **POST** /sync-status/resync | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
-*UsersApi* | [**users_create**](docs/UsersApi.md#users_create) | **POST** /users | 
 *UsersApi* | [**users_list**](docs/UsersApi.md#users_list) | **GET** /users | 
 *UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{id} | 
 
@@ -135,18 +138,30 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessRoleEnum](docs/AccessRoleEnum.md)
+ - [AccountDetails](docs/AccountDetails.md)
+ - [AccountDetailsAndActions](docs/AccountDetailsAndActions.md)
+ - [AccountDetailsAndActionsIntegration](docs/AccountDetailsAndActionsIntegration.md)
+ - [AccountDetailsAndActionsStatusEnum](docs/AccountDetailsAndActionsStatusEnum.md)
  - [AccountIntegration](docs/AccountIntegration.md)
  - [AccountToken](docs/AccountToken.md)
  - [Activity](docs/Activity.md)
  - [ActivityTypeEnum](docs/ActivityTypeEnum.md)
  - [Application](docs/Application.md)
+ - [ApplicationEndpointRequest](docs/ApplicationEndpointRequest.md)
  - [ApplicationRequest](docs/ApplicationRequest.md)
+ - [ApplicationResponse](docs/ApplicationResponse.md)
  - [Attachment](docs/Attachment.md)
+ - [AttachmentEndpointRequest](docs/AttachmentEndpointRequest.md)
  - [AttachmentRequest](docs/AttachmentRequest.md)
+ - [AttachmentResponse](docs/AttachmentResponse.md)
  - [AttachmentTypeEnum](docs/AttachmentTypeEnum.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Candidate](docs/Candidate.md)
+ - [CandidateEndpointRequest](docs/CandidateEndpointRequest.md)
  - [CandidateRequest](docs/CandidateRequest.md)
+ - [CandidateResponse](docs/CandidateResponse.md)
+ - [CategoriesEnum](docs/CategoriesEnum.md)
+ - [CategoryEnum](docs/CategoryEnum.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [Department](docs/Department.md)
  - [DisabilityStatusEnum](docs/DisabilityStatusEnum.md)
@@ -157,6 +172,8 @@ Class | Method | HTTP request | Description
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [GenderEnum](docs/GenderEnum.md)
  - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
+ - [Issue](docs/Issue.md)
+ - [IssueStatusEnum](docs/IssueStatusEnum.md)
  - [Job](docs/Job.md)
  - [JobInterviewStage](docs/JobInterviewStage.md)
  - [JobStatusEnum](docs/JobStatusEnum.md)
@@ -167,12 +184,14 @@ Class | Method | HTTP request | Description
  - [OfferStatusEnum](docs/OfferStatusEnum.md)
  - [Office](docs/Office.md)
  - [OverallRecommendationEnum](docs/OverallRecommendationEnum.md)
+ - [PaginatedAccountDetailsAndActionsList](docs/PaginatedAccountDetailsAndActionsList.md)
  - [PaginatedActivityList](docs/PaginatedActivityList.md)
  - [PaginatedApplicationList](docs/PaginatedApplicationList.md)
  - [PaginatedAttachmentList](docs/PaginatedAttachmentList.md)
  - [PaginatedCandidateList](docs/PaginatedCandidateList.md)
  - [PaginatedDepartmentList](docs/PaginatedDepartmentList.md)
  - [PaginatedEEOCList](docs/PaginatedEEOCList.md)
+ - [PaginatedIssueList](docs/PaginatedIssueList.md)
  - [PaginatedJobInterviewStageList](docs/PaginatedJobInterviewStageList.md)
  - [PaginatedJobList](docs/PaginatedJobList.md)
  - [PaginatedOfferList](docs/PaginatedOfferList.md)
@@ -194,18 +213,17 @@ Class | Method | HTTP request | Description
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RemoteUser](docs/RemoteUser.md)
- - [RemoteUserRequest](docs/RemoteUserRequest.md)
+ - [RequestFormatEnum](docs/RequestFormatEnum.md)
  - [ScheduledInterview](docs/ScheduledInterview.md)
- - [ScheduledInterviewRequest](docs/ScheduledInterviewRequest.md)
  - [ScheduledInterviewStatusEnum](docs/ScheduledInterviewStatusEnum.md)
  - [Scorecard](docs/Scorecard.md)
- - [ScorecardRequest](docs/ScorecardRequest.md)
  - [SyncStatus](docs/SyncStatus.md)
  - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tag](docs/Tag.md)
  - [Url](docs/Url.md)
  - [UrlRequest](docs/UrlRequest.md)
  - [UrlTypeEnum](docs/UrlTypeEnum.md)
+ - [ValidationProblem](docs/ValidationProblem.md)
  - [VeteranStatusEnum](docs/VeteranStatusEnum.md)
  - [VisibilityEnum](docs/VisibilityEnum.md)
 
@@ -234,7 +252,7 @@ Use specific imports for apis and models like:
 - `from MergeATSClient.api.default_api import DefaultApi`
 - `from MergeATSClient.model.pet import Pet`
 
-Solution 1:
+Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys

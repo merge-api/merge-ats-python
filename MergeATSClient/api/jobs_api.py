@@ -56,6 +56,7 @@ class JobsApi(object):
                 x_account_token (str): Token identifying the end user.
 
             Keyword Args:
+                code (str, none_type): If provided, will only return jobs with this code.. [optional]
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
@@ -128,6 +129,7 @@ class JobsApi(object):
             params_map={
                 'all': [
                     'x_account_token',
+                    'code',
                     'created_after',
                     'created_before',
                     'cursor',
@@ -143,6 +145,7 @@ class JobsApi(object):
                     'x_account_token',
                 ],
                 'nullable': [
+                    'code',
                     'remote_id',
                     'status',
                 ],
@@ -169,18 +172,20 @@ class JobsApi(object):
                     },
                     ('status',): {
                         'None': None,
-                        "OPEN": "OPEN",
+                        "EMPTY": "",
+                        "ARCHIVED": "ARCHIVED",
                         "CLOSED": "CLOSED",
                         "DRAFT": "DRAFT",
-                        "ARCHIVED": "ARCHIVED",
-                        "PENDING": "PENDING",
-                        "EMPTY": "",
-                        "NULL": "null"
+                        "NULL": "null",
+                        "OPEN": "OPEN",
+                        "PENDING": "PENDING"
                     },
                 },
                 'openapi_types': {
                     'x_account_token':
                         (str,),
+                    'code':
+                        (str, none_type,),
                     'created_after':
                         (datetime,),
                     'created_before':
@@ -204,6 +209,7 @@ class JobsApi(object):
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
+                    'code': 'code',
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
@@ -217,6 +223,7 @@ class JobsApi(object):
                 },
                 'location_map': {
                     'x_account_token': 'header',
+                    'code': 'query',
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',

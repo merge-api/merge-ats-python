@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.offer_status_enum import OfferStatusEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestOfferStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestOfferStatusEnum(unittest.TestCase):
         """Test OfferStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = OfferStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

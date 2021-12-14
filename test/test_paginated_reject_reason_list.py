@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.reject_reason import RejectReason
 globals()['RejectReason'] = RejectReason
 from MergeATSClient.model.paginated_reject_reason_list import PaginatedRejectReasonList
+from MergeATSClient.api_client import ApiClient
 
 
 class TestPaginatedRejectReasonList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedRejectReasonList(unittest.TestCase):
         """Test PaginatedRejectReasonList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedRejectReasonList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedRejectReasonList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedRejectReasonList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

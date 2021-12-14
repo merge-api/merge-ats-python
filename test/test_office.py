@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.remote_data import RemoteData
 globals()['RemoteData'] = RemoteData
 from MergeATSClient.model.office import Office
+from MergeATSClient.api_client import ApiClient
 
 
 class TestOffice(unittest.TestCase):
@@ -31,7 +33,21 @@ class TestOffice(unittest.TestCase):
         """Test Office"""
         # FIXME: construct object with mandatory attributes with example values
         # model = Office()  # noqa: E501
-        pass
+
+        raw_json = """
+            {"id": "9871b4a9-f5d2-4f3b-a66b-dfedbed42c46", "remote_id": "876556788", "name": "SF Office", "location": "Embarcadero Center 2", "remote_data": [{"path": "/locations", "data": {"example": "Varies by platform"}}]}
+        """
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (Office,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

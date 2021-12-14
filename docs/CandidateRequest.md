@@ -19,9 +19,10 @@ Name | Type | Description | Notes
 **phone_numbers** | [**[PhoneNumberRequest]**](PhoneNumberRequest.md) |  | [optional] 
 **email_addresses** | [**[EmailAddressRequest]**](EmailAddressRequest.md) |  | [optional] 
 **urls** | [**[UrlRequest]**](UrlRequest.md) |  | [optional] 
-**tags** | **[str]** |  | [optional] 
-**applications** | **[str]** |  | [optional] 
-**attachments** | **[str]** |  | [optional] 
+**tags** | **[str]** | Array of &#x60;Tag&#x60; names as strings. | [optional] 
+**applications** | **[str]** | Array of &#x60;Application&#x60; object IDs. | [optional] 
+**attachments** | **[str]** | Array of &#x60;Attachment&#x60; object IDs. | [optional] 
+**custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Custom fields configured for a given model. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

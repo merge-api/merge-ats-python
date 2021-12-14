@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.remote_data import RemoteData
 globals()['RemoteData'] = RemoteData
 from MergeATSClient.model.eeoc import EEOC
+from MergeATSClient.api_client import ApiClient
 
 
 class TestEEOC(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestEEOC(unittest.TestCase):
         """Test EEOC"""
         # FIXME: construct object with mandatory attributes with example values
         # model = EEOC()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for EEOC
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (EEOC,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

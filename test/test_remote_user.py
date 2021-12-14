@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.remote_data import RemoteData
 globals()['RemoteData'] = RemoteData
 from MergeATSClient.model.remote_user import RemoteUser
+from MergeATSClient.api_client import ApiClient
 
 
 class TestRemoteUser(unittest.TestCase):
@@ -31,7 +33,21 @@ class TestRemoteUser(unittest.TestCase):
         """Test RemoteUser"""
         # FIXME: construct object with mandatory attributes with example values
         # model = RemoteUser()  # noqa: E501
-        pass
+
+        raw_json = """
+            {"id": "b82302de-852e-4e60-b050-edf9da3b7c02", "remote_id": "344321", "first_name": "Shensi", "last_name": "Ding", "email": "hello@merge.dev", "disabled": false, "remote_created_at": "2020-11-10T00:00:00Z", "access_role": "SUPER_ADMIN", "remote_data": [{"path": "/users", "data": {"example": "Varies by platform"}}]}
+        """
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (RemoteUser,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

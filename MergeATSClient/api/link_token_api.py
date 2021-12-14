@@ -23,8 +23,6 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.end_user_details_request import EndUserDetailsRequest
-from MergeATSClient.model.end_user_details import EndUserDetails
-
 from MergeATSClient.model.link_token import LinkToken
 
 

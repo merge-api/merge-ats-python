@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.email_address_type_enum import EmailAddressTypeEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestEmailAddressTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestEmailAddressTypeEnum(unittest.TestCase):
         """Test EmailAddressTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = EmailAddressTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

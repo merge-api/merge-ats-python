@@ -23,7 +23,8 @@ from MergeATSClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeATSClient.model.application import Application
-from MergeATSClient.model.application_request import ApplicationRequest
+from MergeATSClient.model.application_endpoint_request import ApplicationEndpointRequest
+from MergeATSClient.model.application_response import ApplicationResponse
 from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
 
 
@@ -42,7 +43,7 @@ class ApplicationsApi(object):
         def __applications_create(
             self,
             x_account_token,
-            remote_user_id,
+            application_endpoint_request,
             **kwargs
         ):
             """applications_create  # noqa: E501
@@ -51,16 +52,15 @@ class ApplicationsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.applications_create(x_account_token, remote_user_id, async_req=True)
+            >>> thread = api.applications_create(x_account_token, application_endpoint_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                remote_user_id (str): The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+                application_endpoint_request (ApplicationEndpointRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                application_request (ApplicationRequest): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -82,7 +82,7 @@ class ApplicationsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Application
+                ApplicationResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -107,13 +107,13 @@ class ApplicationsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['remote_user_id'] = \
-                remote_user_id
+            kwargs['application_endpoint_request'] = \
+                application_endpoint_request
             return self.call_with_http_info(**kwargs)
 
         self.applications_create = _Endpoint(
             settings={
-                'response_type': (Application,),
+                'response_type': (ApplicationResponse,),
                 'auth': [
                     'tokenAuth'
                 ],
@@ -125,13 +125,12 @@ class ApplicationsApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'remote_user_id',
+                    'application_endpoint_request',
                     'run_async',
-                    'application_request',
                 ],
                 'required': [
                     'x_account_token',
-                    'remote_user_id',
+                    'application_endpoint_request',
                 ],
                 'nullable': [
                 ],
@@ -148,23 +147,19 @@ class ApplicationsApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'remote_user_id':
-                        (str,),
+                    'application_endpoint_request':
+                        (ApplicationEndpointRequest,),
                     'run_async':
                         (bool,),
-                    'application_request':
-                        (ApplicationRequest,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
-                    'remote_user_id': 'remote_user_id',
                     'run_async': 'run_async',
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'remote_user_id': 'query',
+                    'application_endpoint_request': 'body',
                     'run_async': 'query',
-                    'application_request': 'body',
                 },
                 'collection_format_map': {
                 }

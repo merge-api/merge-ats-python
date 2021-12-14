@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **current_stage** | **str, none_type** | The application&#39;s current stage. | [optional] 
 **reject_reason** | **str, none_type** | The application&#39;s reason for rejection. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Custom fields configured for a given model. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

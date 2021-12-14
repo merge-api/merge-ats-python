@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.overall_recommendation_enum import OverallRecommendationEnum
+from MergeATSClient.api_client import ApiClient
 
 
 class TestOverallRecommendationEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestOverallRecommendationEnum(unittest.TestCase):
         """Test OverallRecommendationEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = OverallRecommendationEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()
