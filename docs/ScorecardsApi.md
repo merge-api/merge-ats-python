@@ -18,6 +18,7 @@ Returns a list of `Scorecard` objects.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -51,6 +52,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     expand = "application,interview,interviewer" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     interview_id = "interview_id_example" # str | If provided, will only return scorecards for this interview. (optional)
     interviewer_id = "interviewer_id_example" # str | If provided, will only return scorecards for this interviewer. (optional)
@@ -69,7 +71,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.scorecards_list(x_account_token, application_id=application_id, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, include_remote_data=include_remote_data, interview_id=interview_id, interviewer_id=interviewer_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.scorecards_list(x_account_token, application_id=application_id, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, interview_id=interview_id, interviewer_id=interviewer_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ScorecardsApi->scorecards_list: %s\n" % e)
@@ -86,6 +88,7 @@ Name | Type | Description  | Notes
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **interview_id** | **str**| If provided, will only return scorecards for this interview. | [optional]
  **interviewer_id** | **str**| If provided, will only return scorecards for this interviewer. | [optional]
@@ -109,6 +112,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
@@ -125,6 +129,7 @@ Returns a `Scorecard` object with the given `id`.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -198,6 +203,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |

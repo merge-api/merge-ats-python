@@ -37,86 +37,7 @@ class ScorecardsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __scorecards_list(
-            self,
-            x_account_token,
-            **kwargs
-        ):
-            """scorecards_list  # noqa: E501
-
-            Returns a list of `Scorecard` objects.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.scorecards_list(x_account_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-
-            Keyword Args:
-                application_id (str): If provided, will only return scorecards for this application.. [optional]
-                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
-                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
-                cursor (str): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                interview_id (str): If provided, will only return scorecards for this interview.. [optional]
-                interviewer_id (str): If provided, will only return scorecards for this interviewer.. [optional]
-                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
-                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
-                page_size (int): Number of results to return per page.. [optional]
-                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaginatedScorecardList
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            return self.call_with_http_info(**kwargs)
-
-        self.scorecards_list = _Endpoint(
+        self.scorecards_list_endpoint = _Endpoint(
             settings={
                 'response_type': (PaginatedScorecardList,),
                 'auth': [
@@ -135,6 +56,7 @@ class ScorecardsApi(object):
                     'created_before',
                     'cursor',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'interview_id',
                     'interviewer_id',
@@ -183,6 +105,8 @@ class ScorecardsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'interview_id':
@@ -205,6 +129,7 @@ class ScorecardsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'interview_id': 'interview_id',
                     'interviewer_id': 'interviewer_id',
@@ -220,6 +145,7 @@ class ScorecardsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'interview_id': 'query',
                     'interviewer_id': 'query',
@@ -237,83 +163,9 @@ class ScorecardsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__scorecards_list
+            api_client=api_client
         )
-
-        def __scorecards_retrieve(
-            self,
-            x_account_token,
-            id,
-            **kwargs
-        ):
-            """scorecards_retrieve  # noqa: E501
-
-            Returns a `Scorecard` object with the given `id`.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.scorecards_retrieve(x_account_token, id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-                id (str):
-
-            Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Scorecard
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            kwargs['id'] = \
-                id
-            return self.call_with_http_info(**kwargs)
-
-        self.scorecards_retrieve = _Endpoint(
+        self.scorecards_retrieve_endpoint = _Endpoint(
             settings={
                 'response_type': (Scorecard,),
                 'auth': [
@@ -389,6 +241,157 @@ class ScorecardsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__scorecards_retrieve
+            api_client=api_client
         )
+
+    def scorecards_list(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """scorecards_list  # noqa: E501
+
+        Returns a list of `Scorecard` objects.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.scorecards_list(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            application_id (str): If provided, will only return scorecards for this application.. [optional]
+            created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+            created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            interview_id (str): If provided, will only return scorecards for this interview.. [optional]
+            interviewer_id (str): If provided, will only return scorecards for this interviewer.. [optional]
+            modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+            modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+            page_size (int): Number of results to return per page.. [optional]
+            remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaginatedScorecardList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.scorecards_list_endpoint.call_with_http_info(**kwargs)
+
+    def scorecards_retrieve(
+        self,
+        x_account_token,
+        id,
+        **kwargs
+    ):
+        """scorecards_retrieve  # noqa: E501
+
+        Returns a `Scorecard` object with the given `id`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.scorecards_retrieve(x_account_token, id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+            id (str):
+
+        Keyword Args:
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Scorecard
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        kwargs['id'] = \
+            id
+        return self.scorecards_retrieve_endpoint.call_with_http_info(**kwargs)
+

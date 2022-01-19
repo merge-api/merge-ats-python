@@ -36,82 +36,7 @@ class TagsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __tags_list(
-            self,
-            x_account_token,
-            **kwargs
-        ):
-            """tags_list  # noqa: E501
-
-            Returns a list of `Tag` objects.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.tags_list(x_account_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-
-            Keyword Args:
-                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
-                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
-                cursor (str): The pagination cursor value.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
-                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
-                page_size (int): Number of results to return per page.. [optional]
-                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaginatedTagList
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            return self.call_with_http_info(**kwargs)
-
-        self.tags_list = _Endpoint(
+        self.tags_list_endpoint = _Endpoint(
             settings={
                 'response_type': (PaginatedTagList,),
                 'auth': [
@@ -128,6 +53,7 @@ class TagsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -159,6 +85,8 @@ class TagsApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -175,6 +103,7 @@ class TagsApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -186,6 +115,7 @@ class TagsApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
@@ -201,6 +131,81 @@ class TagsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__tags_list
+            api_client=api_client
         )
+
+    def tags_list(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """tags_list  # noqa: E501
+
+        Returns a list of `Tag` objects.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.tags_list(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+            created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+            modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+            page_size (int): Number of results to return per page.. [optional]
+            remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaginatedTagList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.tags_list_endpoint.call_with_http_info(**kwargs)
+

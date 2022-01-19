@@ -24,6 +24,7 @@ from MergeATSClient.api.candidates_api import CandidatesApi
 from MergeATSClient.api.delete_account_api import DeleteAccountApi
 from MergeATSClient.api.departments_api import DepartmentsApi
 from MergeATSClient.api.eeocs_api import EeocsApi
+from MergeATSClient.api.force_resync_api import ForceResyncApi
 from MergeATSClient.api.generate_key_api import GenerateKeyApi
 from MergeATSClient.api.interviews_api import InterviewsApi
 from MergeATSClient.api.issues_api import IssuesApi

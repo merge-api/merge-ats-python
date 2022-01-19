@@ -25,6 +25,7 @@ from MergeATSClient.model_utils import (  # noqa: F401
 from MergeATSClient.model.application import Application
 from MergeATSClient.model.application_endpoint_request import ApplicationEndpointRequest
 from MergeATSClient.model.application_response import ApplicationResponse
+from MergeATSClient.model.meta_response import MetaResponse
 from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
 
 
@@ -39,79 +40,7 @@ class ApplicationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __applications_create(
-            self,
-            x_account_token,
-            application_endpoint_request,
-            **kwargs
-        ):
-            """applications_create  # noqa: E501
-
-            Creates an `Application` object with the given values.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.applications_create(x_account_token, application_endpoint_request, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-                application_endpoint_request (ApplicationEndpointRequest):
-
-            Keyword Args:
-                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ApplicationResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            kwargs['application_endpoint_request'] = \
-                application_endpoint_request
-            return self.call_with_http_info(**kwargs)
-
-        self.applications_create = _Endpoint(
+        self.applications_create_endpoint = _Endpoint(
             settings={
                 'response_type': (ApplicationResponse,),
                 'auth': [
@@ -174,91 +103,9 @@ class ApplicationsApi(object):
                     'multipart/form-data'
                 ]
             },
-            api_client=api_client,
-            callable=__applications_create
+            api_client=api_client
         )
-
-        def __applications_list(
-            self,
-            x_account_token,
-            **kwargs
-        ):
-            """applications_list  # noqa: E501
-
-            Returns a list of `Application` objects.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.applications_list(x_account_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-
-            Keyword Args:
-                candidate_id (str): If provided, will only return applications for this candidate.. [optional]
-                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
-                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
-                credited_to_id (str): If provided, will only return applications credited to this user.. [optional]
-                current_stage_id (str): If provided, will only return applications at this interview stage.. [optional]
-                cursor (str): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                job_id (str): If provided, will only return applications for this job.. [optional]
-                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
-                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
-                page_size (int): Number of results to return per page.. [optional]
-                reject_reason_id (str): If provided, will only return applications with this reject reason.. [optional]
-                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaginatedApplicationList
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            return self.call_with_http_info(**kwargs)
-
-        self.applications_list = _Endpoint(
+        self.applications_list_endpoint = _Endpoint(
             settings={
                 'response_type': (PaginatedApplicationList,),
                 'auth': [
@@ -279,6 +126,7 @@ class ApplicationsApi(object):
                     'current_stage_id',
                     'cursor',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'job_id',
                     'modified_after',
@@ -355,6 +203,8 @@ class ApplicationsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'job_id':
@@ -379,6 +229,7 @@ class ApplicationsApi(object):
                     'current_stage_id': 'current_stage_id',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'job_id': 'job_id',
                     'modified_after': 'modified_after',
@@ -396,6 +247,7 @@ class ApplicationsApi(object):
                     'current_stage_id': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'job_id': 'query',
                     'modified_after': 'query',
@@ -413,83 +265,65 @@ class ApplicationsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__applications_list
+            api_client=api_client
         )
-
-        def __applications_retrieve(
-            self,
-            x_account_token,
-            id,
-            **kwargs
-        ):
-            """applications_retrieve  # noqa: E501
-
-            Returns an `Application` object with the given `id`.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.applications_retrieve(x_account_token, id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-                id (str):
-
-            Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Application
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            kwargs['id'] = \
-                id
-            return self.call_with_http_info(**kwargs)
-
-        self.applications_retrieve = _Endpoint(
+        self.applications_post_meta_retrieve_endpoint = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/applications/post/meta',
+                'operation_id': 'applications_post_meta_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'application_template_id',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'application_template_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'application_template_id': 'application_template_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'application_template_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.applications_retrieve_endpoint = _Endpoint(
             settings={
                 'response_type': (Application,),
                 'auth': [
@@ -589,6 +423,297 @@ class ApplicationsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__applications_retrieve
+            api_client=api_client
         )
+
+    def applications_create(
+        self,
+        x_account_token,
+        application_endpoint_request,
+        **kwargs
+    ):
+        """applications_create  # noqa: E501
+
+        Creates an `Application` object with the given values.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.applications_create(x_account_token, application_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+            application_endpoint_request (ApplicationEndpointRequest):
+
+        Keyword Args:
+            run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ApplicationResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        kwargs['application_endpoint_request'] = \
+            application_endpoint_request
+        return self.applications_create_endpoint.call_with_http_info(**kwargs)
+
+    def applications_list(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """applications_list  # noqa: E501
+
+        Returns a list of `Application` objects.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.applications_list(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            candidate_id (str): If provided, will only return applications for this candidate.. [optional]
+            created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+            created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+            credited_to_id (str): If provided, will only return applications credited to this user.. [optional]
+            current_stage_id (str): If provided, will only return applications at this interview stage.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            job_id (str): If provided, will only return applications for this job.. [optional]
+            modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+            modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+            page_size (int): Number of results to return per page.. [optional]
+            reject_reason_id (str): If provided, will only return applications with this reject reason.. [optional]
+            remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaginatedApplicationList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.applications_list_endpoint.call_with_http_info(**kwargs)
+
+    def applications_post_meta_retrieve(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """applications_post_meta_retrieve  # noqa: E501
+
+        Returns metadata for `Application` POSTs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.applications_post_meta_retrieve(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            application_template_id (str): The template ID associated with the nested application in the request.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MetaResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.applications_post_meta_retrieve_endpoint.call_with_http_info(**kwargs)
+
+    def applications_retrieve(
+        self,
+        x_account_token,
+        id,
+        **kwargs
+    ):
+        """applications_retrieve  # noqa: E501
+
+        Returns an `Application` object with the given `id`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.applications_retrieve(x_account_token, id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+            id (str):
+
+        Keyword Args:
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Application
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        kwargs['id'] = \
+            id
+        return self.applications_retrieve_endpoint.call_with_http_info(**kwargs)
+

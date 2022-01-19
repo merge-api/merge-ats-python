@@ -18,6 +18,7 @@ Gets issues.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -94,6 +95,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
@@ -110,6 +112,7 @@ Get a specific issue.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -169,6 +172,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |

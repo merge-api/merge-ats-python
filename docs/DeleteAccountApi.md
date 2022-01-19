@@ -17,6 +17,7 @@ Delete a linked account.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -74,6 +75,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | No response body |  -  |

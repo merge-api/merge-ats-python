@@ -26,6 +26,9 @@ from MergeATSClient.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from MergeATSClient.exceptions import ApiAttributeError
+
 
 def lazy_import():
     from MergeATSClient.model.remote_data import RemoteData
@@ -62,7 +65,14 @@ class Offer(ModelNormal):
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        lazy_import()
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -86,7 +96,7 @@ class Offer(ModelNormal):
             'closed_at': (datetime, none_type,),  # noqa: E501
             'sent_at': (datetime, none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
-            'status': (object, none_type,),  # noqa: E501
+            'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -108,7 +118,95 @@ class Offer(ModelNormal):
         'remote_data': 'remote_data',  # noqa: E501
     }
 
+    read_only_vars = {
+        'id',  # noqa: E501
+        'remote_data',  # noqa: E501
+    }
+
     _composed_schemas = {}
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """Offer - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            id (str): [optional]  # noqa: E501
+            remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
+            application (str, none_type): The application who is receiving the offer.. [optional]  # noqa: E501
+            creator (str, none_type): The user who created the offer.. [optional]  # noqa: E501
+            remote_created_at (datetime, none_type): When the third party's offer was created.. [optional]  # noqa: E501
+            closed_at (datetime, none_type): When the offer was closed.. [optional]  # noqa: E501
+            sent_at (datetime, none_type): When the offer was sent.. [optional]  # noqa: E501
+            start_date (datetime, none_type): The employment start date on the offer.. [optional]  # noqa: E501
+            status (bool, date, datetime, dict, float, int, list, str, none_type): The offer's status.. [optional]  # noqa: E501
+            remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        for var_name, var_value in kwargs.items():
+            if var_name not in self.attribute_map and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self.additional_properties_type is None:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+        return self
 
     required_properties = set([
         '_data_store',
@@ -162,7 +260,7 @@ class Offer(ModelNormal):
             closed_at (datetime, none_type): When the offer was closed.. [optional]  # noqa: E501
             sent_at (datetime, none_type): When the offer was sent.. [optional]  # noqa: E501
             start_date (datetime, none_type): The employment start date on the offer.. [optional]  # noqa: E501
-            status (object, none_type): The offer's status.. [optional]  # noqa: E501
+            status (bool, date, datetime, dict, float, int, list, str, none_type): The offer's status.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 
@@ -197,3 +295,6 @@ class Offer(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")
