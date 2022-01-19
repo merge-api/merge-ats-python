@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **model_id** | **str** |  | 
 **last_sync_start** | **datetime** |  | 
 **next_sync_start** | **datetime** |  | 
-**status** | **object** |  | 
+**status** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **is_initial_sync** | **bool** |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

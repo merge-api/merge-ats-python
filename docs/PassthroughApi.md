@@ -17,6 +17,7 @@ Pull data from an endpoint not currently supported by Merge.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -47,14 +48,14 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     api_instance = passthrough_api.PassthroughApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     data_passthrough_request = DataPassthroughRequest(
-        method=,
+        method=None,
         path="/scooters",
         base_url_override="base_url_override_example",
         data="{"company": "Lime", "model": "Gen 2.5"}",
         headers={
             "key": None,
         },
-        request_format=,
+        request_format=None,
     ) # DataPassthroughRequest | 
 
     # example passing only required values which don't have defaults set
@@ -88,6 +89,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |

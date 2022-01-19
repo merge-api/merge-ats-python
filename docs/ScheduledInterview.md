@@ -1,6 +1,6 @@
 # ScheduledInterview
 
-# The ScheduledInterview Object ### Description The `ScheduledInterview` object is used to represent an interview  ### Usage Example Fetch from the `LIST ScheduledInterviews` endpoint and filter by `interviewers` to show all office locations.
+# The ScheduledInterview Object ### Description The `ScheduledInterview` object is used to represent an interview ### Usage Example Fetch from the `LIST ScheduledInterviews` endpoint and filter by `interviewers` to show all office locations.
 
 ## Properties
 Name | Type | Description | Notes
@@ -16,8 +16,9 @@ Name | Type | Description | Notes
 **end_at** | **datetime, none_type** | When the interview was ended. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s interview was created. | [optional] 
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s interview was updated. | [optional] 
-**status** | **object, none_type** | The interview&#39;s status. | [optional] 
+**status** | **bool, date, datetime, dict, float, int, list, str, none_type** | The interview&#39;s status. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

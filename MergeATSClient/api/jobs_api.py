@@ -37,85 +37,7 @@ class JobsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __jobs_list(
-            self,
-            x_account_token,
-            **kwargs
-        ):
-            """jobs_list  # noqa: E501
-
-            Returns a list of `Job` objects.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.jobs_list(x_account_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-
-            Keyword Args:
-                code (str, none_type): If provided, will only return jobs with this code.. [optional]
-                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
-                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
-                cursor (str): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
-                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
-                page_size (int): Number of results to return per page.. [optional]
-                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
-                status (str, none_type): If provided, will only return jobs with this status. Options: ('OPEN', 'CLOSED', 'DRAFT', 'ARCHIVED', 'PENDING'). [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaginatedJobList
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            return self.call_with_http_info(**kwargs)
-
-        self.jobs_list = _Endpoint(
+        self.jobs_list_endpoint = _Endpoint(
             settings={
                 'response_type': (PaginatedJobList,),
                 'auth': [
@@ -134,6 +56,7 @@ class JobsApi(object):
                     'created_before',
                     'cursor',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -172,11 +95,9 @@ class JobsApi(object):
                     },
                     ('status',): {
                         'None': None,
-                        "EMPTY": "",
                         "ARCHIVED": "ARCHIVED",
                         "CLOSED": "CLOSED",
                         "DRAFT": "DRAFT",
-                        "NULL": "null",
                         "OPEN": "OPEN",
                         "PENDING": "PENDING"
                     },
@@ -194,6 +115,8 @@ class JobsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -214,6 +137,7 @@ class JobsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -228,6 +152,7 @@ class JobsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
@@ -244,83 +169,9 @@ class JobsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__jobs_list
+            api_client=api_client
         )
-
-        def __jobs_retrieve(
-            self,
-            x_account_token,
-            id,
-            **kwargs
-        ):
-            """jobs_retrieve  # noqa: E501
-
-            Returns a `Job` object with the given `id`.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.jobs_retrieve(x_account_token, id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-                id (str):
-
-            Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Job
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            kwargs['id'] = \
-                id
-            return self.call_with_http_info(**kwargs)
-
-        self.jobs_retrieve = _Endpoint(
+        self.jobs_retrieve_endpoint = _Endpoint(
             settings={
                 'response_type': (Job,),
                 'auth': [
@@ -396,6 +247,156 @@ class JobsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__jobs_retrieve
+            api_client=api_client
         )
+
+    def jobs_list(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """jobs_list  # noqa: E501
+
+        Returns a list of `Job` objects.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.jobs_list(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            code (str, none_type): If provided, will only return jobs with this code.. [optional]
+            created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+            created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+            modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+            page_size (int): Number of results to return per page.. [optional]
+            remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+            status (str, none_type): If provided, will only return jobs with this status. Options: ('OPEN', 'CLOSED', 'DRAFT', 'ARCHIVED', 'PENDING'). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaginatedJobList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.jobs_list_endpoint.call_with_http_info(**kwargs)
+
+    def jobs_retrieve(
+        self,
+        x_account_token,
+        id,
+        **kwargs
+    ):
+        """jobs_retrieve  # noqa: E501
+
+        Returns a `Job` object with the given `id`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.jobs_retrieve(x_account_token, id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+            id (str):
+
+        Keyword Args:
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Job
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        kwargs['id'] = \
+            id
+        return self.jobs_retrieve_endpoint.call_with_http_info(**kwargs)
+

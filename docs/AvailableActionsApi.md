@@ -17,6 +17,7 @@ Returns a list of models and actions available for an account.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -76,6 +77,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |

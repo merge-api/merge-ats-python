@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**candidates_create**](CandidatesApi.md#candidates_create) | **POST** /candidates | 
 [**candidates_list**](CandidatesApi.md#candidates_list) | **GET** /candidates | 
+[**candidates_post_meta_retrieve**](CandidatesApi.md#candidates_post_meta_retrieve) | **GET** /candidates/post/meta | 
 [**candidates_retrieve**](CandidatesApi.md#candidates_retrieve) | **GET** /candidates/{id} | 
 
 
@@ -19,6 +20,7 @@ Creates a `Candidate` object with the given values.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -64,25 +66,32 @@ with MergeATSClient.ApiClient(configuration) as api_client:
             phone_numbers=[
                 PhoneNumberRequest(
                     value="+3198675309",
-                    phone_number_type=,
+                    phone_number_type=None,
                 ),
             ],
             email_addresses=[
                 EmailAddressRequest(
                     value="merge_is_hiring@merge.dev",
-                    email_address_type=,
+                    email_address_type=None,
                 ),
             ],
             urls=[
                 UrlRequest(
                     value="http://alturl.com/p749b",
-                    url_type=,
+                    url_type=None,
                 ),
             ],
             tags=["High-Priority"],
             applications=["29eb9867-ce2a-403f-b8ce-f2844b89f078","b4d08e5c-de00-4d64-a29f-66addac9af99","4ff877d2-fb3e-4a5b-a7a5-168ddf2ffa56"],
             attachments=["bea08964-32b4-4a20-8bb4-2612ba09de1d"],
             custom_fields={
+                "key": None,
+            },
+            remote_template_id="92830948203",
+            integration_params={
+                "key": None,
+            },
+            linked_account_params={
                 "key": None,
             },
         ),
@@ -130,6 +139,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** |  |  -  |
@@ -146,6 +156,7 @@ Returns a list of `Candidate` objects.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -179,6 +190,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     expand = "applications,attachments" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     first_name = "first_name_example" # str, none_type | If provided, will only return candidates with this first name. (optional)
+    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     last_name = "last_name_example" # str, none_type | If provided, will only return candidates with this last name. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -196,7 +208,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.candidates_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, first_name=first_name, include_remote_data=include_remote_data, last_name=last_name, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.candidates_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, first_name=first_name, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, last_name=last_name, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling CandidatesApi->candidates_list: %s\n" % e)
@@ -213,6 +225,7 @@ Name | Type | Description  | Notes
  **cursor** | **str**| The pagination cursor value. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **first_name** | **str, none_type**| If provided, will only return candidates with this first name. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **last_name** | **str, none_type**| If provided, will only return candidates with this last name. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
@@ -235,6 +248,84 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **candidates_post_meta_retrieve**
+> MetaResponse candidates_post_meta_retrieve(x_account_token)
+
+
+
+Returns metadata for `Candidate` POSTs.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+
+```python
+import time
+import MergeATSClient
+from MergeATSClient.api import candidates_api
+from MergeATSClient.model.meta_response import MetaResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeATSClient.Configuration(
+    host = "https://api.merge.dev/api/ats/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeATSClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = candidates_api.CandidatesApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.candidates_post_meta_retrieve(x_account_token)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling CandidatesApi->candidates_post_meta_retrieve: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+
+### Return type
+
+[**MetaResponse**](MetaResponse.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
@@ -251,6 +342,7 @@ Returns a `Candidate` object with the given `id`.
 ### Example
 
 * Api Key Authentication (tokenAuth):
+
 ```python
 import time
 import MergeATSClient
@@ -324,6 +416,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |

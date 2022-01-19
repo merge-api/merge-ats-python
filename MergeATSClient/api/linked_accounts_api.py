@@ -36,81 +36,7 @@ class LinkedAccountsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __linked_accounts_list(
-            self,
-            **kwargs
-        ):
-            """linked_accounts_list  # noqa: E501
-
-            List linked accounts for your organization.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.linked_accounts_list(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                category (str, none_type): [optional]
-                cursor (str): The pagination cursor value.. [optional]
-                end_user_email_address (str): [optional]
-                end_user_organization_name (str): [optional]
-                end_user_origin_id (str): [optional]
-                end_user_origin_ids (str): Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. [optional]
-                id (str): [optional]
-                ids (str): Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. [optional]
-                integration_name (str): [optional]
-                is_test_account (str): If included, will only include test linked accounts. If not included, will only include non-test linked accounts. [optional]
-                page_size (int): Number of results to return per page.. [optional]
-                status (str): Filter by status. Options: `COMPLETE`, `INCOMPLETE`, `RELINK_NEEDED`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaginatedAccountDetailsAndActionsList
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.linked_accounts_list = _Endpoint(
+        self.linked_accounts_list_endpoint = _Endpoint(
             settings={
                 'response_type': (PaginatedAccountDetailsAndActionsList,),
                 'auth': [
@@ -220,6 +146,79 @@ class LinkedAccountsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__linked_accounts_list
+            api_client=api_client
         )
+
+    def linked_accounts_list(
+        self,
+        **kwargs
+    ):
+        """linked_accounts_list  # noqa: E501
+
+        List linked accounts for your organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.linked_accounts_list(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            category (str, none_type): [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            end_user_email_address (str): [optional]
+            end_user_organization_name (str): [optional]
+            end_user_origin_id (str): [optional]
+            end_user_origin_ids (str): Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. [optional]
+            id (str): [optional]
+            ids (str): Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. [optional]
+            integration_name (str): [optional]
+            is_test_account (str): If included, will only include test linked accounts. If not included, will only include non-test linked accounts. [optional]
+            page_size (int): Number of results to return per page.. [optional]
+            status (str): Filter by status. Options: `COMPLETE`, `INCOMPLETE`, `RELINK_NEEDED`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaginatedAccountDetailsAndActionsList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.linked_accounts_list_endpoint.call_with_http_info(**kwargs)
+

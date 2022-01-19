@@ -25,6 +25,7 @@ from MergeATSClient.model_utils import (  # noqa: F401
 from MergeATSClient.model.candidate import Candidate
 from MergeATSClient.model.candidate_endpoint_request import CandidateEndpointRequest
 from MergeATSClient.model.candidate_response import CandidateResponse
+from MergeATSClient.model.meta_response import MetaResponse
 from MergeATSClient.model.paginated_candidate_list import PaginatedCandidateList
 
 
@@ -39,79 +40,7 @@ class CandidatesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __candidates_create(
-            self,
-            x_account_token,
-            candidate_endpoint_request,
-            **kwargs
-        ):
-            """candidates_create  # noqa: E501
-
-            Creates a `Candidate` object with the given values.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.candidates_create(x_account_token, candidate_endpoint_request, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-                candidate_endpoint_request (CandidateEndpointRequest):
-
-            Keyword Args:
-                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                CandidateResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            kwargs['candidate_endpoint_request'] = \
-                candidate_endpoint_request
-            return self.call_with_http_info(**kwargs)
-
-        self.candidates_create = _Endpoint(
+        self.candidates_create_endpoint = _Endpoint(
             settings={
                 'response_type': (CandidateResponse,),
                 'auth': [
@@ -174,88 +103,9 @@ class CandidatesApi(object):
                     'multipart/form-data'
                 ]
             },
-            api_client=api_client,
-            callable=__candidates_create
+            api_client=api_client
         )
-
-        def __candidates_list(
-            self,
-            x_account_token,
-            **kwargs
-        ):
-            """candidates_list  # noqa: E501
-
-            Returns a list of `Candidate` objects.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.candidates_list(x_account_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-
-            Keyword Args:
-                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
-                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
-                cursor (str): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                first_name (str, none_type): If provided, will only return candidates with this first name.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                last_name (str, none_type): If provided, will only return candidates with this last name.. [optional]
-                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
-                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
-                page_size (int): Number of results to return per page.. [optional]
-                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaginatedCandidateList
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            return self.call_with_http_info(**kwargs)
-
-        self.candidates_list = _Endpoint(
+        self.candidates_list_endpoint = _Endpoint(
             settings={
                 'response_type': (PaginatedCandidateList,),
                 'auth': [
@@ -274,6 +124,7 @@ class CandidatesApi(object):
                     'cursor',
                     'expand',
                     'first_name',
+                    'include_deleted_data',
                     'include_remote_data',
                     'last_name',
                     'modified_after',
@@ -319,6 +170,8 @@ class CandidatesApi(object):
                         (str,),
                     'first_name':
                         (str, none_type,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'last_name':
@@ -339,6 +192,7 @@ class CandidatesApi(object):
                     'cursor': 'cursor',
                     'expand': 'expand',
                     'first_name': 'first_name',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'last_name': 'last_name',
                     'modified_after': 'modified_after',
@@ -353,6 +207,7 @@ class CandidatesApi(object):
                     'cursor': 'query',
                     'expand': 'query',
                     'first_name': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'last_name': 'query',
                     'modified_after': 'query',
@@ -369,83 +224,60 @@ class CandidatesApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__candidates_list
+            api_client=api_client
         )
-
-        def __candidates_retrieve(
-            self,
-            x_account_token,
-            id,
-            **kwargs
-        ):
-            """candidates_retrieve  # noqa: E501
-
-            Returns a `Candidate` object with the given `id`.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.candidates_retrieve(x_account_token, id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-                id (str):
-
-            Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Candidate
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            kwargs['id'] = \
-                id
-            return self.call_with_http_info(**kwargs)
-
-        self.candidates_retrieve = _Endpoint(
+        self.candidates_post_meta_retrieve_endpoint = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/candidates/post/meta',
+                'operation_id': 'candidates_post_meta_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.candidates_retrieve_endpoint = _Endpoint(
             settings={
                 'response_type': (Candidate,),
                 'auth': [
@@ -517,6 +349,293 @@ class CandidatesApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__candidates_retrieve
+            api_client=api_client
         )
+
+    def candidates_create(
+        self,
+        x_account_token,
+        candidate_endpoint_request,
+        **kwargs
+    ):
+        """candidates_create  # noqa: E501
+
+        Creates a `Candidate` object with the given values.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.candidates_create(x_account_token, candidate_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+            candidate_endpoint_request (CandidateEndpointRequest):
+
+        Keyword Args:
+            run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CandidateResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        kwargs['candidate_endpoint_request'] = \
+            candidate_endpoint_request
+        return self.candidates_create_endpoint.call_with_http_info(**kwargs)
+
+    def candidates_list(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """candidates_list  # noqa: E501
+
+        Returns a list of `Candidate` objects.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.candidates_list(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+            created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            first_name (str, none_type): If provided, will only return candidates with this first name.. [optional]
+            include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            last_name (str, none_type): If provided, will only return candidates with this last name.. [optional]
+            modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+            modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+            page_size (int): Number of results to return per page.. [optional]
+            remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaginatedCandidateList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.candidates_list_endpoint.call_with_http_info(**kwargs)
+
+    def candidates_post_meta_retrieve(
+        self,
+        x_account_token,
+        **kwargs
+    ):
+        """candidates_post_meta_retrieve  # noqa: E501
+
+        Returns metadata for `Candidate` POSTs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.candidates_post_meta_retrieve(x_account_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MetaResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        return self.candidates_post_meta_retrieve_endpoint.call_with_http_info(**kwargs)
+
+    def candidates_retrieve(
+        self,
+        x_account_token,
+        id,
+        **kwargs
+    ):
+        """candidates_retrieve  # noqa: E501
+
+        Returns a `Candidate` object with the given `id`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.candidates_retrieve(x_account_token, id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_account_token (str): Token identifying the end user.
+            id (str):
+
+        Keyword Args:
+            expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+            include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Candidate
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['x_account_token'] = \
+            x_account_token
+        kwargs['id'] = \
+            id
+        return self.candidates_retrieve_endpoint.call_with_http_info(**kwargs)
+

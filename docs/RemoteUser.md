@@ -1,6 +1,6 @@
 # RemoteUser
 
-# The RemoteUser Object ### Description The `RemoteUser` object is used to represent a third party user.  ### Usage Example Fetch from the `LIST RemoteUsers` endpoint to show all users for a third party.
+# The RemoteUser Object ### Description The `RemoteUser` object is used to represent a third party user. ### Usage Example Fetch from the `LIST RemoteUsers` endpoint to show all users for a third party.
 
 ## Properties
 Name | Type | Description | Notes
@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **email** | **str, none_type** | The user&#39;s email. | [optional] 
 **disabled** | **bool, none_type** | Whether the user&#39;s account had been disabled. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s user was created. | [optional] 
-**access_role** | **object, none_type** | The user&#39;s role. | [optional] 
+**access_role** | **bool, date, datetime, dict, float, int, list, str, none_type** | The user&#39;s role. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
