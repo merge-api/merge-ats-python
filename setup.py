@@ -1,4 +1,4 @@
-"""
+:q"""
     Merge ATS API
 
     The unified API for building rich integrations with multiple Applicant Tracking System platforms.  # noqa: E501
@@ -11,7 +11,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "MergeATSClient"
+NAME = "merge-ats-client"
 VERSION = "1.2.0"
 # To install the library, run the following
 #
