@@ -100,10 +100,11 @@ class Candidate(ModelNormal):
             'email_addresses': ([EmailAddress],),  # noqa: E501
             'urls': ([Url],),  # noqa: E501
             'tags': ([str],),  # noqa: E501
-            'applications': ([str],),  # noqa: E501
-            'attachments': ([str],),  # noqa: E501
+            'applications': ([str, none_type],),  # noqa: E501
+            'attachments': ([str, none_type],),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -132,6 +133,7 @@ class Candidate(ModelNormal):
         'attachments': 'attachments',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -196,10 +198,11 @@ class Candidate(ModelNormal):
             email_addresses ([EmailAddress]): [optional]  # noqa: E501
             urls ([Url]): [optional]  # noqa: E501
             tags ([str]): Array of `Tag` names as strings.. [optional]  # noqa: E501
-            applications ([str]): Array of `Application` object IDs.. [optional]  # noqa: E501
-            attachments ([str]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
+            applications ([str, none_type]): Array of `Application` object IDs.. [optional]  # noqa: E501
+            attachments ([str, none_type]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
+            remote_was_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

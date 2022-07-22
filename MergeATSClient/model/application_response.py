@@ -29,9 +29,13 @@ from MergeATSClient.model_utils import (  # noqa: F401
 
 def lazy_import():
     from MergeATSClient.model.application import Application
-    from MergeATSClient.model.validation_problem import ValidationProblem
+    from MergeATSClient.model.debug_mode_log import DebugModeLog
+    from MergeATSClient.model.error_validation_problem import ErrorValidationProblem
+    from MergeATSClient.model.warning_validation_problem import WarningValidationProblem
     globals()['Application'] = Application
-    globals()['ValidationProblem'] = ValidationProblem
+    globals()['DebugModeLog'] = DebugModeLog
+    globals()['ErrorValidationProblem'] = ErrorValidationProblem
+    globals()['WarningValidationProblem'] = WarningValidationProblem
 
 
 class ApplicationResponse(ModelNormal):
@@ -80,9 +84,10 @@ class ApplicationResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'errors': ([ValidationProblem],),  # noqa: E501
-            'warnings': ([ValidationProblem],),  # noqa: E501
             'model': (Application,),  # noqa: E501
+            'warnings': ([WarningValidationProblem],),  # noqa: E501
+            'errors': ([ErrorValidationProblem],),  # noqa: E501
+            'logs': ([DebugModeLog],),  # noqa: E501
         }
 
     @cached_property
@@ -91,9 +96,10 @@ class ApplicationResponse(ModelNormal):
 
 
     attribute_map = {
-        'errors': 'errors',  # noqa: E501
-        'warnings': 'warnings',  # noqa: E501
         'model': 'model',  # noqa: E501
+        'warnings': 'warnings',  # noqa: E501
+        'errors': 'errors',  # noqa: E501
+        'logs': 'logs',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -108,13 +114,13 @@ class ApplicationResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, errors, warnings, model, *args, **kwargs):  # noqa: E501
+    def __init__(self, model, warnings, errors, *args, **kwargs):  # noqa: E501
         """ApplicationResponse - a model defined in OpenAPI
 
         Args:
-            errors ([ValidationProblem]):
-            warnings ([ValidationProblem]):
             model (Application):
+            warnings ([WarningValidationProblem]):
+            errors ([ErrorValidationProblem]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,6 +153,7 @@ class ApplicationResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            logs ([DebugModeLog]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,9 +179,9 @@ class ApplicationResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.errors = errors
-        self.warnings = warnings
         self.model = model
+        self.warnings = warnings
+        self.errors = errors
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

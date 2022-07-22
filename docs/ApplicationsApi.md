@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**applications_create**](ApplicationsApi.md#applications_create) | **POST** /applications | 
 [**applications_list**](ApplicationsApi.md#applications_list) | **GET** /applications | 
+[**applications_meta_post_retrieve**](ApplicationsApi.md#applications_meta_post_retrieve) | **GET** /applications/meta/post | 
 [**applications_retrieve**](ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 
 
@@ -62,9 +63,17 @@ with MergeATSClient.ApiClient(configuration) as api_client:
             custom_fields={
                 "key": None,
             },
+            remote_template_id="92830948203",
+            integration_params={
+                "key": None,
+            },
+            linked_account_params={
+                "key": None,
+            },
         ),
         remote_user_id="remote_user_id_example",
     ) # ApplicationEndpointRequest | 
+    is_debug_mode = True # bool | Whether to include debug fields (such as log file links) in the response. (optional)
     run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     # example passing only required values which don't have defaults set
@@ -77,7 +86,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.applications_create(x_account_token, application_endpoint_request, run_async=run_async)
+        api_response = api_instance.applications_create(x_account_token, application_endpoint_request, is_debug_mode=is_debug_mode, run_async=run_async)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_create: %s\n" % e)
@@ -90,6 +99,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **application_endpoint_request** | [**ApplicationEndpointRequest**](ApplicationEndpointRequest.md)|  |
+ **is_debug_mode** | **bool**| Whether to include debug fields (such as log file links) in the response. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
 
 ### Return type
@@ -158,6 +168,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     current_stage_id = "current_stage_id_example" # str | If provided, will only return applications at this interview stage. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     expand = "candidate,job,credited_to,current_stage,reject_reason" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     job_id = "job_id_example" # str | If provided, will only return applications for this job. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -165,6 +176,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     page_size = 1 # int | Number of results to return per page. (optional)
     reject_reason_id = "reject_reason_id_example" # str | If provided, will only return applications with this reject reason. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
+    source = "source_example" # str, none_type | If provided, will only return applications with this source. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -176,7 +188,7 @@ with MergeATSClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.applications_list(x_account_token, candidate_id=candidate_id, created_after=created_after, created_before=created_before, credited_to_id=credited_to_id, current_stage_id=current_stage_id, cursor=cursor, expand=expand, include_remote_data=include_remote_data, job_id=job_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, reject_reason_id=reject_reason_id, remote_id=remote_id)
+        api_response = api_instance.applications_list(x_account_token, candidate_id=candidate_id, created_after=created_after, created_before=created_before, credited_to_id=credited_to_id, current_stage_id=current_stage_id, cursor=cursor, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, job_id=job_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, reject_reason_id=reject_reason_id, remote_id=remote_id, source=source)
         pprint(api_response)
     except MergeATSClient.ApiException as e:
         print("Exception when calling ApplicationsApi->applications_list: %s\n" % e)
@@ -195,6 +207,7 @@ Name | Type | Description  | Notes
  **current_stage_id** | **str**| If provided, will only return applications at this interview stage. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **job_id** | **str**| If provided, will only return applications for this job. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
@@ -202,10 +215,96 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Number of results to return per page. | [optional]
  **reject_reason_id** | **str**| If provided, will only return applications with this reject reason. | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
+ **source** | **str, none_type**| If provided, will only return applications with this source. | [optional]
 
 ### Return type
 
 [**PaginatedApplicationList**](PaginatedApplicationList.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **applications_meta_post_retrieve**
+> MetaResponse applications_meta_post_retrieve(x_account_token)
+
+
+
+Returns metadata for `Application` POSTs.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeATSClient
+from MergeATSClient.api import applications_api
+from MergeATSClient.model.meta_response import MetaResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeATSClient.Configuration(
+    host = "https://api.merge.dev/api/ats/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeATSClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = applications_api.ApplicationsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    application_remote_template_id = "application_remote_template_id_example" # str | The template ID associated with the nested application in the request. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.applications_meta_post_retrieve(x_account_token)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling ApplicationsApi->applications_meta_post_retrieve: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.applications_meta_post_retrieve(x_account_token, application_remote_template_id=application_remote_template_id)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling ApplicationsApi->applications_meta_post_retrieve: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **application_remote_template_id** | **str**| The template ID associated with the nested application in the request. | [optional]
+
+### Return type
+
+[**MetaResponse**](MetaResponse.md)
 
 ### Authorization
 

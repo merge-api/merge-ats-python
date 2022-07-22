@@ -83,7 +83,7 @@ class ScheduledInterview(ModelNormal):
             'application': (str, none_type,),  # noqa: E501
             'job_interview_stage': (str, none_type,),  # noqa: E501
             'organizer': (str, none_type,),  # noqa: E501
-            'interviewers': ([str],),  # noqa: E501
+            'interviewers': ([str, none_type],),  # noqa: E501
             'location': (str, none_type,),  # noqa: E501
             'start_at': (datetime, none_type,),  # noqa: E501
             'end_at': (datetime, none_type,),  # noqa: E501
@@ -91,6 +91,7 @@ class ScheduledInterview(ModelNormal):
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +113,7 @@ class ScheduledInterview(ModelNormal):
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
         'status': 'status',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -162,10 +164,10 @@ class ScheduledInterview(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            application (str, none_type): The application being interviewed.. [optional]  # noqa: E501
-            job_interview_stage (str, none_type): The stage of the interview.. [optional]  # noqa: E501
-            organizer (str, none_type): The user organizing the interview.. [optional]  # noqa: E501
-            interviewers ([str]): Array of `RemoteUser` IDs.. [optional]  # noqa: E501
+            application (str, none_type): [optional]  # noqa: E501
+            job_interview_stage (str, none_type): [optional]  # noqa: E501
+            organizer (str, none_type): [optional]  # noqa: E501
+            interviewers ([str, none_type]): Array of `RemoteUser` IDs.. [optional]  # noqa: E501
             location (str, none_type): The interview's location.. [optional]  # noqa: E501
             start_at (datetime, none_type): When the interview was started.. [optional]  # noqa: E501
             end_at (datetime, none_type): When the interview was ended.. [optional]  # noqa: E501
@@ -173,6 +175,7 @@ class ScheduledInterview(ModelNormal):
             remote_updated_at (datetime, none_type): When the third party's interview was updated.. [optional]  # noqa: E501
             status (object, none_type): The interview's status.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -87,6 +87,7 @@ class EEOC(ModelNormal):
             'veteran_status': (object, none_type,),  # noqa: E501
             'disability_status': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class EEOC(ModelNormal):
         'veteran_status': 'veteran_status',  # noqa: E501
         'disability_status': 'disability_status',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -154,13 +156,14 @@ class EEOC(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            candidate (str, none_type): The candidate being represented.. [optional]  # noqa: E501
+            candidate (str, none_type): [optional]  # noqa: E501
             submitted_at (datetime, none_type): When the information was submitted.. [optional]  # noqa: E501
             race (object, none_type): The candidate's race.. [optional]  # noqa: E501
             gender (object, none_type): The candidate's gender.. [optional]  # noqa: E501
             veteran_status (object, none_type): The candidate's veteran status.. [optional]  # noqa: E501
             disability_status (object, none_type): The candidate's disability status.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

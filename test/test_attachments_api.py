@@ -36,6 +36,12 @@ class TestAttachmentsApi(unittest.TestCase):
         """
         pass
 
+    def test_attachments_meta_post_retrieve(self):
+        """Test case for attachments_meta_post_retrieve
+
+        """
+        pass
+
     def test_attachments_retrieve(self):
         """Test case for attachments_retrieve
 

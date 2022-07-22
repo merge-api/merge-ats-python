@@ -36,6 +36,12 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
+    def test_applications_meta_post_retrieve(self):
+        """Test case for applications_meta_post_retrieve
+
+        """
+        pass
+
     def test_applications_retrieve(self):
         """Test case for applications_retrieve
 

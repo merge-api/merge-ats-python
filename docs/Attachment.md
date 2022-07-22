@@ -1,6 +1,6 @@
 # Attachment
 
-# The Attachment Object ### Description The `Attachment` object is used to represent a attachment for a candidate.  ### Usage Example Fetch from the `LIST Attachments` endpoint and view attachments accessible by a company.
+# The Attachment Object ### Description The `Attachment` object is used to represent a attachment for a candidate. ### Usage Example Fetch from the `LIST Attachments` endpoint and view attachments accessible by a company.
 
 ## Properties
 Name | Type | Description | Notes
@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **candidate** | **str, none_type** |  | [optional] 
 **attachment_type** | **object, none_type** | The attachment&#39;s type. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

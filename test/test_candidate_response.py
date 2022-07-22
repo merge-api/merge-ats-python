@@ -15,9 +15,13 @@ from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.candidate import Candidate
-from MergeATSClient.model.validation_problem import ValidationProblem
+from MergeATSClient.model.debug_mode_log import DebugModeLog
+from MergeATSClient.model.error_validation_problem import ErrorValidationProblem
+from MergeATSClient.model.warning_validation_problem import WarningValidationProblem
 globals()['Candidate'] = Candidate
-globals()['ValidationProblem'] = ValidationProblem
+globals()['DebugModeLog'] = DebugModeLog
+globals()['ErrorValidationProblem'] = ErrorValidationProblem
+globals()['WarningValidationProblem'] = WarningValidationProblem
 from MergeATSClient.model.candidate_response import CandidateResponse
 from MergeATSClient.api_client import ApiClient
 
@@ -51,9 +55,9 @@ class TestCandidateResponse(unittest.TestCase):
 
         assert deserialized is not None
 
-        assert deserialized.errors is not None
-        assert deserialized.warnings is not None
         assert deserialized.model is not None
+        assert deserialized.warnings is not None
+        assert deserialized.errors is not None
 
 
 if __name__ == '__main__':

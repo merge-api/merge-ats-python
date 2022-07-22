@@ -60,10 +60,12 @@ class UsersApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 email (str, none_type): If provided, will only return remote users with the given email address. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "access_role"
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -131,10 +133,12 @@ class UsersApi(object):
                     'created_before',
                     'cursor',
                     'email',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                 ],
                 'required': [
@@ -145,6 +149,7 @@ class UsersApi(object):
                     'remote_id',
                 ],
                 'enum': [
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -153,6 +158,10 @@ class UsersApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('remote_fields',): {
+
+                        "ACCESS_ROLE": "access_role"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -165,6 +174,8 @@ class UsersApi(object):
                         (str,),
                     'email':
                         (str, none_type,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -173,6 +184,8 @@ class UsersApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                 },
@@ -182,10 +195,12 @@ class UsersApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'email': 'email',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                 },
                 'location_map': {
@@ -194,10 +209,12 @@ class UsersApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'email': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                 },
                 'collection_format_map': {
@@ -234,6 +251,7 @@ class UsersApi(object):
 
             Keyword Args:
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "access_role"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -300,6 +318,7 @@ class UsersApi(object):
                     'x_account_token',
                     'id',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -308,6 +327,7 @@ class UsersApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -316,6 +336,10 @@ class UsersApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('remote_fields',): {
+
+                        "ACCESS_ROLE": "access_role"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -324,16 +348,20 @@ class UsersApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

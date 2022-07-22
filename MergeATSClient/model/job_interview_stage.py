@@ -83,6 +83,7 @@ class JobInterviewStage(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'job': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class JobInterviewStage(ModelNormal):
         'name': 'name',  # noqa: E501
         'job': 'job',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -147,8 +149,9 @@ class JobInterviewStage(ModelNormal):
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             name (str, none_type): The stage's name.. [optional]  # noqa: E501
-            job (str, none_type): If stages are specific to a job, this is the job that this stage belongs to.. [optional]  # noqa: E501
+            job (str, none_type): This field is populated only if the stage is specific to a particular job. If the stage is generic, this field will not be populated.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

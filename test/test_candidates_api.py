@@ -30,8 +30,20 @@ class TestCandidatesApi(unittest.TestCase):
         """
         pass
 
+    def test_candidates_ignore_create(self):
+        """Test case for candidates_ignore_create
+
+        """
+        pass
+
     def test_candidates_list(self):
         """Test case for candidates_list
+
+        """
+        pass
+
+    def test_candidates_meta_post_retrieve(self):
+        """Test case for candidates_meta_post_retrieve
 
         """
         pass
