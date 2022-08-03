@@ -27,6 +27,7 @@ from MergeATSClient.model.application_endpoint_request import ApplicationEndpoin
 from MergeATSClient.model.application_response import ApplicationResponse
 from MergeATSClient.model.meta_response import MetaResponse
 from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
+from MergeATSClient.model.update_application_stage_request import UpdateApplicationStageRequest
 
 
 class ApplicationsApi(object):
@@ -40,6 +41,156 @@ class ApplicationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        def __applications_change_stage_create(
+            self,
+            x_account_token,
+            id,
+            **kwargs
+        ):
+            """applications_change_stage_create  # noqa: E501
+
+            Updates the `current_stage` field of an `Application` object  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.applications_change_stage_create(x_account_token, id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+                id (str):
+
+            Keyword Args:
+                is_debug_mode (bool): Whether to include debug fields (such as log file links) in the response.. [optional]
+                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+                update_application_stage_request (UpdateApplicationStageRequest): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ApplicationResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.applications_change_stage_create = _Endpoint(
+            settings={
+                'response_type': (ApplicationResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/applications/{id}/change-stage',
+                'operation_id': 'applications_change_stage_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'id',
+                    'is_debug_mode',
+                    'run_async',
+                    'update_application_stage_request',
+                ],
+                'required': [
+                    'x_account_token',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'id':
+                        (str,),
+                    'is_debug_mode':
+                        (bool,),
+                    'run_async':
+                        (bool,),
+                    'update_application_stage_request':
+                        (UpdateApplicationStageRequest,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'id': 'id',
+                    'is_debug_mode': 'is_debug_mode',
+                    'run_async': 'run_async',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'id': 'path',
+                    'is_debug_mode': 'query',
+                    'run_async': 'query',
+                    'update_application_stage_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__applications_change_stage_create
+        )
 
         def __applications_create(
             self,

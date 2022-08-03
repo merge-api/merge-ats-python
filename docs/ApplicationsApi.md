@@ -4,11 +4,107 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**applications_change_stage_create**](ApplicationsApi.md#applications_change_stage_create) | **POST** /applications/{id}/change-stage | 
 [**applications_create**](ApplicationsApi.md#applications_create) | **POST** /applications | 
 [**applications_list**](ApplicationsApi.md#applications_list) | **GET** /applications | 
 [**applications_meta_post_retrieve**](ApplicationsApi.md#applications_meta_post_retrieve) | **GET** /applications/meta/post | 
 [**applications_retrieve**](ApplicationsApi.md#applications_retrieve) | **GET** /applications/{id} | 
 
+
+# **applications_change_stage_create**
+> ApplicationResponse applications_change_stage_create(x_account_token, id)
+
+
+
+Updates the `current_stage` field of an `Application` object
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeATSClient
+from MergeATSClient.api import applications_api
+from MergeATSClient.model.update_application_stage_request import UpdateApplicationStageRequest
+from MergeATSClient.model.application_response import ApplicationResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeATSClient.Configuration(
+    host = "https://api.merge.dev/api/ats/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeATSClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = applications_api.ApplicationsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    id = "id_example" # str | 
+    is_debug_mode = True # bool | Whether to include debug fields (such as log file links) in the response. (optional)
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+    update_application_stage_request = UpdateApplicationStageRequest(
+        job_interview_stage="job_interview_stage_example",
+        remote_user_id="remote_user_id_example",
+    ) # UpdateApplicationStageRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.applications_change_stage_create(x_account_token, id)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling ApplicationsApi->applications_change_stage_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.applications_change_stage_create(x_account_token, id, is_debug_mode=is_debug_mode, run_async=run_async, update_application_stage_request=update_application_stage_request)
+        pprint(api_response)
+    except MergeATSClient.ApiException as e:
+        print("Exception when calling ApplicationsApi->applications_change_stage_create: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **id** | **str**|  |
+ **is_debug_mode** | **bool**| Whether to include debug fields (such as log file links) in the response. | [optional]
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **update_application_stage_request** | [**UpdateApplicationStageRequest**](UpdateApplicationStageRequest.md)|  | [optional]
+
+### Return type
+
+[**ApplicationResponse**](ApplicationResponse.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **applications_create**
 > ApplicationResponse applications_create(x_account_token, application_endpoint_request)

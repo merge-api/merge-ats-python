@@ -101,6 +101,7 @@ from MergeATSClient.model.scorecard import Scorecard
 from MergeATSClient.model.sync_status import SyncStatus
 from MergeATSClient.model.sync_status_status_enum import SyncStatusStatusEnum
 from MergeATSClient.model.tag import Tag
+from MergeATSClient.model.update_application_stage_request import UpdateApplicationStageRequest
 from MergeATSClient.model.url import Url
 from MergeATSClient.model.url_request import UrlRequest
 from MergeATSClient.model.url_type_enum import UrlTypeEnum

@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *ActivitiesApi* | [**activities_list**](docs/ActivitiesApi.md#activities_list) | **GET** /activities | 
 *ActivitiesApi* | [**activities_retrieve**](docs/ActivitiesApi.md#activities_retrieve) | **GET** /activities/{id} | 
+*ApplicationsApi* | [**applications_change_stage_create**](docs/ApplicationsApi.md#applications_change_stage_create) | **POST** /applications/{id}/change-stage | 
 *ApplicationsApi* | [**applications_create**](docs/ApplicationsApi.md#applications_create) | **POST** /applications | 
 *ApplicationsApi* | [**applications_list**](docs/ApplicationsApi.md#applications_list) | **GET** /applications | 
 *ApplicationsApi* | [**applications_meta_post_retrieve**](docs/ApplicationsApi.md#applications_meta_post_retrieve) | **GET** /applications/meta/post | 
@@ -236,6 +237,7 @@ Class | Method | HTTP request | Description
  - [SyncStatus](docs/SyncStatus.md)
  - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tag](docs/Tag.md)
+ - [UpdateApplicationStageRequest](docs/UpdateApplicationStageRequest.md)
  - [Url](docs/Url.md)
  - [UrlRequest](docs/UrlRequest.md)
  - [UrlTypeEnum](docs/UrlTypeEnum.md)
