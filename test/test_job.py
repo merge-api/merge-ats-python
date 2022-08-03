@@ -15,7 +15,9 @@ from unittest.mock import MagicMock
 
 import MergeATSClient
 from MergeATSClient.model.remote_data import RemoteData
+from MergeATSClient.model.url import Url
 globals()['RemoteData'] = RemoteData
+globals()['Url'] = Url
 from MergeATSClient.model.job import Job
 from MergeATSClient.api_client import ApiClient
 
@@ -35,7 +37,7 @@ class TestJob(unittest.TestCase):
         # model = Job()  # noqa: E501
 
         raw_json = """
-            {"id": "022a2bef-57e5-4def-8ed2-7c41bd9a5ed8", "remote_id": "8765432", "name": "Software Engineer (Merge is actually hiring btw)", "description": "<b>If you're reading this documentation, you might be a good fit for Merge!</b>", "code": "C0025", "status": "OPEN", "remote_created_at": "2021-10-15T00:00:00Z", "remote_updated_at": "2021-10-16T00:00:00Z", "confidential": true, "departments": ["5b3c1341-a20f-4e51-b72c-f3830a16c97b", "d6e687d6-0c36-48a1-8114-35324b5cb38f"], "offices": ["9871b4a9-f5d2-4f3b-a66b-dfedbed42c46"], "hiring_managers": ["787ed912-33ec-444e-a215-8d71cc42fc12"], "remote_data": [{"path": "/positions", "data": {"example": "Varies by platform"}}]}
+            {"id": "022a2bef-57e5-4def-8ed2-7c41bd9a5ed8", "remote_id": "8765432", "name": "Software Engineer (Merge is actually hiring btw)", "description": "<b>If you're reading this documentation, you might be a good fit for Merge!</b>", "code": "C0025", "status": "OPEN", "job_posting_urls": [{"value": "https://merge.dev/careers", "url_type": "JOB_POSTING"}], "remote_created_at": "2021-10-15T00:00:00Z", "remote_updated_at": "2021-10-16T00:00:00Z", "confidential": true, "departments": ["5b3c1341-a20f-4e51-b72c-f3830a16c97b", "d6e687d6-0c36-48a1-8114-35324b5cb38f"], "offices": ["9871b4a9-f5d2-4f3b-a66b-dfedbed42c46"], "hiring_managers": ["787ed912-33ec-444e-a215-8d71cc42fc12"], "remote_data": [{"path": "/positions", "data": {"example": "Varies by platform"}}]}
         """
 
         if raw_json is None:

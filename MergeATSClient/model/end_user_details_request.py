@@ -103,7 +103,7 @@ class EndUserDetailsRequest(ModelNormal):
             'categories': ([CategoriesEnum],),  # noqa: E501
             'integration': (str, none_type,),  # noqa: E501
             'link_expiry_mins': (int,),  # noqa: E501
-            'should_create_magic_link_url': (bool,),  # noqa: E501
+            'should_create_magic_link_url': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -137,10 +137,10 @@ class EndUserDetailsRequest(ModelNormal):
         """EndUserDetailsRequest - a model defined in OpenAPI
 
         Args:
-            end_user_email_address (str):
-            end_user_organization_name (str):
-            end_user_origin_id (str):
-            categories ([CategoriesEnum]):
+            end_user_email_address (str): Unique ID for your end user.
+            end_user_organization_name (str): Your end user's organization.
+            end_user_origin_id (str): Your end user's email address.
+            categories ([CategoriesEnum]): The integration categories to show in Merge Link.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,9 +173,9 @@ class EndUserDetailsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            integration (str, none_type): The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata. [optional]  # noqa: E501
-            link_expiry_mins (int): An integer number of minutes between [30, 720 or 10080 if for a Magic Link URL] for how long this token is valid. Defaults to 30. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            should_create_magic_link_url (bool): Whether to generate a Magic Link URL. Defaults to false. [optional] if omitted the server will use the default value of False  # noqa: E501
+            integration (str, none_type): The slug of a specific pre-selected integration for this linking flow token. For examples of slugs, see https://www.merge.dev/docs/basics/integration-metadata/.. [optional]  # noqa: E501
+            link_expiry_mins (int): An integer number of minutes between [30, 720 or 10080 if for a Magic Link URL] for how long this token is valid. Defaults to 30.. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            should_create_magic_link_url (bool, none_type): Whether to generate a Magic Link URL. Defaults to false. For more information on Magic Link, see https://merge.dev/blog/product/integrations,-fast.-say-hello-to-magic-link/.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

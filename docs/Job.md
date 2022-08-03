@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **str, none_type** | The job&#39;s description. | [optional] 
 **code** | **str, none_type** | The job&#39;s code. Typically an additional identifier used to reference the particular job that is displayed on the ATS. | [optional] 
 **status** | **object, none_type** | The job&#39;s status. | [optional] 
+**job_posting_urls** | [**[Url]**](Url.md) |  | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s job was created. | [optional] 
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s job was updated. | [optional] 
 **confidential** | **bool, none_type** | Whether the job is confidential. | [optional] 

@@ -29,7 +29,9 @@ from MergeATSClient.model_utils import (  # noqa: F401
 
 def lazy_import():
     from MergeATSClient.model.remote_data import RemoteData
+    from MergeATSClient.model.url import Url
     globals()['RemoteData'] = RemoteData
+    globals()['Url'] = Url
 
 
 class Job(ModelNormal):
@@ -84,6 +86,7 @@ class Job(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'code': (str, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
+            'job_posting_urls': ([Url],),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
             'confidential': (bool, none_type,),  # noqa: E501
@@ -107,6 +110,7 @@ class Job(ModelNormal):
         'description': 'description',  # noqa: E501
         'code': 'code',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'job_posting_urls': 'job_posting_urls',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
         'confidential': 'confidential',  # noqa: E501
@@ -170,6 +174,7 @@ class Job(ModelNormal):
             description (str, none_type): The job's description.. [optional]  # noqa: E501
             code (str, none_type): The job's code. Typically an additional identifier used to reference the particular job that is displayed on the ATS.. [optional]  # noqa: E501
             status (object, none_type): The job's status.. [optional]  # noqa: E501
+            job_posting_urls ([Url]): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's job was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's job was updated.. [optional]  # noqa: E501
             confidential (bool, none_type): Whether the job is confidential.. [optional]  # noqa: E501
