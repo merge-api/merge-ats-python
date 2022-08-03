@@ -25,7 +25,9 @@ from MergeATSClient.model_utils import (  # noqa: F401
 from MergeATSClient.model.application import Application
 from MergeATSClient.model.application_endpoint_request import ApplicationEndpointRequest
 from MergeATSClient.model.application_response import ApplicationResponse
+from MergeATSClient.model.meta_response import MetaResponse
 from MergeATSClient.model.paginated_application_list import PaginatedApplicationList
+from MergeATSClient.model.update_application_stage_request import UpdateApplicationStageRequest
 
 
 class ApplicationsApi(object):
@@ -39,6 +41,156 @@ class ApplicationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        def __applications_change_stage_create(
+            self,
+            x_account_token,
+            id,
+            **kwargs
+        ):
+            """applications_change_stage_create  # noqa: E501
+
+            Updates the `current_stage` field of an `Application` object  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.applications_change_stage_create(x_account_token, id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+                id (str):
+
+            Keyword Args:
+                is_debug_mode (bool): Whether to include debug fields (such as log file links) in the response.. [optional]
+                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+                update_application_stage_request (UpdateApplicationStageRequest): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ApplicationResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.applications_change_stage_create = _Endpoint(
+            settings={
+                'response_type': (ApplicationResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/applications/{id}/change-stage',
+                'operation_id': 'applications_change_stage_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'id',
+                    'is_debug_mode',
+                    'run_async',
+                    'update_application_stage_request',
+                ],
+                'required': [
+                    'x_account_token',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'id':
+                        (str,),
+                    'is_debug_mode':
+                        (bool,),
+                    'run_async':
+                        (bool,),
+                    'update_application_stage_request':
+                        (UpdateApplicationStageRequest,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'id': 'id',
+                    'is_debug_mode': 'is_debug_mode',
+                    'run_async': 'run_async',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'id': 'path',
+                    'is_debug_mode': 'query',
+                    'run_async': 'query',
+                    'update_application_stage_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__applications_change_stage_create
+        )
 
         def __applications_create(
             self,
@@ -60,6 +212,7 @@ class ApplicationsApi(object):
                 application_endpoint_request (ApplicationEndpointRequest):
 
             Keyword Args:
+                is_debug_mode (bool): Whether to include debug fields (such as log file links) in the response.. [optional]
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -126,6 +279,7 @@ class ApplicationsApi(object):
                 'all': [
                     'x_account_token',
                     'application_endpoint_request',
+                    'is_debug_mode',
                     'run_async',
                 ],
                 'required': [
@@ -149,16 +303,20 @@ class ApplicationsApi(object):
                         (str,),
                     'application_endpoint_request':
                         (ApplicationEndpointRequest,),
+                    'is_debug_mode':
+                        (bool,),
                     'run_async':
                         (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
+                    'is_debug_mode': 'is_debug_mode',
                     'run_async': 'run_async',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'application_endpoint_request': 'body',
+                    'is_debug_mode': 'query',
                     'run_async': 'query',
                 },
                 'collection_format_map': {
@@ -203,6 +361,7 @@ class ApplicationsApi(object):
                 current_stage_id (str): If provided, will only return applications at this interview stage.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 job_id (str): If provided, will only return applications for this job.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -210,6 +369,7 @@ class ApplicationsApi(object):
                 page_size (int): Number of results to return per page.. [optional]
                 reject_reason_id (str): If provided, will only return applications with this reject reason.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                source (str, none_type): If provided, will only return applications with this source.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -279,6 +439,7 @@ class ApplicationsApi(object):
                     'current_stage_id',
                     'cursor',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'job_id',
                     'modified_after',
@@ -286,12 +447,14 @@ class ApplicationsApi(object):
                     'page_size',
                     'reject_reason_id',
                     'remote_id',
+                    'source',
                 ],
                 'required': [
                     'x_account_token',
                 ],
                 'nullable': [
                     'remote_id',
+                    'source',
                 ],
                 'enum': [
                     'expand',
@@ -355,6 +518,8 @@ class ApplicationsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'job_id':
@@ -369,6 +534,8 @@ class ApplicationsApi(object):
                         (str,),
                     'remote_id':
                         (str, none_type,),
+                    'source':
+                        (str, none_type,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -379,6 +546,7 @@ class ApplicationsApi(object):
                     'current_stage_id': 'current_stage_id',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'job_id': 'job_id',
                     'modified_after': 'modified_after',
@@ -386,6 +554,7 @@ class ApplicationsApi(object):
                     'page_size': 'page_size',
                     'reject_reason_id': 'reject_reason_id',
                     'remote_id': 'remote_id',
+                    'source': 'source',
                 },
                 'location_map': {
                     'x_account_token': 'header',
@@ -396,6 +565,7 @@ class ApplicationsApi(object):
                     'current_stage_id': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'job_id': 'query',
                     'modified_after': 'query',
@@ -403,6 +573,7 @@ class ApplicationsApi(object):
                     'page_size': 'query',
                     'reject_reason_id': 'query',
                     'remote_id': 'query',
+                    'source': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -415,6 +586,131 @@ class ApplicationsApi(object):
             },
             api_client=api_client,
             callable=__applications_list
+        )
+
+        def __applications_meta_post_retrieve(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """applications_meta_post_retrieve  # noqa: E501
+
+            Returns metadata for `Application` POSTs.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.applications_meta_post_retrieve(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                application_remote_template_id (str): The template ID associated with the nested application in the request.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                MetaResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.applications_meta_post_retrieve = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/applications/meta/post',
+                'operation_id': 'applications_meta_post_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'application_remote_template_id',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'application_remote_template_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'application_remote_template_id': 'application_remote_template_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'application_remote_template_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__applications_meta_post_retrieve
         )
 
         def __applications_retrieve(

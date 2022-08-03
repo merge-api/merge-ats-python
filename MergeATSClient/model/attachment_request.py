@@ -81,6 +81,8 @@ class AttachmentRequest(ModelNormal):
             'file_url': (str, none_type,),  # noqa: E501
             'candidate': (str, none_type,),  # noqa: E501
             'attachment_type': (object, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +96,8 @@ class AttachmentRequest(ModelNormal):
         'file_url': 'file_url',  # noqa: E501
         'candidate': 'candidate',  # noqa: E501
         'attachment_type': 'attachment_type',  # noqa: E501
+        'integration_params': 'integration_params',  # noqa: E501
+        'linked_account_params': 'linked_account_params',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -147,6 +151,8 @@ class AttachmentRequest(ModelNormal):
             file_url (str, none_type): The attachment's url.. [optional]  # noqa: E501
             candidate (str, none_type): [optional]  # noqa: E501
             attachment_type (object, none_type): The attachment's type.. [optional]  # noqa: E501
+            integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

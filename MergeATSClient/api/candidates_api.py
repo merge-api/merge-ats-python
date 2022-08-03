@@ -25,6 +25,9 @@ from MergeATSClient.model_utils import (  # noqa: F401
 from MergeATSClient.model.candidate import Candidate
 from MergeATSClient.model.candidate_endpoint_request import CandidateEndpointRequest
 from MergeATSClient.model.candidate_response import CandidateResponse
+from MergeATSClient.model.ignore_common_model import IgnoreCommonModel
+from MergeATSClient.model.ignore_common_model_request import IgnoreCommonModelRequest
+from MergeATSClient.model.meta_response import MetaResponse
 from MergeATSClient.model.paginated_candidate_list import PaginatedCandidateList
 
 
@@ -60,6 +63,7 @@ class CandidatesApi(object):
                 candidate_endpoint_request (CandidateEndpointRequest):
 
             Keyword Args:
+                is_debug_mode (bool): Whether to include debug fields (such as log file links) in the response.. [optional]
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -126,6 +130,7 @@ class CandidatesApi(object):
                 'all': [
                     'x_account_token',
                     'candidate_endpoint_request',
+                    'is_debug_mode',
                     'run_async',
                 ],
                 'required': [
@@ -149,16 +154,20 @@ class CandidatesApi(object):
                         (str,),
                     'candidate_endpoint_request':
                         (CandidateEndpointRequest,),
+                    'is_debug_mode':
+                        (bool,),
                     'run_async':
                         (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
+                    'is_debug_mode': 'is_debug_mode',
                     'run_async': 'run_async',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'candidate_endpoint_request': 'body',
+                    'is_debug_mode': 'query',
                     'run_async': 'query',
                 },
                 'collection_format_map': {
@@ -176,6 +185,148 @@ class CandidatesApi(object):
             },
             api_client=api_client,
             callable=__candidates_create
+        )
+
+        def __candidates_ignore_create(
+            self,
+            x_account_token,
+            model_id,
+            ignore_common_model_request,
+            **kwargs
+        ):
+            """candidates_ignore_create  # noqa: E501
+
+            Ignores a specific row based on the `model_id` in the url. These records will have their properties set to null, and will not be updated in future syncs. The \"reason\" and \"message\" fields in the request body will be stored for audit purposes.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.candidates_ignore_create(x_account_token, model_id, ignore_common_model_request, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+                model_id (str):
+                ignore_common_model_request (IgnoreCommonModelRequest):
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                IgnoreCommonModel
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['model_id'] = \
+                model_id
+            kwargs['ignore_common_model_request'] = \
+                ignore_common_model_request
+            return self.call_with_http_info(**kwargs)
+
+        self.candidates_ignore_create = _Endpoint(
+            settings={
+                'response_type': (IgnoreCommonModel,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/candidates/ignore/{model_id}',
+                'operation_id': 'candidates_ignore_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'model_id',
+                    'ignore_common_model_request',
+                ],
+                'required': [
+                    'x_account_token',
+                    'model_id',
+                    'ignore_common_model_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'model_id':
+                        (str,),
+                    'ignore_common_model_request':
+                        (IgnoreCommonModelRequest,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'model_id': 'model_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'model_id': 'path',
+                    'ignore_common_model_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__candidates_ignore_create
         )
 
         def __candidates_list(
@@ -199,8 +350,10 @@ class CandidatesApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                email_address (str): The exact email address of the candidate [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 first_name (str, none_type): If provided, will only return candidates with this first name.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 last_name (str, none_type): If provided, will only return candidates with this last name.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -272,8 +425,10 @@ class CandidatesApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'email_address',
                     'expand',
                     'first_name',
+                    'include_deleted_data',
                     'include_remote_data',
                     'last_name',
                     'modified_after',
@@ -315,10 +470,14 @@ class CandidatesApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'email_address':
+                        (str,),
                     'expand':
                         (str,),
                     'first_name':
                         (str, none_type,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'last_name':
@@ -337,8 +496,10 @@ class CandidatesApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'email_address': 'email_address',
                     'expand': 'expand',
                     'first_name': 'first_name',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'last_name': 'last_name',
                     'modified_after': 'modified_after',
@@ -351,8 +512,10 @@ class CandidatesApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'email_address': 'query',
                     'expand': 'query',
                     'first_name': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'last_name': 'query',
                     'modified_after': 'query',
@@ -371,6 +534,125 @@ class CandidatesApi(object):
             },
             api_client=api_client,
             callable=__candidates_list
+        )
+
+        def __candidates_meta_post_retrieve(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """candidates_meta_post_retrieve  # noqa: E501
+
+            Returns metadata for `Candidate` POSTs.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.candidates_meta_post_retrieve(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                MetaResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.candidates_meta_post_retrieve = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/candidates/meta/post',
+                'operation_id': 'candidates_meta_post_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__candidates_meta_post_retrieve
         )
 
         def __candidates_retrieve(

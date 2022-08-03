@@ -90,6 +90,7 @@ class Application(ModelNormal):
             'reject_reason': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class Application(ModelNormal):
         'reject_reason': 'reject_reason',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -160,16 +162,17 @@ class Application(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            candidate (str, none_type): The candidate applying.. [optional]  # noqa: E501
-            job (str, none_type): The job being applied for.. [optional]  # noqa: E501
+            candidate (str, none_type): [optional]  # noqa: E501
+            job (str, none_type): [optional]  # noqa: E501
             applied_at (datetime, none_type): When the application was submitted.. [optional]  # noqa: E501
             rejected_at (datetime, none_type): When the application was rejected.. [optional]  # noqa: E501
             source (str, none_type): The application's source.. [optional]  # noqa: E501
-            credited_to (str, none_type): The user credited for this application.. [optional]  # noqa: E501
-            current_stage (str, none_type): The application's current stage.. [optional]  # noqa: E501
-            reject_reason (str, none_type): The application's reason for rejection.. [optional]  # noqa: E501
+            credited_to (str, none_type): [optional]  # noqa: E501
+            current_stage (str, none_type): [optional]  # noqa: E501
+            reject_reason (str, none_type): [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
+            remote_was_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

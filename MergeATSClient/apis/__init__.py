@@ -24,6 +24,7 @@ from MergeATSClient.api.candidates_api import CandidatesApi
 from MergeATSClient.api.delete_account_api import DeleteAccountApi
 from MergeATSClient.api.departments_api import DepartmentsApi
 from MergeATSClient.api.eeocs_api import EeocsApi
+from MergeATSClient.api.force_resync_api import ForceResyncApi
 from MergeATSClient.api.generate_key_api import GenerateKeyApi
 from MergeATSClient.api.interviews_api import InterviewsApi
 from MergeATSClient.api.issues_api import IssuesApi
@@ -40,3 +41,4 @@ from MergeATSClient.api.scorecards_api import ScorecardsApi
 from MergeATSClient.api.sync_status_api import SyncStatusApi
 from MergeATSClient.api.tags_api import TagsApi
 from MergeATSClient.api.users_api import UsersApi
+from MergeATSClient.api.webhook_receivers_api import WebhookReceiversApi

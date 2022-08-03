@@ -56,6 +56,9 @@ class ApplicationRequest(ModelNormal):
     }
 
     validations = {
+        ('remote_template_id',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -83,6 +86,9 @@ class ApplicationRequest(ModelNormal):
             'current_stage': (str, none_type,),  # noqa: E501
             'reject_reason': (str, none_type,),  # noqa: E501
             'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'remote_template_id': (str, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +107,9 @@ class ApplicationRequest(ModelNormal):
         'current_stage': 'current_stage',  # noqa: E501
         'reject_reason': 'reject_reason',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
+        'remote_template_id': 'remote_template_id',  # noqa: E501
+        'integration_params': 'integration_params',  # noqa: E501
+        'linked_account_params': 'linked_account_params',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -150,15 +159,18 @@ class ApplicationRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            candidate (str, none_type): The candidate applying.. [optional]  # noqa: E501
-            job (str, none_type): The job being applied for.. [optional]  # noqa: E501
+            candidate (str, none_type): [optional]  # noqa: E501
+            job (str, none_type): [optional]  # noqa: E501
             applied_at (datetime, none_type): When the application was submitted.. [optional]  # noqa: E501
             rejected_at (datetime, none_type): When the application was rejected.. [optional]  # noqa: E501
             source (str, none_type): The application's source.. [optional]  # noqa: E501
-            credited_to (str, none_type): The user credited for this application.. [optional]  # noqa: E501
-            current_stage (str, none_type): The application's current stage.. [optional]  # noqa: E501
-            reject_reason (str, none_type): The application's reason for rejection.. [optional]  # noqa: E501
+            credited_to (str, none_type): [optional]  # noqa: E501
+            current_stage (str, none_type): [optional]  # noqa: E501
+            reject_reason (str, none_type): [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
+            remote_template_id (str, none_type): [optional]  # noqa: E501
+            integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

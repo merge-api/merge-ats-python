@@ -29,7 +29,9 @@ from MergeATSClient.model_utils import (  # noqa: F401
 
 def lazy_import():
     from MergeATSClient.model.remote_data import RemoteData
+    from MergeATSClient.model.url import Url
     globals()['RemoteData'] = RemoteData
+    globals()['Url'] = Url
 
 
 class Job(ModelNormal):
@@ -84,13 +86,16 @@ class Job(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'code': (str, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
+            'job_posting_urls': ([Url],),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
             'confidential': (bool, none_type,),  # noqa: E501
-            'departments': ([str],),  # noqa: E501
-            'offices': ([str],),  # noqa: E501
-            'hiring_managers': ([str],),  # noqa: E501
+            'departments': ([str, none_type],),  # noqa: E501
+            'offices': ([str, none_type],),  # noqa: E501
+            'hiring_managers': ([str, none_type],),  # noqa: E501
+            'recruiters': ([str, none_type],),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -105,13 +110,16 @@ class Job(ModelNormal):
         'description': 'description',  # noqa: E501
         'code': 'code',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'job_posting_urls': 'job_posting_urls',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
         'confidential': 'confidential',  # noqa: E501
         'departments': 'departments',  # noqa: E501
         'offices': 'offices',  # noqa: E501
         'hiring_managers': 'hiring_managers',  # noqa: E501
+        'recruiters': 'recruiters',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -166,13 +174,16 @@ class Job(ModelNormal):
             description (str, none_type): The job's description.. [optional]  # noqa: E501
             code (str, none_type): The job's code. Typically an additional identifier used to reference the particular job that is displayed on the ATS.. [optional]  # noqa: E501
             status (object, none_type): The job's status.. [optional]  # noqa: E501
+            job_posting_urls ([Url]): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's job was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's job was updated.. [optional]  # noqa: E501
             confidential (bool, none_type): Whether the job is confidential.. [optional]  # noqa: E501
-            departments ([str]): IDs of `Department` objects for this `Job`.. [optional]  # noqa: E501
-            offices ([str]): IDs of `Office` objects for this `Job`.. [optional]  # noqa: E501
-            hiring_managers ([str]): IDs of `RemoteUser` objects that serve as hiring managers for this `Job`.. [optional]  # noqa: E501
+            departments ([str, none_type]): IDs of `Department` objects for this `Job`.. [optional]  # noqa: E501
+            offices ([str, none_type]): IDs of `Office` objects for this `Job`.. [optional]  # noqa: E501
+            hiring_managers ([str, none_type]): IDs of `RemoteUser` objects that serve as hiring managers for this `Job`.. [optional]  # noqa: E501
+            recruiters ([str, none_type]): IDs of `RemoteUser` objects that serve as recruiters for this `Job`.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -64,6 +64,9 @@ class CandidateRequest(ModelNormal):
     }
 
     validations = {
+        ('remote_template_id',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -97,9 +100,12 @@ class CandidateRequest(ModelNormal):
             'email_addresses': ([EmailAddressRequest],),  # noqa: E501
             'urls': ([UrlRequest],),  # noqa: E501
             'tags': ([str],),  # noqa: E501
-            'applications': ([str],),  # noqa: E501
-            'attachments': ([str],),  # noqa: E501
+            'applications': ([str, none_type],),  # noqa: E501
+            'attachments': ([str, none_type],),  # noqa: E501
             'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'remote_template_id': (str, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -126,6 +132,9 @@ class CandidateRequest(ModelNormal):
         'applications': 'applications',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
+        'remote_template_id': 'remote_template_id',  # noqa: E501
+        'integration_params': 'integration_params',  # noqa: E501
+        'linked_account_params': 'linked_account_params',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -189,9 +198,12 @@ class CandidateRequest(ModelNormal):
             email_addresses ([EmailAddressRequest]): [optional]  # noqa: E501
             urls ([UrlRequest]): [optional]  # noqa: E501
             tags ([str]): Array of `Tag` names as strings.. [optional]  # noqa: E501
-            applications ([str]): Array of `Application` object IDs.. [optional]  # noqa: E501
-            attachments ([str]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
+            applications ([str, none_type]): Array of `Application` object IDs.. [optional]  # noqa: E501
+            attachments ([str, none_type]): Array of `Attachment` object IDs.. [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
+            remote_template_id (str, none_type): [optional]  # noqa: E501
+            integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

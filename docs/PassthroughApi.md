@@ -51,10 +51,20 @@ with MergeATSClient.ApiClient(configuration) as api_client:
         path="/scooters",
         base_url_override="base_url_override_example",
         data="{"company": "Lime", "model": "Gen 2.5"}",
+        multipart_form_data=[
+            MultipartFormFieldRequest(
+                name="resume",
+                data="SW50ZWdyYXRlIGZhc3QKSW50ZWdyYXRlIG9uY2U=",
+                encoding=,
+                file_name="resume.pdf",
+                content_type="application/pdf",
+            ),
+        ],
         headers={
             "key": None,
         },
         request_format=,
+        normalize_response=True,
     ) # DataPassthroughRequest | 
 
     # example passing only required values which don't have defaults set

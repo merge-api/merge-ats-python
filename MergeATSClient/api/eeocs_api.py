@@ -61,10 +61,12 @@ class EeocsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "candidate"
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -133,10 +135,12 @@ class EeocsApi(object):
                     'created_before',
                     'cursor',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                 ],
                 'required': [
@@ -147,6 +151,7 @@ class EeocsApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -158,6 +163,24 @@ class EeocsApi(object):
                     ('expand',): {
 
                         "CANDIDATE": "candidate"
+                    },
+                    ('remote_fields',): {
+
+                        "DISABILITY_STATUS": "disability_status",
+                        "DISABILITY_STATUS,GENDER": "disability_status,gender",
+                        "DISABILITY_STATUS,GENDER,RACE": "disability_status,gender,race",
+                        "DISABILITY_STATUS,GENDER,RACE,VETERAN_STATUS": "disability_status,gender,race,veteran_status",
+                        "DISABILITY_STATUS,GENDER,VETERAN_STATUS": "disability_status,gender,veteran_status",
+                        "DISABILITY_STATUS,RACE": "disability_status,race",
+                        "DISABILITY_STATUS,RACE,VETERAN_STATUS": "disability_status,race,veteran_status",
+                        "DISABILITY_STATUS,VETERAN_STATUS": "disability_status,veteran_status",
+                        "GENDER": "gender",
+                        "GENDER,RACE": "gender,race",
+                        "GENDER,RACE,VETERAN_STATUS": "gender,race,veteran_status",
+                        "GENDER,VETERAN_STATUS": "gender,veteran_status",
+                        "RACE": "race",
+                        "RACE,VETERAN_STATUS": "race,veteran_status",
+                        "VETERAN_STATUS": "veteran_status"
                     },
                 },
                 'openapi_types': {
@@ -173,6 +196,8 @@ class EeocsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -181,6 +206,8 @@ class EeocsApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                 },
@@ -191,10 +218,12 @@ class EeocsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                 },
                 'location_map': {
@@ -204,10 +233,12 @@ class EeocsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                 },
                 'collection_format_map': {
@@ -245,6 +276,7 @@ class EeocsApi(object):
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "candidate"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -312,6 +344,7 @@ class EeocsApi(object):
                     'id',
                     'expand',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -321,6 +354,7 @@ class EeocsApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -333,6 +367,24 @@ class EeocsApi(object):
 
                         "CANDIDATE": "candidate"
                     },
+                    ('remote_fields',): {
+
+                        "DISABILITY_STATUS": "disability_status",
+                        "DISABILITY_STATUS,GENDER": "disability_status,gender",
+                        "DISABILITY_STATUS,GENDER,RACE": "disability_status,gender,race",
+                        "DISABILITY_STATUS,GENDER,RACE,VETERAN_STATUS": "disability_status,gender,race,veteran_status",
+                        "DISABILITY_STATUS,GENDER,VETERAN_STATUS": "disability_status,gender,veteran_status",
+                        "DISABILITY_STATUS,RACE": "disability_status,race",
+                        "DISABILITY_STATUS,RACE,VETERAN_STATUS": "disability_status,race,veteran_status",
+                        "DISABILITY_STATUS,VETERAN_STATUS": "disability_status,veteran_status",
+                        "GENDER": "gender",
+                        "GENDER,RACE": "gender,race",
+                        "GENDER,RACE,VETERAN_STATUS": "gender,race,veteran_status",
+                        "GENDER,VETERAN_STATUS": "gender,veteran_status",
+                        "RACE": "race",
+                        "RACE,VETERAN_STATUS": "race,veteran_status",
+                        "VETERAN_STATUS": "veteran_status"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -343,18 +395,22 @@ class EeocsApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }
